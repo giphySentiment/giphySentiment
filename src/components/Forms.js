@@ -3,12 +3,12 @@ import Data from './Data'
 
 const Forms = () => {
 
-    const [mood, setMood] = useState()
-    const [displayGifs, setDisplayGifs] = useState(false)
+    const [mood, setMood] = useState();
+    const [displayGifs, setDisplayGifs] = useState(false);
 
     const handleUserChoice = (event) => {
-        setMood(event.target.value)
-        // setDisplayGifs(!displayGifs)
+        setMood(event.target.value);
+        setDisplayGifs(true);
     }
 
     const date = new Date()
@@ -28,7 +28,7 @@ const Forms = () => {
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
             <form>
-                <select name="moodSelector" id="moodSelector" onChange={handleUserChoice} value={mood} defaultValue={""}>
+                <select name="moodSelector" id="moodSelector" onSubmit={handleUserChoice} value={mood} defaultValue={""}>
                     <option value="" disabled>choose ya mood</option>
                     <option value="happy">happy</option>
                     <option value="sad">sad</option>
@@ -38,10 +38,11 @@ const Forms = () => {
                     <option value="idyllic">idyllic</option>
                     <option value="silly">silly</option>
                 </select>
+                <button onClick={handleUserChoice}>find gifs!</button>
             </form>
             {
                 mood 
-                ? <Data mood={mood} displayGifs={displayGifs}/>
+                    ? <Data mood={mood} displayGifs={displayGifs} setdisplayGifs={setDisplayGifs} />
                 : null
             }
         </section>

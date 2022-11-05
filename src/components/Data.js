@@ -3,7 +3,7 @@ import Backronym from './Backronym';
 
 const Data = (props) => {
 
-    const [gif, setGif] = useState()
+    const [gif, setGif] = useState(null)
     const [newGif, setNewGif] = useState(false)
     const [giphyError, setGiphyError] = useState(false)
     const [seperatedWord, setSeperatedWord] = useState([])
@@ -17,9 +17,6 @@ const Data = (props) => {
         setNewGif(!newGif)
     }
 
-
-
-    
     useEffect(() => {
         const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
         const baseURL = "https://api.giphy.com/v1/gifs/search";
@@ -34,7 +31,7 @@ const Data = (props) => {
         .then(response => response.json())
         .then (info => {
             setGif(info.data)
-            console.log(info.data)
+            // console.log(info.data)
         })
         .catch((error) => {
             setGiphyError(!giphyError)
@@ -49,7 +46,6 @@ const Data = (props) => {
         const wordArray = (Array.from(`${props.mood}`))
 
         setSeperatedWord(wordArray);
-
         // console.log(wordArray)
 
         fetch(`${baseURL}?ml=${mood}&sp=${wordArray[0]}*`)
@@ -59,13 +55,10 @@ const Data = (props) => {
             // console.log(firstWord)
             const randomFirstWord = Math.floor(Math.random() * firstWord.length)
     
-            console.log(firstWord[randomFirstWord].word)
+            // console.log(firstWord[randomFirstWord].word)
             setInitialWord(firstWord[randomFirstWord].word)
-
-
         })
 
-        
         const storeWords = []
 
         const grabWords = async () => {
@@ -77,7 +70,7 @@ const Data = (props) => {
                             const wordReturn = data
                             const nextWord = Math.floor(Math.random() * wordReturn.length)
                             storeWords.push(wordReturn[nextWord].word)
-                            console.log(wordReturn[nextWord].word)
+                            // console.log(wordReturn[nextWord].word)
                         } else {
                             alert("nope")
                         }}).catch((error) => {
@@ -92,21 +85,12 @@ const Data = (props) => {
                             })
                         // Only network error comes here
                     });
-
                     }
             }
 
         grabWords()
-        
-
-
-
-        console.log(storeWords)
-
+        // console.log(storeWords);
         setBackronym(storeWords);
-
-
-
 
         // wordArray.forEach((item) => {
         //     fetch(`${baseURL}?lc=${initialWord}&sp=${wordArray[item]}*`)
@@ -115,10 +99,6 @@ const Data = (props) => {
         //             console.log(data)
         //         })
         // })
-
-
-
-
     }, [props.mood])
 
     const [selectedGif, setSelectedGif] = useState()
@@ -130,24 +110,26 @@ const Data = (props) => {
         console.log(event.target.value)
     }
 
-
-
     return (
         <section className="results">
-        <div className="gifContainer">
-            {gif.map((test) => {
-                return (
-                        <button 
-                            onClick={select} 
-                        value={test.images.original.webp} 
-                            className="select"
-                            >
-                            <img className='gif'
-                                src={test.images.original.webp} 
-                                alt={test.title} />
-                        </button>
-                )
-            })}
+            <div className="gifContainer">
+                {setGif === !null
+                    ?
+                        gif.map((test) => {
+                            return (
+                                <button
+                                    onClick={select}
+                                    value={test.images.original.webp}
+                                    className="select"
+                                >
+                                    <img className='gif'
+                                        src={test.images.original.webp}
+                                        alt={test.title} />
+                                </button>
+                            )
+                        })
+                    : null
+                }
             </div>
             <button className="buttonContainers" onClick={userClick}>gimmie a new one</button>
             {
