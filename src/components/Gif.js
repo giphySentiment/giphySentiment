@@ -1,4 +1,4 @@
-const Backronym = () => {
+const Gif = () => {
     return (
         <div>
 
@@ -6,5 +6,4 @@ const Backronym = () => {
     )
 }
 
-export default Backronym
-
+export default Gif
