@@ -84,7 +84,8 @@ const DataMuseData = (props) => {
         setMood={props.setMood}
         />
     
-        <Gif newGif={props.newGif}
+    
+       <Gif newGif={props.newGif}
         setNewGif={props.setNewGif}
         displayGifs={props.displayGifs}
         setDisplayGifs={props.setDisplayGifs}
@@ -95,7 +96,10 @@ const DataMuseData = (props) => {
         setSeperatedWord={setSeperatedWord}
         seperatedWord={seperatedWord}
         backronym={backronym}
-         />
+         /> 
+        
+    
+        
     </div>
 
     )

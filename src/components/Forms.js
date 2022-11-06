@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 
 const Forms = (props) => {
 
@@ -11,27 +11,27 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
+    //tracking users input and setting it to a string
+    const [inputValue, setinputValue] = useState("")
+
+    //this function is setting state to the users input
     const handleInputChange = (event) => {
-        props.setMood(event.target.value)
+        setinputValue(event.target.value)
     }
 
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
-            <form onSubmit={props.handleFormSubmit}>
+            <form >
                
                 <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
                 <input name="moodSelector" id="moodSelector" type="text"
              
-                value={props.mood}
-                    // defaultValue={""}
-                onChange={(event) => handleInputChange(event)}
+            onChange={(event) => handleInputChange(event)}
                 />
 
-             
-               
-                <button>find gifs!</button>
+                <button value={inputValue} onClick={props.handleFormSubmit} >find gifs!</button>
             </form>
         </section>
     )

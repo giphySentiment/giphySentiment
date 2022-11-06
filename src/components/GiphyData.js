@@ -19,11 +19,12 @@ const Data = (props) => {
     // State for error handling
     const [giphyError, setGiphyError] = useState(false)
 
-    // function to handle user's emotion update in state
+    // this function will store the user's mood in state, fill our gif array, and display the array
     const handleFormSubmit = (event) => {
         setMood(event.target.value);
         event.preventDefault();
         setDisplayGifs(true);
+        setNewGif(!newGif)
     }
 
     
@@ -60,7 +61,7 @@ const Data = (props) => {
                 setGiphyError(!giphyError)
         });
 
-    }, [mood, newGif])
+    }, [newGif])
     
 
     return (
