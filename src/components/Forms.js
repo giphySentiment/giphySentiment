@@ -1,46 +1,38 @@
-import { useState } from 'react'
-import Data from './Data'
 
-const Forms = () => {
 
-    const [mood, setMood] = useState()
-
-    const handleUserChoice = (event) => {
-        setMood(event.target.value)
-    }
+const Forms = (props) => {
 
     const date = new Date()
     const month = date.toLocaleString('en-US', {
         month: 'long',
     });
     const day = date.getDate()
-
-
     const today = new Date().toLocaleString(
         'default', { weekday: 'long' }
     );
+
+    const handleInputChange = (event) => {
+        props.setMood(event.target.value)
+    }
 
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
-            <form>
-                <select name="moodSelector" id="moodSelector" onChange={handleUserChoice} value={mood} defaultValue={""}>
-                    <option value="" disabled>choose ya mood</option>
-                    <option value="happy">happy</option>
-                    <option value="sad">sad</option>
-                    <option value="cheerful">cheerful</option>
-                    <option value="reflective">reflective</option>
-                    <option value="gloomy">gloomy</option>
-                    <option value="idyllic">idyllic</option>
-                    <option value="silly">silly</option>
-                </select>
+            <form onSubmit={props.handleFormSubmit}>
+               
+                <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
+                <input name="moodSelector" id="moodSelector" type="text"
+             
+                value={props.mood}
+                    // defaultValue={""}
+                onChange={(event) => handleInputChange(event)}
+                />
+
+             
+               
+                <button>find gifs!</button>
             </form>
-            {
-                mood 
-                ? <Data mood={mood}/>
-                : null
-            }
         </section>
     )
 }
