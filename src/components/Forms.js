@@ -1,34 +1,29 @@
 import { useState } from 'react'
-import Data from './Data'
+// import Data from './Data'
 
-const Forms = () => {
-
-    const [mood, setMood] = useState();
-    const [displayGifs, setDisplayGifs] = useState(false);
-
-    const handleUserChoice = (event) => {
-        setMood(event.target.value);
-        setDisplayGifs(true);
-    }
+const Forms = (props) => {
 
     const date = new Date()
     const month = date.toLocaleString('en-US', {
         month: 'long',
     });
     const day = date.getDate()
-
-
     const today = new Date().toLocaleString(
         'default', { weekday: 'long' }
     );
-
 
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
             <form>
-                <select name="moodSelector" id="moodSelector" onSubmit={handleUserChoice} value={mood} defaultValue={""}>
+                {/* need label for accessibility??  */}
+                <select name="moodSelector" id="moodSelector"
+                    onSubmit={props.handleFormSubmit}
+                    value={props.mood}
+                    // defaultValue={""}
+                    onChange={(event) => props.setMood(event.target.value)}>
+                    
                     <option value="" disabled>choose ya mood</option>
                     <option value="happy">happy</option>
                     <option value="sad">sad</option>
@@ -38,13 +33,8 @@ const Forms = () => {
                     <option value="idyllic">idyllic</option>
                     <option value="silly">silly</option>
                 </select>
-                <button onClick={handleUserChoice}>find gifs!</button>
+                <button onClick={props.handleFormSubmit}>find gifs!</button>
             </form>
-            {
-                mood 
-                    ? <Data mood={mood} displayGifs={displayGifs} setdisplayGifs={setDisplayGifs} />
-                : null
-            }
         </section>
     )
 }
