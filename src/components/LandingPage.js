@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Data from './Data';
+import Data from './GiphyData';
 
 const LandingPage = () => {
 

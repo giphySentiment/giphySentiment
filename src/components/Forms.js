@@ -1,5 +1,4 @@
-import { useState } from 'react'
-// import Data from './Data'
+
 
 const Forms = (props) => {
 
@@ -12,28 +11,27 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
+    const handleInputChange = (event) => {
+        props.setMood(event.target.value)
+    }
+
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
-            <form>
-                {/* need label for accessibility??  */}
-                <select name="moodSelector" id="moodSelector"
-                    onSubmit={props.handleFormSubmit}
-                    value={props.mood}
+            <form onSubmit={props.handleFormSubmit}>
+               
+                <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
+                <input name="moodSelector" id="moodSelector" type="text"
+             
+                value={props.mood}
                     // defaultValue={""}
-                    onChange={(event) => props.setMood(event.target.value)}>
-                    
-                    <option value="" disabled>choose ya mood</option>
-                    <option value="happy">happy</option>
-                    <option value="sad">sad</option>
-                    <option value="cheerful">cheerful</option>
-                    <option value="reflective">reflective</option>
-                    <option value="gloomy">gloomy</option>
-                    <option value="idyllic">idyllic</option>
-                    <option value="silly">silly</option>
-                </select>
-                <button onClick={props.handleFormSubmit}>find gifs!</button>
+                onChange={(event) => handleInputChange(event)}
+                />
+
+             
+               
+                <button>find gifs!</button>
             </form>
         </section>
     )
