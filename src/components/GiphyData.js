@@ -34,15 +34,6 @@ const Data = (props) => {
         setNewGif(!newGif)
     }
 
-    // const [selectedGif, setSelectedGif] = useState()
-    
-    // const select = (event) => {
-    //     event.preventDefault()
-    //     setSelectedGif(event.target.value)
-    //     console.log("select handler has been clicked")
-    //     console.log(event.target.value)
-    // }
-
     useEffect ( () => {
     
         const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
@@ -63,7 +54,6 @@ const Data = (props) => {
 
     }, [newGif])
     
-
     return (
         <section className="data">
            <DataMuseData 
