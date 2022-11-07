@@ -1,6 +1,12 @@
+import MeetTheDevs from './MeetTheDevs';
+
 const Footer = () => {
     return (
-        <div>placeholder text</div>
+        <footer>
+            <p></p>
+             <MeetTheDevs/>
+        </footer>
+        
     )
 }
 

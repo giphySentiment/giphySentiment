@@ -2,6 +2,8 @@ import { useState } from "react";
 
 const Forms = (props) => {
 
+    const [mood, setMood] = useState("");
+
     const date = new Date()
     const month = date.toLocaleString('en-US', {
         month: 'long',
@@ -11,27 +13,30 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
-    //tracking users input and setting it to a string
-    const [inputValue, setinputValue] = useState("")
+    // //tracking users input and setting it to a string
+    // const [inputValue, setinputValue] = useState("")
 
-    //this function is setting state to the users input
-    const handleInputChange = (event) => {
-        setinputValue(event.target.value)
+    // //this function is setting state to the users input
+    // const handleInputChange = (event) => {
+    //     setinputValue(event.target.value)
+    // }
+
+    const handleMoodChange = (e) => {
+        setMood(e.target.value)
     }
 
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
-            <form >
+            <form onSubmit={(e) => props.handleFormSubmit(e, mood)}>
                
                 <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
                 <input name="moodSelector" id="moodSelector" type="text"
-             
-            onChange={(event) => handleInputChange(event)}
+                 onChange={(event) => handleMoodChange(event)}
                 />
 
-                <button value={inputValue} onClick={props.handleFormSubmit} >find gifs!</button>
+                <button >find gifs!</button>
             </form>
         </section>
     )

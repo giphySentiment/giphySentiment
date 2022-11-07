@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Data from './GiphyData';
+import GiphyData from './GiphyData';
 
 const LandingPage = () => {
 
@@ -9,7 +9,8 @@ const LandingPage = () => {
     return (
         <div className="landing">
             <h1>Giphy Sentiments</h1>
-            <Data gif={gif} setGif={setGif} />
+            
+            <GiphyData gif={gif} setGif={setGif} />
         </div>
         
     )

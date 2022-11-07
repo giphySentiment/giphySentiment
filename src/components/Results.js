@@ -1,6 +1,12 @@
+import History from "./History";
+
 const Results = () => {
     return (
-        <div>placeholder</div>
+        <section>
+            <div>placeholder</div>
+            <History/>
+        </section>
+        
     )
 }
 

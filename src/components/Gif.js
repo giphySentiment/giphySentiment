@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Backronym from "./Backronym";
+import Results from "./Results";
 import uuid from "react-uuid";
 
 const Gif = (props) => {
@@ -43,7 +43,7 @@ const Gif = (props) => {
         {selectedGif ? <p>you've selected a gif</p> : null}
        
         {/* NOTE: We need to figure out how to target the Gif he user selected and conditionally render Backronym when Gif is selected */}
-        {<Backronym />}
+        <Results/>
       </div>
     </section>
   );
