@@ -45,7 +45,12 @@ const Gif = (props) => {
         {selectedGif ? <p>you've selected a gif</p> : null}
        
         {/* NOTE: We need to figure out how to target the Gif he user selected and conditionally render Backronym when Gif is selected */}
-        <Results/>
+        {
+          selectedGif
+          ? <Results selectedGif={selectedGif} mood={props.mood} userChoice={props.userChoice}/>
+          : null
+        }
+        
       </div>
     </section>
   );

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 const Forms = (props) => {
-
-    const [mood, setMood] = useState("");
 
     const date = new Date()
     const month = date.toLocaleString('en-US', {
@@ -13,23 +12,18 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
-    // //tracking users input and setting it to a string
-    // const [inputValue, setinputValue] = useState("")
+    const [test, setTest] = useState([])
 
-    // //this function is setting state to the users input
-    // const handleInputChange = (event) => {
-    //     setinputValue(event.target.value)
-    // }
 
     const handleMoodChange = (e) => {
-        setMood(e.target.value)
+        props.setMood(e.target.value)
     }
 
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
                 <h2>Happy {`${today}`}! How are you feeling?</h2>
-            <form onSubmit={(e) => props.handleFormSubmit(e, mood)}>
+            <form onSubmit={(e) => props.handleFormSubmit(e, props.mood)}>
                
                 <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
                 <input name="moodSelector" id="moodSelector" type="text"
