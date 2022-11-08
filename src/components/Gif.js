@@ -36,7 +36,7 @@ const Gif = (props) => {
         })}  
         </fieldset>
       </form>
-        <button className="buttonContainers" onClick={props.userClick}>
+        <button className="buttonContainers" onClick={props.handleFormSubmit}>
           gimmie a new one
         </button>
 

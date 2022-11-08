@@ -19,12 +19,11 @@ const Data = (props) => {
   const [giphyError, setGiphyError] = useState(false);
 
   // this function will store the user's mood in state, fill our gif array, and display the array
-  const handleFormSubmit = (event, mood) => {  
-    
+  const handleFormSubmit = (event, mood) => {   
     //setMood(event.target.value);
     event.preventDefault();
     setDisplayGifs(true);
-    setNewGif(!newGif);
+   
 
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
@@ -45,7 +44,7 @@ const Data = (props) => {
       });
   };
 
-  // Regenerate Gifs
+  //Regenerate Gifs
   const userClick = () => {
     // event.preventDefault()
     setNewGif(!newGif);
