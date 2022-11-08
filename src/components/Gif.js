@@ -21,8 +21,6 @@ const Gif = (props) => {
           <fieldset>
             {props.gif.map((gifObj) => {
               return (
-                // NB: UUID is on the label bc it must be placed in the most outward element
-                  // need to set visuallyHidden class
                 <label
                   htmlFor="userChoice" className="visuallyHidden"
                   key={uuid()}>
@@ -41,12 +39,13 @@ const Gif = (props) => {
               </label>
               );
             })}
-        <button className="buttonContainer" onClick={props.handleFormSubmit}>
-          gimmie a new one
-                </button>
+            <button
+              className="buttonContainer"
+              onClick={props.handleFormSubmit}> gimmie new gifs
+            </button>
             </fieldset>
         </form>
-         </div>
+      </div>
         {
           selectedGif
           ? <Results
@@ -56,7 +55,6 @@ const Gif = (props) => {
           : null
         }
     </section>
-      
   );
 };
 

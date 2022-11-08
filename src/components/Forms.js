@@ -19,15 +19,15 @@ const Forms = (props) => {
                     // add visuallyHidden class in CSS
                     className="visuallyHidden">Type in an emotion</label>
                 <input name="moodSelector" id="moodSelector" type="text"
-                 onChange={(event) => handleMoodChange(event)}
+                    onChange={(event) => handleMoodChange(event)}
                 />
-                 {props.loading ? <><LoadingPage /></>
-                :
-                <button className="buttonContainer">find gifs!</button>
+                {props.loading
+                    ? <><LoadingPage /></>
+                    : <button className="buttonContainer">find gifs!</button>
                 }
             </form>
         </section>
-    )
-}
+    );
+};
 
 export default Forms;

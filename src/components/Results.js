@@ -1,9 +1,6 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, push } from 'firebase/database';
-import { Link, Routes, Route } from 'react-router-dom';
-
-// Import components
-import Timeline from "./Timeline";
+import { Link } from 'react-router-dom';
 
 const Results = (props) => {
     // Variables to set date info
@@ -19,7 +16,7 @@ const Results = (props) => {
         image: props.selectedGif,
         mood: props.userChoice,
         date: `${month} ${day}, ${year}`
-    }
+    };
 
     // Variables to set database and databaseRef for firebase; call the push function into firebase
     const database = getDatabase(firebaseConfig);
@@ -34,10 +31,11 @@ const Results = (props) => {
                     alt={`user's selected gif that represents the mood of ${props.userChoice}`} />
                 <p>{props.userChoice}</p>
             </div>
-            <button><Link to="/Timeline">Show Timeline</Link></button>
-
+            <button>
+                <Link to="/Timeline">Show Timeline</Link>
+            </button>
         </section>
-    )
+    );
 };
 
 export default Results;

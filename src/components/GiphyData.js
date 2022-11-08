@@ -15,8 +15,8 @@ const GiphyData = (props) => {
   // State for error handling
   const [giphyError, setGiphyError] = useState(false);
 
-   // STate for loading screen
-   const [loading, setLoading] = useState(false)
+  // State for loading screen
+  const [loading, setLoading] = useState(false);
 
   // Variable that saves the final mood the user chose
   const userChoice = `${mood}`;
@@ -41,8 +41,8 @@ const GiphyData = (props) => {
       .then((response) => response.json())
       .then((info) => {
         props.setGif(info.data);
-        setLoading(false)
-        console.log(loading)
+        setLoading(false);
+        console.log(loading);
       })
       .catch(() => {
         setGiphyError(!giphyError);
