@@ -34,9 +34,6 @@ const Results = (props) => {
 
     return (
         <section>
-            <div><img src={props.selectedGif} alt="" /></div>
-            <div>{props.mood}</div>
-            <History/>
             <div>
                 <img src={props.selectedGif} alt="aaaaa" />
                 <p>{props.userChoice}</p>

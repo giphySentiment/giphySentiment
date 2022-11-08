@@ -18,23 +18,7 @@ const Forms = (props) => {
     const handleMoodChange = (e) => {
         props.setMood(e.target.value)
     }
-    //     const [ track, setTrack ] = useState([]);
-    //     useEffect(() => {
 
-        
-    //     const database = getDatabase(firebase);
-    //     const dbRef = ref(database);
-
-    //     onValue(dbRef, (response) => {
-    //         const newState = [];
-    //         const data = response.val
-
-    //         for (let key in data) {
-    //             newState.push({key: key, name: data[key]})
-    //           }
-    //           setTrack(newState)
-    //     })
-    // }, [])
     return (
         <section>
                 <h2>It's {`${month} ${day}`}</h2>
