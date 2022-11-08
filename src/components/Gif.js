@@ -1,53 +1,60 @@
 import { useState } from "react";
-import Results from "./Results";
 import uuid from "react-uuid";
 
+// Import components
+import Results from "./Results";
+
 const Gif = (props) => {
+  // State to save selectedGif value
   const [selectedGif, setSelectedGif] = useState("");
 
+  // Function to save user's selected Gif
   const select = (event) => {
-      event.preventDefault()
-      setSelectedGif(event.target.value)
-      console.log("select handler has been clicked")
-      console.log(event.target.value)
-  }
+    event.preventDefault();
+    setSelectedGif(event.target.value);
+  };
 
   return (
-    <section>
-      <div className="gifContainer"> 
-      <form onClick={select} value={"kwame"} className="select" >   
-        <fieldset>
-          
-        {props.gif.map((gifObj) => {
-          return (
-                <label htmlFor="">
-                    {/* NOTE TO TEAM: we need to style our radios as the image & we also have to figure out why radio buttons are not filling in on click */}
-                <input onChange={select} type="radio" value={gifObj.images.original.webp}/>
-                <img
-              className="gif"
-              src={gifObj.images.original.webp}
-              alt={gifObj.title}
-              key={uuid()}
-             
-            />
-            </label>
-
-          );
-        })}  
-        </fieldset>
-      </form>
-        <button className="buttonContainers" onClick={props.handleFormSubmit}>
+    <section className="gif">
+      <div className="gifContainer">
+        <form onClick={select} className="select">   
+          <fieldset>
+            {props.gif.map((gifObj) => {
+              return (
+                // NB: UUID is on the label bc it must be placed in the most outward element
+                  // need to set visuallyHidden class
+                <label
+                  htmlFor="userChoice" className="visuallyHidden"
+                  key={uuid()}>
+                  {gifObj.title}
+                    <input
+                      onChange={select}
+                      type="radio"
+                      name="gif"
+                      value={gifObj.images.original.webp}
+                    />
+                      <img
+                      className="gif"
+                      src={gifObj.images.original.webp}
+                      alt={gifObj.title}
+                      />
+              </label>
+              );
+            })}
+        <button className="buttonContainer" onClick={props.handleFormSubmit}>
           gimmie a new one
-        </button>
-       
-        {/* NOTE: We need to figure out how to target the Gif he user selected and conditionally render Backronym when Gif is selected */}
+                </button>
+            </fieldset>
+        </form>
+         </div>
         {
           selectedGif
-          ? <Results selectedGif={selectedGif} mood={props.mood} userChoice={props.userChoice}/>
+          ? <Results
+            selectedGif={selectedGif}
+            mood={props.mood}
+            userChoice={props.userChoice}/>
           : null
         }
-        
-      </div>
     </section>
       
   );

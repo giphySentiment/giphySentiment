@@ -1,58 +1,43 @@
-import History from "./History";
 import firebaseConfig from '../firebase';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
-import { useState } from "react";
+import { getDatabase, ref, push } from 'firebase/database';
 import { Link, Routes, Route } from 'react-router-dom';
 
+// Import components
+import Timeline from "./Timeline";
+
 const Results = (props) => {
-
-
-    const date = new Date()
+    // Variables to set date info
+    const date = new Date();
     const month = date.toLocaleString('en-US', {
         month: 'long',
     });
-    const day = date.getDate()
-    const year = date.getFullYear()
+    const day = date.getDate();
+    const year = date.getFullYear();
     
+    // Object with user's gif, mood and date to be pushed to firebase
     const result = {
         image: props.selectedGif,
         mood: props.userChoice,
-        date: `${month} ${day} ${year}`
+        date: `${month} ${day}, ${year}`
     }
 
-    const [isShown, setIsShown] = useState(false)
-
-    const database = getDatabase(firebaseConfig)
-    const databaseRef = ref(database)
-    push(databaseRef, result)
-
-    // COME BACK TO THIS: pushing data twice to history
-    const handleUserClick = (event) => {
-        event.preventDefault()
-        setIsShown(!isShown)
-    }
+    // Variables to set database and databaseRef for firebase; call the push function into firebase
+    const database = getDatabase(firebaseConfig);
+    const databaseRef = ref(database);
+    push(databaseRef, result);
 
     return (
-        <section>
+        <section className="results">
             <div>
-                <img src={props.selectedGif} alt="aaaaa" />
+                <img
+                    src={props.selectedGif}
+                    alt={`user's selected gif that represents the mood of ${props.userChoice}`} />
                 <p>{props.userChoice}</p>
             </div>
-            {/* <button onClick={handleUserClick}>show history</button>
-            {
-            isShown */}
-            {/* ? <History userChoice={props.userChoice} /> */}
-            {/* : null
-            } */}
+            <button><Link to="/Timeline">Show Timeline</Link></button>
 
-            <button><Link to="/history">Show History</Link></button>
-            <Routes>
-                <Route path="/history" element={<History />} />
-            </Routes>
-            
         </section>
-        
     )
-}
+};
 
 export default Results;
