@@ -5,7 +5,7 @@ import Gif from "./Gif";
 
 const Data = (props) => {
   // State that listens for a change in user choice
-  const [mood, setMood] = useState("");
+  // const [mood, setMood] = useState("");
   // State to store API call Gif Data
   const [newGif, setNewGif] = useState(false);
   // State to display gifs
