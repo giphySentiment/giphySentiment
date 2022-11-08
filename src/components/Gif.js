@@ -17,44 +17,44 @@ const Gif = (props) => {
   return (
     <section className="gif">
       <div className="gifContainer">
-        <form onClick={select} className="select">
+        <form onClick={select} className="select">   
           <fieldset>
             {props.gif.map((gifObj) => {
               return (
                 // NB: UUID is on the label bc it must be placed in the most outward element
-                // need to set visuallyHidden class
+                  // need to set visuallyHidden class
                 <label
                   htmlFor="userChoice" className="visuallyHidden"
                   key={uuid()}>
                   {gifObj.title}
-                  <input
-                    onChange={select}
-                    type="radio"
-                    name="gif"
-                    value={gifObj.images.original.webp}
-                  />
-                  <img
-                    className="gif"
-                    src={gifObj.images.original.webp}
-                    alt={gifObj.title}
-                  />
-                </label>
+                    <input
+                      onChange={select}
+                      type="radio"
+                      name="gif"
+                      value={gifObj.images.original.webp}
+                    />
+                      <img
+                      className="gif"
+                      src={gifObj.images.original.webp}
+                      alt={gifObj.title}
+                      />
+              </label>
               );
             })}
-            <button className="buttonContainer" onClick={props.handleFormSubmit}>
-              gimmie a new one
-            </button>
-          </fieldset>
+        <button className="buttonContainer" onClick={props.handleFormSubmit}>
+          gimmie a new one
+                </button>
+            </fieldset>
         </form>
-      </div>
-      {
-        selectedGif
+         </div>
+        {
+          selectedGif
           ? <Results
             selectedGif={selectedGif}
             mood={props.mood}
-            userChoice={props.userChoice} />
+            userChoice={props.userChoice}/>
           : null
-      }
+        }
     </section>
   );
 };

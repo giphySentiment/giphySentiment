@@ -13,7 +13,7 @@ const Results = (props) => {
     });
     const day = date.getDate();
     const year = date.getFullYear();
-
+    
     // Object with user's gif, mood and date to be pushed to firebase
     const result = {
         image: props.selectedGif,

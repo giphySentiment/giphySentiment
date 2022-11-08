@@ -13,21 +13,21 @@ const Welcome = () => {
     e.preventDefault();
     setIsClicked(true);
   }
-  return (
-    <section className="welcome">
-      <h1>Giphy Sentiments</h1>
-      <h2>Express your sentiments into a gif</h2>
-      <button
-        onClick={handleUserClick}
-        className="buttonContainer">
-        Get Started
-      </button>
-      {
-        isClicked
+    return (
+      <section className="welcome">
+        <h1>Giphy Sentiments</h1>
+        <h2>Express your sentiments into a gif</h2>
+        <button
+          onClick={handleUserClick}
+          className="buttonContainer">
+          Get Started
+        </button>
+        {
+          isClicked
           ? <LandingPage />
           : null
-      }
-    </section>
-  )
+        }
+      </section>
+    )
 }
 export default Welcome;

@@ -22,8 +22,8 @@ const Data = (props) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   };
   // Function to handle submit in forms (in child component), which will display Gif.js
-  // the API is saved within this function, as it runs on form submit
-  const handleFormSubmit = (e, mood) => {
+    // the API is saved within this function, as it runs on form submit
+  const handleFormSubmit = (e, mood) => {  
     e.preventDefault();
     setDisplayGifs(true);
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
