@@ -1,29 +1,33 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+// ^ removed Routes and Route for now as it is not in use.
+
+// Import components
 import LandingPage from "./LandingPage";
-import { useState } from "react"
-import { Link, Route, Routes } from "react-router-dom"
 
 const Welcome = () => {
-  const [begin, setBegin] = useState(false)
-
-  const handleUserClick = (event) => {
-    event.preventDefault()
-    setBegin(!begin)
+  // State to store state of user click
+  const [isClicked, setIsClicked] = useState(false);
+  // Function handle user click to go to landing page
+  const handleUserClick = (e) => {
+    e.preventDefault();
+    setIsClicked(true);
   }
-
-    return (
-      <div>
-        <h1><Link to="/">Giphy Sentiments</Link></h1>
-        <h2>Express your sentiments into a gif</h2>
-        <button onClick={handleUserClick}>Get Started</button>
-        {
-          begin
+  return (
+    <section className="welcome">
+      <h1>Giphy Sentiments</h1>
+      <h2>Express your sentiments into a gif</h2>
+      <button
+        onClick={handleUserClick}
+        className="buttonContainer">
+        Get Started
+      </button>
+      {
+        isClicked
           ? <LandingPage />
           : null
-        }
-        
-      </div>
-    )
-
-
+      }
+    </section>
+  )
 }
 export default Welcome;

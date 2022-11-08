@@ -4,9 +4,9 @@ const Footer = () => {
     return (
         <footer>
             <p></p>
-             <MeetTheDevs/>
+            <MeetTheDevs />
         </footer>
-        
+
     )
 }
 
