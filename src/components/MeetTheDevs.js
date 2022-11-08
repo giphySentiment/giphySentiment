@@ -1,5 +1,3 @@
-
-
 const MeetTheDevs = () => {
     return (
         <div></div>

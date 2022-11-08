@@ -1,36 +1,25 @@
-import { useEffect, useState } from "react";
-
-
 const Forms = (props) => {
-
-    const date = new Date()
-    const month = date.toLocaleString('en-US', {
-        month: 'long',
-    });
-    const day = date.getDate()
+    // Variables to set date info
     const today = new Date().toLocaleString(
         'default', { weekday: 'long' }
     );
 
-    const [test, setTest] = useState([])
-
-
+    // Function to change setMood to user input value
     const handleMoodChange = (e) => {
-        props.setMood(e.target.value)
+        props.setMood(e.target.value);
     }
 
     return (
-        <section>
-                <h2>It's {`${month} ${day}`}</h2>
-                <h2>Happy {`${today}`}! How are you feeling?</h2>
+        <section className="forms">
+            <h2>Happy {`${today}`}! How are you feeling?</h2>
             <form onSubmit={(e) => props.handleFormSubmit(e, props.mood)}>
-               
-                <label htmlFor="moodSelector" className="visuallyHidden">Type in an emotion</label>
+                <label htmlFor="moodSelector"
+                    // add visuallyHidden class in CSS
+                    className="visuallyHidden">Type in an emotion</label>
                 <input name="moodSelector" id="moodSelector" type="text"
                  onChange={(event) => handleMoodChange(event)}
                 />
-
-                <button >find gifs!</button>
+                <button className="buttonContainer">find gifs!</button>
             </form>
         </section>
     )

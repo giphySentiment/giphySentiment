@@ -1,25 +1,19 @@
-import { useState } from "react"
-import { Link, Routes, Route } from 'react-router-dom'
+import { useState } from "react";
+import { Link } from 'react-router-dom';
+// ^ removed Routes and Route for now as it is not in use.
 
+// Import components
 import GiphyData from './GiphyData';
 
 const LandingPage = () => {
-
-// State to store API call from Giphy
+// State to store data from Giphy API
     const [gif, setGif] = useState([]);
     
     return (
-        <div className="landing">
+        <section className="landingPage">
             <GiphyData gif={gif} setGif={setGif} />
-
-            <Link to="/history">history</Link>
-        
-        {/* <Routes>
-            <Route path="/history" element={<History />} />
-        </Routes> */}
-        </div>
-
-        
+            <Link to="/timeline">Timeline</Link>
+        </section>
     )
 }
 
