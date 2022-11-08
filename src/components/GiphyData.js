@@ -4,7 +4,8 @@ import { useState } from "react";
 import Forms from "./Forms";
 import Gif from "./Gif";
 
-const Data = (props) => {
+const GiphyData = (props) => {
+
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
 
@@ -66,4 +67,4 @@ const Data = (props) => {
   );
 };
 
-export default Data;
+export default GiphyData;

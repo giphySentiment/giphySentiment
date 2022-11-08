@@ -1,0 +1,11 @@
+@use "./sass/partials/variables" as *;
+@use "./sass/partials/globalStyles";
+@use "./sass/partials/setup";
+@use "./sass/partials/timeline";
+@use "./sass/partials/welcome";
+@use "./sass/partials/mixins" as *;
+
+
+h1 {
+   color: $test;
+}

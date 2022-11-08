@@ -27,20 +27,15 @@ const Results = (props) => {
     push(databaseRef, result);
 
     return (
-        <section>
+        <section className="results">
             <div>
                 <img
                     src={props.selectedGif}
                     alt={`user's selected gif that represents the mood of ${props.userChoice}`} />
                 <p>{props.userChoice}</p>
             </div>
+            <button><Link to="/Timeline">Show Timeline</Link></button>
 
-            <button className="buttonContainer">
-                <Link to="/timeline">Save your Gif and see it in Timeline!</Link>
-            </button>
-            <Routes>
-                <Route path="/timeline" element={<Timeline />} />
-            </Routes>
         </section>
     )
 };
