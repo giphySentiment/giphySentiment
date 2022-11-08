@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import {  useState } from "react";
 import Forms from "./Forms";
 import Gif from "./Gif";
-
+// import LoadingPage from "./LoadingPage";
 
 const Data = (props) => {
   // State that listens for a change in user choice
@@ -12,7 +12,7 @@ const Data = (props) => {
   const [displayGifs, setDisplayGifs] = useState(false);
   const [mood, setMood] = useState("");
 
-  const [saveMood, setSaveMood] = useState('')
+  // const [saveMood, setSaveMood] = useState('')
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -22,35 +22,45 @@ const Data = (props) => {
   // State for error handling
   const [giphyError, setGiphyError] = useState(false);
 
-  const userChoice = `${mood}`;
+  // STate for loading screen
+  const [loading, setLoading] = useState(false)
 
+  const userChoice = `${mood}`;
+  
   // this function will store the user's mood in state, fill our gif array, and display the array
   const handleFormSubmit = (event, mood) => {  
-    
+
     //setMood(event.target.value);
     event.preventDefault();
     setDisplayGifs(true);
     setNewGif(!newGif);
 
+
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
 
     const randomInt = randomizer(0, 35);
-
+    
+    setLoading(true)
     fetch(
       `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
     )
       .then((response) => response.json())
-
+      
+      
+      
       .then((info) => {
         props.setGif(info.data);
         console.log(info.data);
+        setLoading(false)
       })
       .catch(() => {
         setGiphyError(!giphyError);
       });
   };
-
+  // useEffect(() => {
+  //   setLoading(true)
+  // }, [newGif])
   // Regenerate Gifs
   const userClick = (event) => {
     // event.preventDefault()
@@ -71,8 +81,12 @@ const Data = (props) => {
         gif={props.gif}
         mood={mood}
         setMood={setMood}
+        loading={loading}
+        
       />
-
+      {/* {loading
+      ?<LoadingPage />
+      : } */}
       <Gif
         handleFormSubmit={handleFormSubmit}
         newGif={newGif}
@@ -84,7 +98,13 @@ const Data = (props) => {
         mood={mood}
         setMood={setMood}
         userChoice={userChoice}
-      />
+        loading={loading}
+      />      
+     
+      
+
+      
+
     </section>
   );
 };

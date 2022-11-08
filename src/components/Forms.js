@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-
+import LoadingPage from "./LoadingPage";
 
 const Forms = (props) => {
 
@@ -11,8 +10,6 @@ const Forms = (props) => {
     const today = new Date().toLocaleString(
         'default', { weekday: 'long' }
     );
-
-    const [test, setTest] = useState([])
 
 
     const handleMoodChange = (e) => {
@@ -29,8 +26,10 @@ const Forms = (props) => {
                 <input name="moodSelector" id="moodSelector" type="text"
                  onChange={(event) => handleMoodChange(event)}
                 />
-
-                <button >find gifs!</button>
+                {props.loading ? <><LoadingPage /></>
+                :
+                <button>find gifs!</button>
+            }
             </form>
         </section>
     )

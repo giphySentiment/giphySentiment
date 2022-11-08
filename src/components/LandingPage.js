@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import GiphyData from './GiphyData';
 
@@ -20,7 +20,7 @@ const LandingPage = () => {
             <Route path="/history" element={<History />} />
         </Routes> */}
         </div>
-
+    
         
     )
 }

@@ -17,6 +17,7 @@ const Gif = (props) => {
       <div className="gifContainer"> 
       <form onClick={select} value={"kwame"} className="select" >   
         <fieldset>
+          
         {props.gif.map((gifObj) => {
           return (
                 <label htmlFor="">
@@ -48,6 +49,7 @@ const Gif = (props) => {
         
       </div>
     </section>
+      
   );
 };
 
