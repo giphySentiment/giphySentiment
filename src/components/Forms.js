@@ -1,11 +1,7 @@
-// import { useState } from "react";
-// import firebase from '../firebase';
-// import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-database.js";
+import { useEffect, useState } from "react";
+
 
 const Forms = (props) => {
-    
- 
-    // const [mood, setMood] = useState("");
 
     const date = new Date()
     const month = date.toLocaleString('en-US', {
@@ -16,13 +12,8 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
-    // //tracking users input and setting it to a string
-    // const [inputValue, setinputValue] = useState("")
+    const [test, setTest] = useState([])
 
-    // //this function is setting state to the users input
-    // const handleInputChange = (event) => {
-    //     setinputValue(event.target.value)
-    // }
 
     const handleMoodChange = (e) => {
         props.setMood(e.target.value)

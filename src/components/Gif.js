@@ -12,7 +12,6 @@ const Gif = (props) => {
       console.log(event.target.value)
   }
 
-
   return (
     <section>
       <div className="gifContainer"> 
@@ -36,24 +35,17 @@ const Gif = (props) => {
         })}  
         </fieldset>
       </form>
-        <button className="buttonContainers" onClick={props.userClick}>
+        <button className="buttonContainers" onClick={props.handleFormSubmit}>
           gimmie a new one
         </button>
-
-        <button>Get Backronym!</button>
-        {/* {
-          selectedGif
-          ? <Results selectedGif={selectedGif}
-          mood={props.mood}
-          />
-          : null
-        } */}
        
         {/* NOTE: We need to figure out how to target the Gif he user selected and conditionally render Backronym when Gif is selected */}
-        <Results selectedGif={selectedGif}
-        setSelectedGif={setSelectedGif}
-        mood={props.mood}
-        />
+        {
+          selectedGif
+          ? <Results selectedGif={selectedGif} mood={props.mood} userChoice={props.userChoice}/>
+          : null
+        }
+        
       </div>
     </section>
   );

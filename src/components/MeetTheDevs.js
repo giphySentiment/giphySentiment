@@ -2,7 +2,7 @@
 
 const MeetTheDevs = () => {
     return (
-        <div>test</div>
+        <div></div>
     )
 }
 
