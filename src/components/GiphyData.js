@@ -4,7 +4,8 @@ import { useState } from "react";
 import Forms from "./Forms";
 import Gif from "./Gif";
 
-const Data = (props) => {
+const GiphyData = (props) => {
+
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
 
@@ -13,6 +14,9 @@ const Data = (props) => {
 
   // State for error handling
   const [giphyError, setGiphyError] = useState(false);
+
+   // STate for loading screen
+   const [loading, setLoading] = useState(false)
 
   // Variable that saves the final mood the user chose
   const userChoice = `${mood}`;
@@ -30,12 +34,15 @@ const Data = (props) => {
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
 
+    setLoading(true)
     fetch(
       `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
     )
       .then((response) => response.json())
       .then((info) => {
         props.setGif(info.data);
+        setLoading(false)
+        console.log(loading)
       })
       .catch(() => {
         setGiphyError(!giphyError);
@@ -51,6 +58,7 @@ const Data = (props) => {
         gif={props.gif}
         mood={mood}
         setMood={setMood}
+        loading={loading}
       />
 
       <Gif
@@ -66,4 +74,4 @@ const Data = (props) => {
   );
 };
 
-export default Data;
+export default GiphyData;
