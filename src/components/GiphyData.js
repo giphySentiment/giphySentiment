@@ -52,9 +52,11 @@ const Data = (props) => {
   };
 
   // Regenerate Gifs
-  const userClick = () => {
+  const userClick = (event) => {
     // event.preventDefault()
     setNewGif(!newGif);
+    console.log("generate is being clicked")
+    
   };
 
   return (

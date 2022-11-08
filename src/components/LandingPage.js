@@ -1,6 +1,7 @@
 import { useState } from "react"
+import { Link, Routes, Route } from 'react-router-dom'
+
 import GiphyData from './GiphyData';
-import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
 
@@ -9,11 +10,15 @@ const LandingPage = () => {
     
     return (
         <div className="landing">
-            <h1>Giphy Sentiments</h1>
-            
             <GiphyData gif={gif} setGif={setGif} />
-            <Link to="/History">history</Link>
+
+            <Link to="/history">history</Link>
+        
+        {/* <Routes>
+            <Route path="/history" element={<History />} />
+        </Routes> */}
         </div>
+
         
     )
 }

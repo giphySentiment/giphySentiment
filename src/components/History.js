@@ -23,7 +23,7 @@ const History = (props) => {
             console.log(newState)
             setHistory(newState)
         })
-    }, [props.userChoice])
+    }, [])
 
     // console.log(data)
 

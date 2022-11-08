@@ -2,8 +2,10 @@ import History from "./History";
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useState } from "react";
+import { Link, Routes, Route } from 'react-router-dom';
 
 const Results = (props) => {
+
 
     const date = new Date()
     const month = date.toLocaleString('en-US', {
@@ -36,12 +38,17 @@ const Results = (props) => {
                 <img src={props.selectedGif} alt="aaaaa" />
                 <p>{props.userChoice}</p>
             </div>
-            <button onClick={handleUserClick}>show history</button>
+            {/* <button onClick={handleUserClick}>show history</button>
             {
-            isShown
-            ? <History userChoice={props.userChoice} />
-            : null
-            }
+            isShown */}
+            {/* ? <History userChoice={props.userChoice} /> */}
+            {/* : null
+            } */}
+
+            <button><Link to="/history">Show History</Link></button>
+            <Routes>
+                <Route path="/history" element={<History />} />
+            </Routes>
             
         </section>
         
