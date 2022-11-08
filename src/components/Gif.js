@@ -21,14 +21,14 @@ const Gif = (props) => {
           return (
                 <label htmlFor="">
                     {/* NOTE TO TEAM: we need to style our radios as the image & we also have to figure out why radio buttons are not filling in on click */}
-                <input onChange={select} type="radio" value={gifObj.images.original.webp}/>
-                <img
-              className="gif"
-              src={gifObj.images.original.webp}
-              alt={gifObj.title}
-              key={uuid()}
-             
-            />
+                  <input onChange={select} type="radio" value={gifObj.images.original.webp}/>
+                  <img
+                  className="gif"
+                  src={gifObj.images.original.webp}
+                  alt={gifObj.title}
+                  key={uuid()}
+
+              />
             </label>
 
           );
