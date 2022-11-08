@@ -1,7 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-// ^ removed Routes and Route for now as it is not in use.
-
 // Import components
 import LandingPage from "./LandingPage";
 
