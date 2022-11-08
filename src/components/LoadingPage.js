@@ -2,10 +2,6 @@ import CircleLoader from "react-spinners/CircleLoader";
 
 const LoadingPage = () =>{
 
-
-
- 
-
     return(
         <>
             <CircleLoader

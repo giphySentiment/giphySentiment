@@ -1,3 +1,5 @@
+import LoadingPage from "./LoadingPage";
+
 const Forms = (props) => {
     // Variables to set date info
     const today = new Date().toLocaleString(
@@ -19,7 +21,10 @@ const Forms = (props) => {
                 <input name="moodSelector" id="moodSelector" type="text"
                  onChange={(event) => handleMoodChange(event)}
                 />
+                 {props.loading ? <><LoadingPage /></>
+                :
                 <button className="buttonContainer">find gifs!</button>
+                }
             </form>
         </section>
     )
