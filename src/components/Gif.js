@@ -56,6 +56,7 @@ const Gif = (props) => {
           : null
         }
     </section>
+      
   );
 };
 
