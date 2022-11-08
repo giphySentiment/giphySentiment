@@ -1,9 +1,11 @@
 import { useState } from "react";
+
 // Import components
 import Forms from "./Forms";
 import Gif from "./Gif";
 
 const GiphyData = (props) => {
+
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
 

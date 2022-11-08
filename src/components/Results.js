@@ -34,8 +34,8 @@ const Results = (props) => {
                     alt={`user's selected gif that represents the mood of ${props.userChoice}`} />
                 <p>{props.userChoice}</p>
             </div>
-
             <button><Link to="/Timeline">Show Timeline</Link></button>
+
         </section>
     )
 };
