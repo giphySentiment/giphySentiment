@@ -26,7 +26,7 @@ const Timeline = (props) => {
     return (
         <div>
             <ul>
-                {timeline.map((result, index) => {
+                {timeline.map((result) => {
                     return (
                         <div
                             className="savedToTimeline"
