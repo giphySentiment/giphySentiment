@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, Routes, Route } from 'react-router-dom'
+import Footer from "./Footer";
 
 import GiphyData from './GiphyData';
 
@@ -10,13 +11,10 @@ const LandingPage = () => {
     
     return (
         <div className="landing">
+            <Link to="/Timeline">Timeline</Link>
+
             <GiphyData gif={gif} setGif={setGif} />
 
-            <Link to="/history">history</Link>
-        
-        {/* <Routes>
-            <Route path="/history" element={<History />} />
-        </Routes> */}
         </div>
 
         

@@ -3,7 +3,7 @@ import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
 
-const History = (props) => {
+const Timeline = (props) => {
 
     const [history, setHistory] = useState([])
 
@@ -40,4 +40,4 @@ const History = (props) => {
     )
 }
 
-export default History;
+export default Timeline;

@@ -1,4 +1,4 @@
-import History from "./History";
+import Timeline from "./Timeline";
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import { useState } from "react";
@@ -26,7 +26,7 @@ const Results = (props) => {
     const databaseRef = ref(database)
     push(databaseRef, result)
 
-    // COME BACK TO THIS: pushing data twice to history
+    // COME BACK TO THIS: pushing data twice to timeline
     const handleUserClick = (event) => {
         event.preventDefault()
         setIsShown(!isShown)
@@ -38,17 +38,15 @@ const Results = (props) => {
                 <img src={props.selectedGif} alt="aaaaa" />
                 <p>{props.userChoice}</p>
             </div>
-            {/* <button onClick={handleUserClick}>show history</button>
+            {/* <button onClick={handleUserClick}>show timeline</button>
             {
             isShown */}
-            {/* ? <History userChoice={props.userChoice} /> */}
+            {/* ? <Timeline userChoice={props.userChoice} /> */}
             {/* : null
             } */}
 
-            <button><Link to="/history">Show History</Link></button>
-            <Routes>
-                <Route path="/history" element={<History />} />
-            </Routes>
+            <button><Link to="/Timeline">Show Timeline</Link></button>
+           
             
         </section>
         
