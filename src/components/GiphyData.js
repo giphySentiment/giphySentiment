@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Forms from "./Forms";
 import Gif from "./Gif";
 
+
 const Data = (props) => {
   // State that listens for a change in user choice
-  //const [mood, setMood] = useState("");
+  const [mood, setMood] = useState("");
   // State to store API call Gif Data
   const [newGif, setNewGif] = useState(false);
   // State to display gifs
@@ -20,6 +21,8 @@ const Data = (props) => {
 
   // this function will store the user's mood in state, fill our gif array, and display the array
   const handleFormSubmit = (event, mood) => {  
+
+  
     
     //setMood(event.target.value);
     event.preventDefault();
@@ -61,6 +64,8 @@ const Data = (props) => {
         setDisplayGifs={setDisplayGifs}
         userClick={userClick}
         gif={props.gif}
+        mood={mood}
+        setMood={setMood}
       />
 
       <Gif
@@ -71,6 +76,7 @@ const Data = (props) => {
         setDisplayGifs={setDisplayGifs}
         userClick={userClick}
         gif={props.gif}
+        mood={mood}
       />
     </section>
   );
