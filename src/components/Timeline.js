@@ -1,43 +1,47 @@
-import Results from "./Results";
 import firebaseConfig from '../firebase';
-import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { useEffect, useState } from "react";
+import uuid from "react-uuid";
 
-const History = (props) => {
+const Timeline = (props) => {
 
-    const [history, setHistory] = useState([])
+    // State to save user's gif+info object into the timeline
+    const [timeline, setTimeline] = useState([]);
 
-    
     useEffect(() => {
-        const database = getDatabase(firebaseConfig)
-        const databaseRef = ref(database)
+        const database = getDatabase(firebaseConfig);
+        const databaseRef = ref(database);
 
         onValue(databaseRef, (response) => {
-            const newState = []
-            const data = response.val()
-            console.log(data)
+            const newState = [];
+            const data = response.val();
 
             for (let key in data) {
                 newState.push({ key: key, name: data[key] })
             }
-            console.log(newState)
-            setHistory(newState)
+            setTimeline(newState);
         })
-    }, [])
-
-    // console.log(data)
+    }, []);
 
     return (
         <div>
             <ul>
-                    {history.map((result, index) => {
-                        return (
-                            <img src={result.name.image} alt="sdfsdfs" />
-                        )
-                    })}
+                {timeline.map((result) => {
+                    return (
+                        <div
+                            className="savedToTimeline"
+                            key={uuid()}>
+                            <h2>{`On ${result.name.date}, you felt: ${result.name.mood}`}</h2>
+                            <img
+                                src={result.name.image}
+                                alt={`user selected gif to show the mood of ${result.name.mood}`}
+                            />
+                        </div>
+                    )
+                })}
             </ul>
         </div>
     )
 }
 
-export default History;
+export default Timeline;
