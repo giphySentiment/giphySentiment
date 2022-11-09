@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# Giphy Sentiments: Track your Mood in Gifs over Time! 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="">🔗Live Link</a>
 
-## Available Scripts
+# About
+<p><a href=""> Giphy Sentiments</a> is a React application that allows users to track their mood in gifs over time, by allowing users to type in their mood of the day, choose a gif that best represents their mood, and save their 'Giphy Sentiment' to the timeline.</p>
 
-In the project directory, you can run:
+<p>This project was created by <a href="https://github.com/BrittFreitas">Brittany Freitas</a>, <a href="https://github.com/chriskimty">Chris Taeyoung Kim</a>, <a href="https://github.com/dbutch25">Daniel Butcher</a> and <a href="https://github.com/kwametsunami">Kwame Appiah-Kubi</a>, completed in November 2022 with <a href="https://junocollege.com">Juno College's</a> Web Development Bootcamp ✨ Cohort 44 ✨, as part of a team-based React project.</p> 
 
-### `npm start`
+<p>The project showcases our understanding of:</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Core React concepts (state, props, components, Routing) applied to larger applications
+- Working with third-party API/data sources (API and Firebase)
+- Error handling, UI design and functional programming
+- Working in an agency environment for a client, specifically coordinating and communicating within a group
+- Delivering a fully functional product on a timeline
+- Collaborating on Github
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p>
+Giphy Sentiments is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>, and additional features are soon to be added including: </p>
 
-### `npm test`
+- TBA
+- TBA
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

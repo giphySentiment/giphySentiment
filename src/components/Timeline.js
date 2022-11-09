@@ -3,9 +3,8 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
 
-const Timeline = (props) => {
-
-    // State to save user's gif+info object into the timeline
+const Timeline = () => {
+    // State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
     useEffect(() => {
@@ -41,7 +40,7 @@ const Timeline = (props) => {
                 })}
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default Timeline;
