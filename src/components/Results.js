@@ -1,8 +1,13 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ChoiceContext } from './GiphyData';
 
 const Results = (props) => {
+    // Set variable for 'userChoice' from GiphyData (useContext)
+    const userChoice = useContext(ChoiceContext);
+
     // Variables to set date info
     const date = new Date();
     const month = date.toLocaleString('en-US', {
@@ -14,7 +19,7 @@ const Results = (props) => {
     // Object with user's gif, mood and date to be pushed to firebase
     const result = {
         image: props.selectedGif,
-        mood: props.userChoice,
+        mood: userChoice,
         date: `${month} ${day}, ${year}`
     };
 
@@ -28,8 +33,8 @@ const Results = (props) => {
             <div>
                 <img
                     src={props.selectedGif}
-                    alt={`user's selected gif that represents the mood of ${props.userChoice}`} />
-                <p>{props.userChoice}</p>
+                    alt={`user's selected gif that represents the mood of ${userChoice}`} />
+                <p>{userChoice}</p>
             </div>
             <button>
                 <Link to="/Timeline">Show Timeline</Link>

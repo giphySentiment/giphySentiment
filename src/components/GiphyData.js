@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 
 // Import components
 import Forms from "./Forms";
 import Gif from "./Gif";
+
+// Exporting context
+export const ChoiceContext = createContext();
+export const FormContext = createContext();
 
 const GiphyData = (props) => {
   // State that listens for a change in user choice
@@ -44,21 +48,20 @@ const GiphyData = (props) => {
   };
 
   return (
-    <section className="giphyData">
-      <Forms
-        handleFormSubmit={handleFormSubmit}
-        mood={mood}
-        setMood={setMood}
-        loading={loading}
-      />
-
-      <Gif
-        handleFormSubmit={handleFormSubmit}
-        gif={props.gif}
-        mood={mood}
-        userChoice={userChoice}
-      />
-    </section>
+    <FormContext.Provider value={handleFormSubmit}>
+      <section className="giphyData">
+        <Forms
+          mood={mood}
+          setMood={setMood}
+          loading={loading}
+        />
+        <ChoiceContext.Provider value={userChoice}>
+          <Gif
+            mood={mood}
+          />
+        </ChoiceContext.Provider>
+      </section>
+    </FormContext.Provider>
   );
 };
 
