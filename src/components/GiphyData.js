@@ -13,13 +13,19 @@ const GiphyData = (props) => {
   const [mood, setMood] = useState("");
 
   // State for error handling
-  const [giphyError, setGiphyError] = useState(false);
+  const [noGifsAvailable, setNoGifsAvailable] = useState(false);
+
+  // State for 404 page
+  const [giphyError, setGiphyError] = useState(false)
 
   // State for loading screen
   const [loading, setLoading] = useState(false);
 
   // Variable that saves the final mood the user chose
   const userChoice = `${mood}`;
+
+  // State for disabling button from illegal characters
+  const [isSpace, setIsSpace] = useState(false) 
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -33,18 +39,30 @@ const GiphyData = (props) => {
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
 
-    setLoading(true)
-    fetch(
-      `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
-    )
-      .then((response) => response.json())
-      .then((info) => {
-        props.setGif(info.data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setGiphyError(!giphyError);
-      });
+    if(userChoice.includes(' ')){
+      setIsSpace(true)
+    } else {
+      setLoading(true)
+      fetch(
+        `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
+      )
+        .then((response) => response.json())
+        .then((info) => {
+          if (info.data.length > 0){
+            props.setGif(info.data);
+            setLoading(false);
+            setNoGifsAvailable(false)
+          } else {
+            setNoGifsAvailable(!noGifsAvailable);
+          }
+        })
+        .catch((error) => {
+          if (`${baseURL}`.status != 404){
+            setGiphyError(!giphyError)
+          }
+        });
+    }
+
   };
 
   return (
@@ -54,6 +72,10 @@ const GiphyData = (props) => {
           mood={mood}
           setMood={setMood}
           loading={loading}
+          noGifsAvailable={noGifsAvailable}
+          isSpace={isSpace}
+          setIsSpace={setIsSpace}
+          giphyError={giphyError}
         />
         <ChoiceContext.Provider value={userChoice}>
           <Gif

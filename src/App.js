@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import LandingPage from "./components/LandingPage";
 import MeetTheDevs from './components/MeetTheDevs';
 import Timeline from "./components/Timeline";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/LandingPage" element={<LandingPage />} /> 
         <Route path="/MeetTheDevs" element={<MeetTheDevs />} />
         <Route path="/Timeline" element={<Timeline />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     
       <Footer/>
