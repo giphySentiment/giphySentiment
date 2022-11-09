@@ -1,11 +1,16 @@
 @use "./sass/partials/variables" as *;
 @use "./sass/partials/globalStyles";
+@use "./sass/partials/typography";
 @use "./sass/partials/setup";
-@use "./sass/partials/timeline";
-@use "./sass/partials/welcome";
 @use "./sass/partials/mixins" as *;
 
-
-h1 {
-   color: $test;
-}
+// Sections
+@use "./sass/partials/welcome";
+@use "./sass/partials/footer";
+@use "./sass/partials/landingPage";
+@use "./sass/partials/loadingPage";
+@use "./sass/partials/forms";
+@use "./sass/partials/gif";
+@use "./sass/partials/results";
+@use "./sass/partials/timeline";
+@use "./sass/partials/meetTheDevs";

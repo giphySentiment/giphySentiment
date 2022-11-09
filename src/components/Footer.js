@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <footer>
-            <p>Created by Daniel Butcher, Chris Taeyoung Kim, Kwame Appiah-Kubi & Brittany Freitas at Juno College</p>
-            <Link to="/MeetTheDevs">Meet the devs</Link>
+            <div className="wrapper">
+                <div className="creatives">
+                    <p>Created by <a href="https://github.com/dbutch25">Daniel Butcher</a>, <a href="https://github.com/chriskimty">Chris Taeyoung Kim</a>, <a href="https://github.com/kwametsunami">Kwame Appiah-Kubi</a> & <a href="https://github.com/BrittFreitas">Brittany Freitas</a> at <a href="https://junocollege.com">Juno College</a></p>
+                </div>
+                
+            <Link to="/MeetTheDevs" className="button">Meet the Devs!</Link>
+            </div>
         </footer>
     );
 };
