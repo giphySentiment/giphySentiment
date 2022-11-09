@@ -1,22 +1,22 @@
-import { useState } from "react";
+import { useState, createContext } from "react";
 
 // Import components
 import Forms from "./Forms";
 import Gif from "./Gif";
 
-const GiphyData = (props) => {
+// Exporting context
+export const ChoiceContext = createContext();
+export const FormContext = createContext();
 
+const GiphyData = (props) => {
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
-
-  // State for displaying gifs
-  const [displayGifs, setDisplayGifs] = useState(false);
 
   // State for error handling
   const [giphyError, setGiphyError] = useState(false);
 
-   // STate for loading screen
-   const [loading, setLoading] = useState(false)
+  // State for loading screen
+  const [loading, setLoading] = useState(false);
 
   // Variable that saves the final mood the user chose
   const userChoice = `${mood}`;
@@ -27,9 +27,8 @@ const GiphyData = (props) => {
   };
   // Function to handle submit in forms (in child component), which will display Gif.js
     // the API is saved within this function, as it runs on form submit
-  const handleFormSubmit = (e, mood) => {  
+  const handleFormSubmit = (e) => {  
     e.preventDefault();
-    setDisplayGifs(true);
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
@@ -41,8 +40,7 @@ const GiphyData = (props) => {
       .then((response) => response.json())
       .then((info) => {
         props.setGif(info.data);
-        setLoading(false)
-        console.log(loading)
+        setLoading(false);
       })
       .catch(() => {
         setGiphyError(!giphyError);
@@ -50,27 +48,20 @@ const GiphyData = (props) => {
   };
 
   return (
-    <section className="giphyData">
-      <Forms
-        handleFormSubmit={handleFormSubmit}
-        displayGifs={displayGifs}
-        setDisplayGifs={setDisplayGifs}
-        gif={props.gif}
-        mood={mood}
-        setMood={setMood}
-        loading={loading}
-      />
-
-      <Gif
-        handleFormSubmit={handleFormSubmit}
-        displayGifs={displayGifs}
-        setDisplayGifs={setDisplayGifs}
-        gif={props.gif}
-        mood={mood}
-        setMood={setMood}
-        userChoice={userChoice}
-      />
-    </section>
+    <FormContext.Provider value={handleFormSubmit}>
+      <section className="giphyData">
+        <Forms
+          mood={mood}
+          setMood={setMood}
+          loading={loading}
+        />
+        <ChoiceContext.Provider value={userChoice}>
+          <Gif
+            mood={mood}
+          />
+        </ChoiceContext.Provider>
+      </section>
+    </FormContext.Provider>
   );
 };
 

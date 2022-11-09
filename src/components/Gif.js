@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import uuid from "react-uuid";
+import { GifContext } from "./LandingPage";
+import { FormContext } from "./GiphyData";
 
 // Import components
 import Results from "./Results";
 
 const Gif = (props) => {
+  // Set variable for 'gif' from LandingPage (useContext)
+  const gif = useContext(GifContext);
+
+  // Set variable for 'handleFormSubmit' from GiphyData (useContext)
+  const formSubmit = useContext(FormContext);
+
   // State to save selectedGif value
   const [selectedGif, setSelectedGif] = useState("");
 
@@ -19,10 +27,8 @@ const Gif = (props) => {
       <div className="gifContainer">
         <form onClick={select} className="select">   
           <fieldset>
-            {props.gif.map((gifObj) => {
+            {gif.map((gifObj) => {
               return (
-                // NB: UUID is on the label bc it must be placed in the most outward element
-                  // need to set visuallyHidden class
                 <label
                   htmlFor="userChoice" className="visuallyHidden"
                   key={uuid()}>
@@ -41,22 +47,20 @@ const Gif = (props) => {
               </label>
               );
             })}
-        <button className="buttonContainer" onClick={props.handleFormSubmit}>
-          gimmie a new one
-                </button>
+            <button
+              className="buttonContainer"
+              onClick={formSubmit}> gimmie new gifs
+            </button>
             </fieldset>
         </form>
-         </div>
+      </div>
         {
           selectedGif
           ? <Results
-            selectedGif={selectedGif}
-            mood={props.mood}
-            userChoice={props.userChoice}/>
+            selectedGif={selectedGif}/>
           : null
         }
     </section>
-      
   );
 };
 
