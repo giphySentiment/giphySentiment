@@ -9,7 +9,7 @@ const Forms = (props) => {
     // Function to change setMood to user input value
     const handleMoodChange = (e) => {
         props.setMood(e.target.value);
-    }
+    };
 
     return (
         <section className="forms">

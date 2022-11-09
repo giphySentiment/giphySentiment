@@ -50,7 +50,6 @@ const Gif = (props) => {
           selectedGif
           ? <Results
             selectedGif={selectedGif}
-            mood={props.mood}
             userChoice={props.userChoice}/>
           : null
         }

@@ -5,12 +5,8 @@ import Forms from "./Forms";
 import Gif from "./Gif";
 
 const GiphyData = (props) => {
-
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
-
-  // State for displaying gifs
-  const [displayGifs, setDisplayGifs] = useState(false);
 
   // State for error handling
   const [giphyError, setGiphyError] = useState(false);
@@ -27,9 +23,8 @@ const GiphyData = (props) => {
   };
   // Function to handle submit in forms (in child component), which will display Gif.js
     // the API is saved within this function, as it runs on form submit
-  const handleFormSubmit = (e, mood) => {  
+  const handleFormSubmit = (e) => {  
     e.preventDefault();
-    setDisplayGifs(true);
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
@@ -42,7 +37,6 @@ const GiphyData = (props) => {
       .then((info) => {
         props.setGif(info.data);
         setLoading(false);
-        console.log(loading);
       })
       .catch(() => {
         setGiphyError(!giphyError);
@@ -53,9 +47,6 @@ const GiphyData = (props) => {
     <section className="giphyData">
       <Forms
         handleFormSubmit={handleFormSubmit}
-        displayGifs={displayGifs}
-        setDisplayGifs={setDisplayGifs}
-        gif={props.gif}
         mood={mood}
         setMood={setMood}
         loading={loading}
@@ -63,11 +54,8 @@ const GiphyData = (props) => {
 
       <Gif
         handleFormSubmit={handleFormSubmit}
-        displayGifs={displayGifs}
-        setDisplayGifs={setDisplayGifs}
         gif={props.gif}
         mood={mood}
-        setMood={setMood}
         userChoice={userChoice}
       />
     </section>
