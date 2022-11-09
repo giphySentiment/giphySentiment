@@ -12,11 +12,18 @@ const LandingPage = () => {
     const [gif, setGif] = useState([]);
    
     return (
-        <section className="landing">
-            <Link to="/Timeline">Timeline</Link>
-            <GifContext.Provider value={gif}>
-                <GiphyData setGif={setGif} />
-            </GifContext.Provider>  
+        <section className="landingPage">
+            <div className="wrapper">
+                <nav>
+                    <Link to="/">
+                        <h2>Giphy Sentiments</h2>
+                    </Link>
+                    <Link to="/Timeline">Timeline</Link>
+                </nav>
+                <GifContext.Provider value={gif}>
+                    <GiphyData setGif={setGif} />
+                </GifContext.Provider>     
+            </div>
         </section>
     );
 };

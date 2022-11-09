@@ -30,9 +30,8 @@ const Gif = (props) => {
             {gif.map((gifObj) => {
               return (
                 <label
-                  htmlFor="userChoice" className="visuallyHidden"
+                  htmlFor="userChoice" aria-label={gifObj.title}
                   key={uuid()}>
-                  {gifObj.title}
                     <input
                       onChange={select}
                       type="radio"

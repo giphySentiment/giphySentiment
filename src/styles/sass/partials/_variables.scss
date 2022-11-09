@@ -1,1 +1,18 @@
-$test: blue;
+// Font Import
+@font-face {
+  font-family: "always-forever";
+  src: local("always-forever"),
+  url("../../fonts/always-forever/always\ forever.ttf") format("truetype");
+  font-weight: normal;
+}
+
+// Color Variables
+$primaryColor: #98C1D9;
+$secondaryColor: #141414;
+$tertiaryColor: #545775;
+$accentColor: #EDD060;
+$white: #F7F2E9;
+
+// Font Variables
+$logoFont: "always-forever";
+$bodyFont: "Josefin Sans";

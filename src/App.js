@@ -17,8 +17,7 @@ function App() {
         <Route path="/MeetTheDevs" element={<MeetTheDevs />} />
         <Route path="/Timeline" element={<Timeline />} />
       </Routes>
-    
-      <Footer/>
+      <Footer />
     </div>
   );
 };

@@ -20,10 +20,9 @@ const Forms = (props) => {
 
     return (
         <section className="forms">
-            <h2>Happy {`${today}`}! How are you feeling?</h2>
+            <h3>Happy {`${today}`}! How are you feeling?</h3>
             <form onSubmit={(e) => formSubmit(e, props.mood)}>
                 <label htmlFor="moodSelector"
-                    // add visuallyHidden class in CSS
                     className="visuallyHidden">Type in an emotion </label>
                 <input name="moodSelector" id="moodSelector" type="text"
                     onChange={(event) => handleMoodChange(event)}

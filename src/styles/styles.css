@@ -1,3 +1,102 @@
+@font-face {
+  font-family: "always-forever";
+  src: local("always-forever"), url("../../fonts/always-forever/always forever.ttf") format("truetype");
+  font-weight: normal;
+}
+.App {
+  font-size: 125%;
+  font-family: "Josefin Sans";
+  background-color: #98C1D9;
+  color: #141414;
+  height: 100vh;
+  min-height: 700px;
+  scroll-behavior: smooth;
+}
+
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.wrapper {
+  max-width: 1728px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #141414;
+}
+a:hover {
+  color: #F7F2E9;
+}
+a:focus {
+  color: #F7F2E9;
+}
+
+.button, button {
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 1% 3%;
+  min-width: 150px;
+  min-height: 38px;
+  border: 2px solid transparent;
+  border-radius: 30px;
+  background-color: #EDD060;
+  color: #141414;
+}
+.button:hover, button:hover {
+  background-color: #141414;
+  color: #F7F2E9;
+}
+.button:focus, button:focus {
+  background-color: #545775;
+  color: #F7F2E9;
+}
+
+.buttonContainer {
+  font-family: "Josefin Sans";
+}
+
+.welcome h1 {
+  font-size: 9rem;
+  font-family: "always-forever";
+  margin-top: 0px;
+}
+.welcome h2 {
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.landingPage h2 {
+  margin-top: 0px;
+  font-family: "always-forever";
+  font-size: 3rem;
+  padding-top: 1%;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -221,6 +320,37 @@ html {
   overflow: hidden;
 }
 
-h1 {
-  color: blue;
+.welcome .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 92vh;
+  min-height: 700px;
+}
+
+footer {
+  background-color: #545775;
+  margin-bottom: 0px;
+  padding-top: 5px;
+  height: 8vh;
+}
+footer .wrapper {
+  text-align: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+footer .wrapper .creatives {
+  color: #F7F2E9;
+}
+footer .wrapper .creatives a {
+  color: #F7F2E9;
+}
+footer .wrapper .creatives a:hover {
+  color: #EDD060;
+}
+footer .wrapper .creatives a:focus {
+  color: #EDD060;
 }/*# sourceMappingURL=styles.css.map */
