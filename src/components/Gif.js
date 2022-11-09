@@ -33,6 +33,7 @@ const Gif = (props) => {
                   htmlFor="userChoice" aria-label={gifObj.title}
                   key={uuid()}>
                     <input
+                      className="radio"
                       onChange={select}
                       type="radio"
                       name="gif"
