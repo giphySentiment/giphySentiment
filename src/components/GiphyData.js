@@ -24,8 +24,8 @@ const GiphyData = (props) => {
   // Variable that saves the final mood the user chose
   const userChoice = `${mood}`;
 
-      // State for disabling button from illegal characters
-    const [isSpace, setIsSpace] = useState(false) 
+  // State for disabling button from illegal characters
+  const [isSpace, setIsSpace] = useState(false) 
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -51,6 +51,7 @@ const GiphyData = (props) => {
           if (info.data.length > 0){
             props.setGif(info.data);
             setLoading(false);
+            setNoGifsAvailable(false)
           } else {
             setNoGifsAvailable(!noGifsAvailable);
           }

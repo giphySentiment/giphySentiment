@@ -30,6 +30,7 @@ const Forms = (props) => {
                 <input name="moodSelector" id="moodSelector" type="text"
                     onChange={(event) => handleMoodChange(event)}
                 />
+                    <button disabled={props.isSpace ? true : false}  className="buttonContainer">find gifs!</button>
                 {
                     props.noGifsAvailable
                     ? <p>There are no GIFs to express how you feel. Try something else!</p>
@@ -45,7 +46,6 @@ const Forms = (props) => {
                     ? <p>API is down</p>
                     : null
                 }
-                    <button disabled={props.isSpace ? true : false}  className="buttonContainer">find gifs!</button>
                 {
                     props.loading
                 ?    <><LoadingPage /></>
