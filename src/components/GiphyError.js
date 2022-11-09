@@ -6,4 +6,5 @@ const GiphyError = () => {
     )
 }
 
+
 export default GiphyError;
