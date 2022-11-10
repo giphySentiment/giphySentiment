@@ -14,49 +14,63 @@ const Gif = (props) => {
   const formSubmit = useContext(FormContext);
 
   // State to save selectedGif value
-  const [selectedGif, setSelectedGif] = useState("");
+  const [selectedGif, setSelectedGif] = useState('');
+
+  // State to save finalized gif
+  const [finalGif, setFinalGif] = useState('')
 
   // Function to save user's selected Gif
-  const select = (event) => {
-    event.preventDefault();
-    setSelectedGif(event.target.value);
+  const select = (e) => {
+    setSelectedGif(e.target.value);
   };
+
+  // Function that sends the final results
+  const sendToResults = (e) => {
+    setFinalGif(selectedGif)
+    if (finalGif){
+      setSelectedGif('')
+    }
+  }
 
   return (
     <section className="gif">
       <div className="gifContainer">
-        <form onClick={select} className="select">   
+        <form>   
           <fieldset>
+            <label className="select" htmlFor="userChoice" aria-label="gifs">
             {gif.map((gifObj) => {
               return (
-                <label
-                  htmlFor="userChoice" aria-label={gifObj.title}
-                  key={uuid()}>
                     <input
-                      onChange={select}
+                      className="radio"
                       type="radio"
                       name="gif"
                       value={gifObj.images.original.webp}
+                      onChange={select}
+                      checked={selectedGif === gifObj.images.original.webp}
+                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`}}
+                      disabled={finalGif ? true : false}
+                      key={uuid()}
                     />
-                      <img
-                      className="gif"
-                      src={gifObj.images.original.webp}
-                      alt={gifObj.title}
-                      />
-              </label>
-              );
-            })}
-            <button
-              className="buttonContainer"
-              onClick={formSubmit}> gimmie new gifs
-            </button>
-            </fieldset>
+                    );
+                  })}
+            </label>
+          </fieldset>
         </form>
+        <button
+          className="buttonContainer"
+          onClick={formSubmit}
+          disabled={finalGif ? true : false}> 
+          gimmie new gifs
+        </button>
+        <button
+          onClick={sendToResults}>
+          select this gif
+        </button>
       </div>
         {
-          selectedGif
+          finalGif
           ? <Results
-            selectedGif={selectedGif}/>
+            finalGif={finalGif}/>
           : null
         }
     </section>
