@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FormContext } from "./GiphyData";
 
 // Import components
@@ -13,7 +13,6 @@ const Forms = (props) => {
         'default', { weekday: 'long' }
     );
 
-
     // Function to change setMood to user input value
     const handleMoodChange = (e) => {
         props.setMood(e.target.value);
@@ -22,35 +21,41 @@ const Forms = (props) => {
 
     return (
         <section className="forms">
-            <h2>Happy {`${today}`}! How are you feeling?</h2>
+            <h3>Happy {`${today}`}!
+                <span>How are you feeling?</span></h3>
             <form onSubmit={(e) => formSubmit(e, props.mood)}>
                 <label htmlFor="moodSelector"
-                    // add visuallyHidden class in CSS
                     className="visuallyHidden">Type in an emotion </label>
                 <input name="moodSelector" id="moodSelector" type="text"
-                    onChange={(event) => handleMoodChange(event)}
+                    onChange={(e) => handleMoodChange(e)}
                 />
-                    <button disabled={props.isSpace ? true : false}  className="buttonContainer">find gifs!</button>
-                {
-                    props.noGifsAvailable
-                    ? <p>There are no GIFs to express how you feel. Try something else!</p>
-                    : null
-                }
-                {
-                    props.isSpace
-                    ? <p>You can't do that!</p>
-                    : null
-                }
-                {
-                    props.giphyError
-                    ? <p>API is down</p>
-                    : null
-                }
-                {
-                    props.loading
-                ?    <><LoadingPage /></>
-                :   null
-                }
+                <button disabled=
+                    {
+                        props.isSpace
+                        ? true
+                        : false
+                    }
+                    className="buttonContainer">GIF me my mood!</button>
+                    {
+                        props.noGifsAvailable
+                        ? <p>There are no GIFs to express how you feel. Try something else!</p>
+                        : null
+                    }
+                    {
+                        props.isSpace
+                        ? <p>You can't do that!</p>
+                        : null
+                    }
+                    {
+                        props.giphyError
+                        ? <p>API is down</p>
+                        : null
+                    }
+                    {
+                        props.loading
+                        ? <><LoadingPage/></>
+                        : null
+                    }
             </form>
         </section>
     );
