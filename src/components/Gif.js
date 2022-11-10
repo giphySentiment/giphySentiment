@@ -14,12 +14,23 @@ const Gif = (props) => {
   const formSubmit = useContext(FormContext);
 
   // State to save selectedGif value
-  const [selectedGif, setSelectedGif] = useState(null);
+  const [selectedGif, setSelectedGif] = useState('');
+
+  // State to save finalized gif
+  const [finalGif, setFinalGif] = useState('')
 
   // Function to save user's selected Gif
   const select = (e) => {
     setSelectedGif(e.target.value);
   };
+
+  // Function that sends the final results
+  const sendToResults = (e) => {
+    setFinalGif(selectedGif)
+    if (finalGif){
+      setSelectedGif('')
+    }
+  }
 
   return (
     <section className="gif">
@@ -37,22 +48,29 @@ const Gif = (props) => {
                       onChange={select}
                       checked={selectedGif === gifObj.images.original.webp}
                       style={{"backgroundImage" : `url(${gifObj.images.original.webp})`}}
+                      disabled={finalGif ? true : false}
                       key={uuid()}
                     />
                     );
                   })}
             </label>
-            <button
-              className="buttonContainer"
-              onClick={formSubmit}> gimmie new gifs
-            </button>
           </fieldset>
         </form>
+        <button
+          className="buttonContainer"
+          onClick={formSubmit}
+          disabled={finalGif ? true : false}> 
+          gimmie new gifs
+        </button>
+        <button
+          onClick={sendToResults}>
+          select this gif
+        </button>
       </div>
         {
-          selectedGif
+          finalGif
           ? <Results
-            selectedGif={selectedGif}/>
+            finalGif={finalGif}/>
           : null
         }
     </section>
