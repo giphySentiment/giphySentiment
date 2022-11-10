@@ -18,8 +18,8 @@ const Results = (props) => {
     
     // Object with user's gif, mood and date to be pushed to firebase
     const result = {
-        image: props.selectedGif,
         mood: userChoice,
+        image: props.finalGif,
         date: `${month} ${day}, ${year}`
     };
 
@@ -32,7 +32,7 @@ const Results = (props) => {
         <section className="results">
             <div>
                 <img
-                    src={props.selectedGif}
+                    src={props.finalGif}
                     alt={`user's selected gif that represents the mood of ${userChoice}`} />
                 <p>{userChoice}</p>
             </div>
