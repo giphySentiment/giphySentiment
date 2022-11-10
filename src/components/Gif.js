@@ -14,44 +14,39 @@ const Gif = (props) => {
   const formSubmit = useContext(FormContext);
 
   // State to save selectedGif value
-  const [selectedGif, setSelectedGif] = useState("");
+  const [selectedGif, setSelectedGif] = useState(null);
 
   // Function to save user's selected Gif
-  const select = (event) => {
-    event.preventDefault();
-    setSelectedGif(event.target.value);
+  const select = (e) => {
+    setSelectedGif(e.target.value);
   };
 
   return (
     <section className="gif">
       <div className="gifContainer">
-        <form onClick={select} className="select">   
+        <form>   
           <fieldset>
+            <label className="select" htmlFor="userChoice" aria-label="gifs">
             {gif.map((gifObj) => {
               return (
-                <label
-                  htmlFor="userChoice" aria-label={gifObj.title}
-                  key={uuid()}>
                     <input
                       className="radio"
-                      onChange={select}
                       type="radio"
                       name="gif"
                       value={gifObj.images.original.webp}
+                      onChange={select}
+                      checked={selectedGif === gifObj.images.original.webp}
+                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`}}
+                      key={uuid()}
                     />
-                      <img
-                      className="gif"
-                      src={gifObj.images.original.webp}
-                      alt={gifObj.title}
-                      />
-              </label>
-              );
-            })}
+                    );
+                  })}
+            </label>
             <button
               className="buttonContainer"
               onClick={formSubmit}> gimmie new gifs
             </button>
-            </fieldset>
+          </fieldset>
         </form>
       </div>
         {

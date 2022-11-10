@@ -1,2 +1,22 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+
+.select {
+    display: flex;
+}
+input[type="radio"] {
+    display: block;
+    appearance: none;
+    width: 350px;
+    height: 350px;
+    background: #ccc;
+    padding: 0;
+    margin: 4px;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center center;
+    &:checked {
+        border: 5px solid red;
+    }
+}        
