@@ -1,2 +1,48 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.forms {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+        font-size: 5rem;
+        text-align: center;
+        line-height: 7rem;
+        margin: 0 auto;
+        padding-top: 5%;
+        span {
+            font-size: 4rem;
+            display: block;
+            font-family: $logoFont;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        input {
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-family: $bodyFont;
+            padding: 5px;
+            text-align: center;
+            width: 25%;
+            min-width: 250px;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            &:focus {
+                border: 2px solid $accentColor;
+                outline: none;
+            }
+        }
+        button {
+            padding: 5% 10%;
+        }
+    }
+}
