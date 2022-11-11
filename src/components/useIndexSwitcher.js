@@ -1,22 +1,22 @@
 // import { useState } from "react";
 // const useIndexSwitcher = (items) => {
-//     const [currentIndex, setCurrentIndex] = useState(0);
+//     const [currentDisplay, setCurrentDisplay] = useState([]);
 
-//     const currentItem = items[currentIndex]
+//     const currentItem = items[currentDisplay]
     
 //      const previousIndex = () => {
-//         let previous = currentIndex - 1
+//         let previous = currentDisplay - 1
 //         if (previous <= items.length) {
 //             previous = 0
 //         }
-//         setCurrentIndex(previous)
+//         setCurrentDisplay(previous)
 //     }
 //     const nextIndex = () => {
-//         let next = currentIndex + 1
+//         let next = (currentDisplay + 1)
 //         if (next >= items.length) {
 //             next = 0
 //         }
-//         setCurrentIndex(next)
+//         setCurrentDisplay(next)
 //         console.log(next)
 //     }
 

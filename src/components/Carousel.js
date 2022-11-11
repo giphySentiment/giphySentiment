@@ -3,7 +3,6 @@
 // const Carousel = (props) => {
 //     const [currentTimeline, handlePrevious, handleNext ] = useIndexSwitcher(props.children);
 
-
 //     return (
 //         <div>
 //             {currentTimeline}

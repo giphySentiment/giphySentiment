@@ -17,20 +17,20 @@
     } 
 }
 
-// .carousel {
-//     display: flex;
-//     justify-content: center;
-//     align-items: flex-end;
-//     .slides {
-//         height: 400px;
-//         display: flex;
-//         flex-wrap: wrap;
-//         overflow: hidden;
-//         .savedToTimeline {
-//             width: 33%;
-//             img {
-//                 width: 100%;
-//             }
-//         }
-//     }
-// }
+.timelineTest {
+    width: fit-content;
+}
+.timelineContainer {
+        background-color: red;
+        height: 600px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        // scrollbar-width: none;
+        .timelineItems {
+            width: 500px;
+            background-color: white;
+            margin: 30px;
+            height: 500px;
+        }
+    }

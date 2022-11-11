@@ -25,19 +25,35 @@ const Timeline = (props) => {
         })
     }, []);
 
-    let currentItems = (0);
-    console.log(timeline)
-    const displayNextThree = () => {
-        for (let i = 0; i > timeline.length; i + 3){
-        timeline[i]
-    }
+    // let currentItems = (0);
+    // console.log(timeline)
+    // const displayNextThree = () => {
+    //     for (let i = 0; i > timeline.length; i + 3){
+    //         timeline = timeline + 3
+    //         const arrayOfThree = []
+    //         timeline.slice(i, i + 3)
+    // }
         // setTimeline(timeline.slice(currentItems, currentItems + 3));
         // if (!(currentItems + 3 > timeline.length)) {
-        //     currentItems += 3;
+        //     currentItems = currentItems + 3;
         // }
-        console.log(timeline)
-    }
+    //     console.log(timeline)
+    // }
 
+    let currentItems = 0;
+    // let maxItems = timeline.length - 3;
+    // console.log(timeline)
+    // const displayNextThree = () => {
+    //     if (currentItems === maxItems) {
+    //         currentItems = 0;
+    //     } else {
+    //         currentItems + 3;
+    //     }
+    // }
+
+    // for (i = 0; i < timeline.length; i++) {
+    //     if(timeline[i].length)
+    // }
     return (
         <section className="timeline">
              <div className="wrapper">
@@ -47,26 +63,27 @@ const Timeline = (props) => {
                     </Link>
                 </nav>
             </div>
-            <div className="carousel">
-                {/* <Carousel setTimeline={setTimeline} timeline={timeline}> */}
-                {/* <div className="slides"> */}
-                    {timeline.slice(currentItems, currentItems + 3).map((result) => {
+                <div className="timelineContainer">
+                    {timeline.map((result) => {
                         return (
-                            <div
-                                className="savedToTimeline"
-                                key={uuid()}>
-                                <h3>{`On ${result.name.date}, you felt: ${result.name.mood}`}</h3>
-                                <img
-                                    src={result.name.image}
-                                    alt={`user selected gif to show the mood of ${result.name.mood}`}
-                                />
+                            <div className="timelineTest">
+                                <div
+                                    className="timelineItems"
+                                    key={uuid()}>
+                                    <h3>{`On ${result.name.date}, you felt: ${result.name.mood}`}</h3>
+                                    <img
+                                        src={result.name.image}
+                                        alt={`user selected gif to show the mood of ${result.name.mood}`}
+                                    />
+                                </div>
                             </div>
                         )
                     })}
-                    <button onClick={displayNextThree}>&#10095;</button>
-                {/* </div> */}
-                {/* </Carousel> */}
             </div>
+            <div className="timelineButtons">
+                        <button>&#10094;</button>
+                        <button>&#10095;</button>
+                    </div>
         </section>
     );
 };
