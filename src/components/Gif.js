@@ -34,7 +34,7 @@ const Gif = (props) => {
 
   return (
     <section className="gif">
-      <div className="gifContainer">
+      <div className="gifContainer wrapper">
         <form>   
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
@@ -56,8 +56,8 @@ const Gif = (props) => {
             </label>
           </fieldset>
         </form>
+        <div className="buttonContainer">
         <button
-          className="buttonContainer"
           onClick={formSubmit}
           disabled={finalGif ? true : false}> 
           gimmie new gifs
@@ -66,6 +66,7 @@ const Gif = (props) => {
           onClick={sendToResults}>
           select this gif
         </button>
+        </div>
       </div>
         {
           finalGif

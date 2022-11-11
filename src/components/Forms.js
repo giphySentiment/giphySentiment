@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FormContext } from "./GiphyData";
+import GiphyError from "./GiphyError";
 
 // Import components
 import LoadingPage from "./LoadingPage";
@@ -48,7 +49,7 @@ const Forms = (props) => {
                     }
                     {
                         props.giphyError
-                        ? <p>API is down</p>
+                        ? <GiphyError />
                         : null
                     }
                     {
