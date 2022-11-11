@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo1 from "../assets/moodyMemesLogoStacked.png"
 import logo2 from "../assets/moodyMemesLogoHorizontal.png"
 
 const Welcome = () => {

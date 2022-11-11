@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import { Link } from 'react-router-dom';
-import logo from "../assets/moodyMemesLogoHorizontal.png"
-import logo2 from "../assets/moodyMemesLogoStacked.png"
+// import navLogo from '../assets/moodyMemesLogoNoBanner.png';
+import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 // Import components
 import GiphyData from "./GiphyData";
@@ -18,8 +18,7 @@ const LandingPage = () => {
             <div className="wrapper">
                 <nav>
                     <Link to="/">
-                        {/* <img className="navLogo" src={logo} alt="" /> */}
-                        <img className="navLogo2" src={logo2} alt="" />
+                        <img className="navLogo" src={navLogo2} alt="" />
                     </Link>
                     <Link to="/Timeline">Timeline</Link>
                 </nav>
