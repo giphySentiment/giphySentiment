@@ -37,6 +37,9 @@ const Results = (props) => {
                 <p>{userChoice}</p>
             </div>
             <button>
+                <Link to="/landingPage">Try Again</Link>
+            </button>
+            <button>
                 <Link to="/Timeline">Show Timeline</Link>
             </button>
         </section>
