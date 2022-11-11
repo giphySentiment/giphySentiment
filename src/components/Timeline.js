@@ -1,5 +1,5 @@
 import firebaseConfig from '../firebase';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import uuid from "react-uuid";
@@ -24,6 +24,13 @@ const Timeline = (props) => {
             setTimeline(newState);
         })
     }, []);
+
+    const handleRemoveMeme = (memeKey) => {
+        const database = getDatabase(firebaseConfig);
+        const databaseRef = ref(database, `/${memeKey}`)
+
+        remove(databaseRef)
+    }
 
     // let currentItems = (0);
     // console.log(timeline)
@@ -75,6 +82,9 @@ const Timeline = (props) => {
                                         src={result.name.image}
                                         alt={`user selected gif to show the mood of ${result.name.mood}`}
                                     />
+                                    <button onClick={() => {handleRemoveMeme(result.key)}}>
+                                        <i className="fa-regular fa-trash-can"></i>
+                                    </button>
                                 </div>
                             </div>
                         )
