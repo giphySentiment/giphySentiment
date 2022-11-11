@@ -1,2 +1,36 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.timeline {
+    height: 92vh;
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: baseline;
+        h2 {
+        margin-top: 0px;
+        font-family: "always-forever";
+        font-size: 3.5rem;
+        padding-top: 5%;
+        }
+    } 
+}
+
+// .carousel {
+//     display: flex;
+//     justify-content: center;
+//     align-items: flex-end;
+//     .slides {
+//         height: 400px;
+//         display: flex;
+//         flex-wrap: wrap;
+//         overflow: hidden;
+//         .savedToTimeline {
+//             width: 33%;
+//             img {
+//                 width: 100%;
+//             }
+//         }
+//     }
+// }
