@@ -58,6 +58,7 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
           }
+          console.log(info.data)
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404){
