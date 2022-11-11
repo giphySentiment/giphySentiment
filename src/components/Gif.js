@@ -27,9 +27,7 @@ const Gif = (props) => {
   // Function that sends the final results
   const sendToResults = (e) => {
     setFinalGif(selectedGif)
-    if (finalGif){
-      setSelectedGif('')
-    }
+    props.setShowForm(false)
   }
 
   return (
