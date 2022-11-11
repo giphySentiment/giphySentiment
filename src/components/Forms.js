@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { FormContext } from "./GiphyData";
+import GiphyError from "./GiphyError";
 
 // Import components
 import LoadingPage from "./LoadingPage";

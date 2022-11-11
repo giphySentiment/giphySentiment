@@ -1,7 +1,7 @@
 const GiphyError = () => {
     return (
         <div>
-
+            <p>API is down</p>
         </div>
     )
 }

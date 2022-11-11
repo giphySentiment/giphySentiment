@@ -30,11 +30,12 @@ const Results = (props) => {
 
     return (
         <section className="results">
-            <div>
+            <div className='resultsContent'>
+                <p>{userChoice}</p>
                 <img
                     src={props.finalGif}
                     alt={`user's selected gif that represents the mood of ${userChoice}`} />
-                <p>{userChoice}</p>
+                
             </div>
             <button>
                 <Link to="/landingPage">Try Again</Link>

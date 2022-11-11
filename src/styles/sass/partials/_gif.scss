@@ -1,22 +1,51 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
-
-.select {
-    display: flex;
-}
-.radio {
-    display: block;
-    appearance: none;
-    width: 350px;
-    height: 350px;
-    background: #ccc;
-    padding: 0;
-    margin: 4px;
-    box-sizing: border-box;
-    background-repeat: no-repeat;
-    background-position: center center;
-    &:checked {
-        border: 5px solid red;
+.gif {
+    height: 100vh;
+    background-color: $primaryColor;
+    
+    .gifContainer {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
     }
-}        
+
+    form {
+        border: none;
+    }
+
+    .buttonContainer {
+        display: flex;
+        gap: 10px;
+    }
+
+    .select {
+        display: flex;
+    }
+
+    fieldset {
+        border: none;
+    }
+    
+    input[type="radio"] {
+        display: block;
+        appearance: none;
+        width: 350px;
+        height: 350px;
+        background: $primaryColor;
+        padding: 0;
+        margin: 4px;
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border: 0;
+        transition: all 0.3s ease 0s;
+        &:checked {
+            //border: 5px solid red;
+            box-shadow: inset 0 0 0 2px $tertiaryColor;
+        }
+    }  
+}

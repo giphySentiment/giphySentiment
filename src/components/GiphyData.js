@@ -81,8 +81,8 @@ const GiphyData = (props) => {
           isSpace={isSpace}
           setIsSpace={setIsSpace}
           giphyError={giphyError}
-        />
-        : null
+          />
+          : null
         }
         <ChoiceContext.Provider value={userChoice}>
           <Gif
@@ -92,6 +92,7 @@ const GiphyData = (props) => {
         </ChoiceContext.Provider>
       </section>
     </FormContext.Provider>
+
   );
 };
 

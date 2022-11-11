@@ -4,7 +4,7 @@ import logo from "../assets/moodyMemesLogoHorizontal.png"
 import logo2 from "../assets/moodyMemesLogoStacked.png"
 
 // Import components
-import GiphyData from './GiphyData';
+import GiphyData from "./GiphyData";
 
 // Exporting context
 export const GifContext = createContext();
