@@ -470,4 +470,40 @@ footer .wrapper .creatives a:focus {
   text-align: center;
   font-size: clamp(1rem, 3vw, 2rem);
   margin: 0;
+}
+
+.timeline {
+  height: 92vh;
+}
+.timeline nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.timeline nav h2 {
+  margin-top: 0px;
+  font-family: "always-forever";
+  font-size: 3.5rem;
+  padding-top: 5%;
+}
+
+.timelineTest {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.timelineContainer {
+  background-color: red;
+  height: 600px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+}
+.timelineContainer .timelineItems {
+  width: 500px;
+  background-color: white;
+  margin: 30px;
+  height: 500px;
 }/*# sourceMappingURL=styles.css.map */

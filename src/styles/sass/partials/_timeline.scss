@@ -1,2 +1,37 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.timeline {
+    height: 92vh;
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: baseline;
+        h2 {
+        margin-top: 0px;
+        font-family: "always-forever";
+        font-size: 3.5rem;
+        padding-top: 5%;
+        }
+    } 
+}
+
+.timelineTest {
+    width: fit-content;
+}
+.timelineContainer {
+        background-color: red;
+        height: 600px;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        // scrollbar-width: none;
+        .timelineItems {
+            width: 500px;
+            background-color: white;
+            margin: 30px;
+            height: 500px;
+        }
+    }
+    
