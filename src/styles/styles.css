@@ -314,11 +314,15 @@ html {
   font-size: 9rem;
   font-family: "always-forever";
   margin-top: 0px;
+  margin: 0 auto;
 }
 .welcome .wrapper h2 {
   font-size: 2.8rem;
   font-weight: 300;
   letter-spacing: 3px;
+}
+.welcome .wrapper .logo {
+  width: 50%;
 }
 
 footer {
@@ -358,6 +362,10 @@ footer .wrapper .creatives a:focus {
   font-family: "always-forever";
   font-size: 3.5rem;
   padding-top: 5%;
+}
+.landingPage nav .navLogo {
+  width: 10%;
+  margin: 20px;
 }
 
 .forms {
@@ -429,13 +437,13 @@ footer .wrapper .creatives a:focus {
 .gif fieldset {
   border: none;
 }
-.gif input[type=radio] {
+.gif .radio {
   display: block;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   background: #98C1D9;
   padding: 0;
   margin: 4px;
@@ -445,7 +453,7 @@ footer .wrapper .creatives a:focus {
   border: 0;
   transition: all 0.3s ease 0s;
 }
-.gif input[type=radio]:checked {
+.gif .radio:checked {
   box-shadow: inset 0 0 0 2px #545775;
 }
 
