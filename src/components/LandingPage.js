@@ -14,7 +14,7 @@ const LandingPage = () => {
   return (
     <section className="landingPage">
       <div>
-        <nav>
+        <nav className="wrapper">
           <Link to="/">
             <h2>Giphy Sentiments</h2>
           </Link>

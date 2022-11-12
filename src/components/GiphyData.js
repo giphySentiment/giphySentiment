@@ -9,6 +9,10 @@ export const ChoiceContext = createContext();
 export const FormContext = createContext();
 
 const GiphyData = (props) => {
+
+  //state to display Gif page
+  const [displayGifPage, setDisplayGifPage] = useState(false);
+
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
 
@@ -25,7 +29,12 @@ const GiphyData = (props) => {
   const userChoice = `${mood}`;
 
   // State for disabling button from illegal characters
-  const [isSpace, setIsSpace] = useState(false) 
+  const [isSpace, setIsSpace] = useState(false)
+  
+  //function to update state of displayGifPage
+  const handleShowGif = () => {
+    setDisplayGifPage(!displayGifPage)
+}
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -76,12 +85,18 @@ const GiphyData = (props) => {
           isSpace={isSpace}
           setIsSpace={setIsSpace}
           giphyError={giphyError}
+          handleShowGif={handleShowGif}
         /> 
         </section>
         <ChoiceContext.Provider value={userChoice}>
-          <Gif
-            mood={mood}
-          />
+          {/* conditionally render based on click of button */}
+
+          {
+            displayGifPage ?
+             <Gif mood={mood} />
+             : null
+          }
+         
         </ChoiceContext.Provider>
      
     </FormContext.Provider>
