@@ -1,17 +1,21 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import uuid from "react-uuid";
 import { useRef } from 'react';
 
 const Timeline = (props) => {
 
+    // console.log(result)
     // const [numOfLikes, setNumOfLikes] = useState();
     // const handleLikes = () => {
     //     setNumOfLikes(numOfLikes + 1);
     //     console.log("num of likes being clicked");
     // };
+
+    const {state} = useLocation();
+    console.log(state.finalResults)
 
     //declaring my useRef
     const testRef = useRef(null);

@@ -1,6 +1,6 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, push } from 'firebase/database';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { ChoiceContext } from './GiphyData';
 
@@ -28,6 +28,13 @@ const Results = (props) => {
     const databaseRef = ref(database);
     push(databaseRef, result);
 
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/Timeline",
+            { state: {finalResults: props.finalGif}
+        })
+    }
+
     return (
         <section className="results">
             <div className='resultsContent'>
@@ -36,8 +43,11 @@ const Results = (props) => {
                     src={props.finalGif}
                     alt={`user's selected gif that represents the mood of ${userChoice}`} />
             </div>
-            <button>
-                <Link to="/Timeline">Show Timeline</Link>
+            <button onClick={handleClick}>Save and go to timeline
+                
+                {/* <Link to="/Timeline" state={result}>Save and go to Timeline</Link> */}
+
+                {/* {console.log(props.history)} */}
             </button>
         </section>
     );
