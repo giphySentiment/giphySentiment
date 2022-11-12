@@ -107,6 +107,7 @@ const GiphyData = (props) => {
         </ChoiceContext.Provider>
       </section>
     </FormContext.Provider>
+
   );
 };
 

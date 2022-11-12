@@ -43,6 +43,11 @@ const Results = (props) => {
                     src={props.finalGif}
                     alt={`user's selected gif that represents the mood of ${userChoice}`} />
             </div>
+
+            <button>
+                <Link to="/landingPage">Try Again</Link>
+            </button>
+            
             <button onClick={handleClick}>Save and go to timeline
                 
                 {/* <Link to="/Timeline" state={result}>Save and go to Timeline</Link> */}
