@@ -40,37 +40,6 @@ const Timeline = (props) => {
         remove(databaseRef)
     }
 
-
-
-    // let currentItems = (0);
-    // console.log(timeline)
-    // const displayNextThree = () => {
-    //     for (let i = 0; i > timeline.length; i + 3){
-    //         timeline = timeline + 3
-    //         const arrayOfThree = []
-    //         timeline.slice(i, i + 3)
-    // }
-        // setTimeline(timeline.slice(currentItems, currentItems + 3));
-        // if (!(currentItems + 3 > timeline.length)) {
-        //     currentItems = currentItems + 3;
-        // }
-    //     console.log(timeline)
-    // }
-
-    let currentItems = 0;
-    // let maxItems = timeline.length - 3;
-    // console.log(timeline)
-    // const displayNextThree = () => {
-    //     if (currentItems === maxItems) {
-    //         currentItems = 0;
-    //     } else {
-    //         currentItems + 3;
-    //     }
-    // }
-
-    // for (i = 0; i < timeline.length; i++) {
-    //     if(timeline[i].length)
-    // }
     return (
         <section className="timeline">
              <div className="wrapper">
