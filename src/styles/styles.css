@@ -495,15 +495,54 @@ footer .wrapper .creatives a:focus {
 }
 
 .timelineContainer {
-  background-color: red;
-  height: 600px;
+  background-color: #545775;
   display: flex;
   flex-wrap: nowrap;
   overflow-y: hidden;
+  scrollbar-color: #EDD060 #98C1D9;
+}
+.timelineContainer::-webkit-scrollbar {
+  background: #98C1D9;
+}
+.timelineContainer::-webkit-scrollbar-thumb {
+  background: #EDD060;
+  border-radius: 25px;
 }
 .timelineContainer .timelineItems {
   width: 500px;
   background-color: white;
   margin: 30px;
-  height: 500px;
+}
+
+.notFound {
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.notFound .internal {
+  color: #F7F2E9;
+  text-align: center;
+  background-color: rgba(41, 40, 40, 0.72);
+  height: 50vh;
+  min-height: 480px;
+  width: 50vw;
+  margin: 0 auto;
+  border-radius: 25px;
+  position: relative;
+}
+.notFound .internal h2 {
+  margin: 0px;
+  font-size: 20rem;
+}
+.notFound .internal p {
+  font-size: 2.5rem;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.lostImg {
+  position: absolute;
+  right: 0;
+  bottom: 8%;
 }/*# sourceMappingURL=styles.css.map */

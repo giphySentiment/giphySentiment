@@ -3,6 +3,7 @@
 
 .timeline {
     height: 92vh;
+    
     nav {
         display: flex;
         flex-wrap: nowrap;
@@ -19,19 +20,26 @@
 
 .timelineTest {
     width: fit-content;
+    
 }
 .timelineContainer {
-        background-color: red;
-        height: 600px;
+        background-color: $tertiaryColor;
         display: flex;
         flex-wrap: nowrap;
         overflow-y: hidden;
-        // scrollbar-width: none;
+        scrollbar-color: $accentColor $primaryColor;
+        &::-webkit-scrollbar {
+            background: $primaryColor;
+            
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $accentColor;
+            border-radius: 25px;
+        }
         .timelineItems {
             width: 500px;
             background-color: white;
             margin: 30px;
-            height: 500px;
         }
     }
     

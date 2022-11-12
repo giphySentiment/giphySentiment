@@ -1,13 +1,20 @@
 import firebaseConfig from '../firebase';
-import { getDatabase, ref, onValue } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import uuid from "react-uuid";
-
-// Import components
-import Carousel from './Carousel';
+import { useRef } from 'react';
 
 const Timeline = (props) => {
+
+    // const [numOfLikes, setNumOfLikes] = useState();
+    // const handleLikes = () => {
+    //     setNumOfLikes(numOfLikes + 1);
+    //     console.log("num of likes being clicked");
+    // };
+
+    //declaring my useRef
+    const testRef = useRef(null);
     // State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
@@ -25,35 +32,13 @@ const Timeline = (props) => {
         })
     }, []);
 
-    // let currentItems = (0);
-    // console.log(timeline)
-    // const displayNextThree = () => {
-    //     for (let i = 0; i > timeline.length; i + 3){
-    //         timeline = timeline + 3
-    //         const arrayOfThree = []
-    //         timeline.slice(i, i + 3)
-    // }
-        // setTimeline(timeline.slice(currentItems, currentItems + 3));
-        // if (!(currentItems + 3 > timeline.length)) {
-        //     currentItems = currentItems + 3;
-        // }
-    //     console.log(timeline)
-    // }
+    const handleRemoveMeme = (memeKey) => {
+    const database = getDatabase(firebaseConfig);
+    const databaseRef = ref(database, `/${memeKey}`)
 
-    let currentItems = 0;
-    // let maxItems = timeline.length - 3;
-    // console.log(timeline)
-    // const displayNextThree = () => {
-    //     if (currentItems === maxItems) {
-    //         currentItems = 0;
-    //     } else {
-    //         currentItems + 3;
-    //     }
-    // }
-
-    // for (i = 0; i < timeline.length; i++) {
-    //     if(timeline[i].length)
-    // }
+    remove(databaseRef)
+    }
+    
     return (
         <section className="timeline">
              <div className="wrapper">
@@ -66,7 +51,7 @@ const Timeline = (props) => {
                 <div className="timelineContainer">
                     {timeline.map((result) => {
                         return (
-                            <div className="timelineTest">
+                            <div ref ={testRef} className="timelineTest">
                                 <div
                                     className="timelineItems"
                                     key={uuid()}>
@@ -75,15 +60,16 @@ const Timeline = (props) => {
                                         src={result.name.image}
                                         alt={`user selected gif to show the mood of ${result.name.mood}`}
                                     />
+                                    <button onClick={() => {handleRemoveMeme(result.key)}}>
+                                    <i className="fa-regular fa-trash-can"></i>
+                                    </button>
+                                     {/* <button onClick={handleLikes}><i className="fa-regular fa-heart"></i></button>
+                                    <p>{numOfLikes}</p> */}
                                 </div>
                             </div>
                         )
                     })}
-            </div>
-            <div className="timelineButtons">
-                        <button>&#10094;</button>
-                        <button>&#10095;</button>
-                    </div>
+                </div>
         </section>
     );
 };

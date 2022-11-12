@@ -35,7 +35,6 @@ const Results = (props) => {
                 <img
                     src={props.finalGif}
                     alt={`user's selected gif that represents the mood of ${userChoice}`} />
-                
             </div>
             <button>
                 <Link to="/Timeline">Show Timeline</Link>
