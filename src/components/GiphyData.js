@@ -9,6 +9,10 @@ export const ChoiceContext = createContext();
 export const FormContext = createContext();
 
 const GiphyData = (props) => {
+
+  //state to display Gif page
+  const [displayGifPage, setDisplayGifPage] = useState(false);
+
   // State that listens for a change in user choice
   const [mood, setMood] = useState("");
 
@@ -25,7 +29,15 @@ const GiphyData = (props) => {
   const userChoice = `${mood}`;
 
   // State for disabling button from illegal characters
-  const [isSpace, setIsSpace] = useState(false) 
+  const [isSpace, setIsSpace] = useState(false)
+  
+  //function to update state of displayGifPage
+  const handleShowGif = () => {
+    setDisplayGifPage(!displayGifPage)
+}
+
+  // State for hiding or displaying the form component
+  const [showForm, setShowForm] = useState(true)
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -55,6 +67,7 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
           }
+          console.log(info.data)
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404){
@@ -68,7 +81,9 @@ const GiphyData = (props) => {
   return (
     <FormContext.Provider value={handleFormSubmit}>
       <section className="giphyData">
-        <Forms
+        {
+        showForm
+        ? <Forms
           mood={mood}
           setMood={setMood}
           loading={loading}
@@ -76,14 +91,21 @@ const GiphyData = (props) => {
           isSpace={isSpace}
           setIsSpace={setIsSpace}
           giphyError={giphyError}
-        /> 
-        </section>
-        <ChoiceContext.Provider value={userChoice}>
-          <Gif
-            mood={mood}
+          handleShowGif={handleShowGif}
           />
+          : null
+        }
+        <ChoiceContext.Provider value={userChoice}>
+          {/* conditionally render based on click of button */}
+
+          {
+            displayGifPage ?
+             <Gif mood={mood}  setShowForm={setShowForm}/>
+             : null
+          }
+         
         </ChoiceContext.Provider>
-     
+      </section>
     </FormContext.Provider>
   );
 };

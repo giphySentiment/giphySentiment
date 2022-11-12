@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FormContext } from "./GiphyData";
 import GiphyError from "./GiphyError";
 
@@ -6,6 +6,8 @@ import GiphyError from "./GiphyError";
 import LoadingPage from "./LoadingPage";
 
 const Forms = (props) => {
+
+   
     // Set variable for 'handleFormSubmit' from GiphyData (useContext)
     const formSubmit = useContext(FormContext);
     
@@ -30,7 +32,8 @@ const Forms = (props) => {
                 <input name="moodSelector" id="moodSelector" type="text"
                     onChange={(e) => handleMoodChange(e)}
                 />
-                <button disabled=
+                <button onClick={props.handleShowGif} 
+                       disabled=
                     {
                         props.isSpace
                         ? true
@@ -39,17 +42,17 @@ const Forms = (props) => {
                     className="buttonContainer">GIF me my mood!</button>
                     {
                         props.noGifsAvailable
-                        ? <p>There are no GIFs to express how you feel. Try something else!</p>
+                        ? <p>Sorry, there are no GIFs to express how you feel. Try something else!</p>
                         : null
                     }
                     {
                         props.isSpace
-                        ? <p>You can't do that!</p>
+                        ? <p>Single words only please!</p>
                         : null
                     }
                     {
                         props.giphyError
-                        ? <GiphyError />
+                        ? <p>Oh no! The API is down.</p>
                         : null
                     }
                     {
