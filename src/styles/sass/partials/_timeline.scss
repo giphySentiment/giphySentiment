@@ -1,2 +1,46 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.timeline {
+    height: 92vh;
+    nav {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: baseline;
+        h2 {
+        margin-top: 0px;
+        font-family: "always-forever";
+        font-size: 3.5rem;
+        padding-top: 5%;
+        }
+    } 
+}
+
+.timelineTest {
+    width: fit-content;
+}
+.timelineContainer {
+    background-color: $tertiaryColor;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    scrollbar-color: $accentColor $primaryColor;
+
+    &::-webkit-scrollbar {
+        background: $primaryColor;
+
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $accentColor;
+        border-radius: 25px;
+    }
+
+    .timelineItems {
+        width: 500px;
+        background-color: white;
+        margin: 30px;
+    }
+}
+    

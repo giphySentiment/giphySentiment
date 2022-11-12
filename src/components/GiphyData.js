@@ -27,6 +27,9 @@ const GiphyData = (props) => {
   // State for disabling button from illegal characters
   const [isSpace, setIsSpace] = useState(false) 
 
+  // State for hiding or displaying the form component
+  const [showForm, setShowForm] = useState(true)
+
   // Randomizer Function
   const randomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -55,6 +58,7 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
           }
+          console.log(info.data)
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404){
@@ -68,7 +72,9 @@ const GiphyData = (props) => {
   return (
     <FormContext.Provider value={handleFormSubmit}>
       <section className="giphyData">
-        <Forms
+        {
+        showForm
+        ? <Forms
           mood={mood}
           setMood={setMood}
           loading={loading}
@@ -76,14 +82,18 @@ const GiphyData = (props) => {
           isSpace={isSpace}
           setIsSpace={setIsSpace}
           giphyError={giphyError}
-        />
+          />
+          : null
+        }
         <ChoiceContext.Provider value={userChoice}>
           <Gif
             mood={mood}
+            setShowForm={setShowForm}
           />
         </ChoiceContext.Provider>
       </section>
     </FormContext.Provider>
+
   );
 };
 

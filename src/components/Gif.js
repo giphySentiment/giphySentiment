@@ -27,14 +27,13 @@ const Gif = (props) => {
   // Function that sends the final results
   const sendToResults = (e) => {
     setFinalGif(selectedGif)
-    if (finalGif){
-      setSelectedGif('')
-    }
+    props.setShowForm(false)
+    setSelectedGif('')
   }
 
   return (
     <section className="gif">
-      <div className="gifContainer">
+      <div className="gifContainer wrapper">
         <form>   
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
@@ -47,7 +46,7 @@ const Gif = (props) => {
                       value={gifObj.images.original.webp}
                       onChange={select}
                       checked={selectedGif === gifObj.images.original.webp}
-                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`}}
+                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`, "background-size" : '300px 300px'}}
                       disabled={finalGif ? true : false}
                       key={uuid()}
                     />
@@ -56,8 +55,8 @@ const Gif = (props) => {
             </label>
           </fieldset>
         </form>
+        <div className="buttonContainer">
         <button
-          className="buttonContainer"
           onClick={formSubmit}
           disabled={finalGif ? true : false}> 
           gimmie new gifs
@@ -66,6 +65,7 @@ const Gif = (props) => {
           onClick={sendToResults}>
           select this gif
         </button>
+        </div>
       </div>
         {
           finalGif
