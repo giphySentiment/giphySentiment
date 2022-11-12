@@ -22,22 +22,46 @@
 }
 
 .timelineContainer {
+<<<<<<< HEAD
     background-color: $primaryColor;
+=======
+    background-color: $tertiaryColor;
+>>>>>>> 4d36eba5da5d4401cbae752ca7918860eed3ac1f
     display: flex;
     flex-wrap: nowrap;
     overflow-y: hidden;
     scrollbar-color: $accentColor $primaryColor;
+<<<<<<< HEAD
     &::-webkit-scrollbar {
         background: $primaryColor;
         
     }
+=======
+
+    &::-webkit-scrollbar {
+        background: $primaryColor;
+
+    }
+
+>>>>>>> 4d36eba5da5d4401cbae752ca7918860eed3ac1f
     &::-webkit-scrollbar-thumb {
         background: $accentColor;
         border-radius: 25px;
     }
+<<<<<<< HEAD
     .timelineItems {
         width: 500px;
         background-color: $primaryColor;
         margin: 30px;
     }
 }
+=======
+
+    .timelineItems {
+        width: 500px;
+        background-color: white;
+        margin: 30px;
+    }
+}
+    
+>>>>>>> 4d36eba5da5d4401cbae752ca7918860eed3ac1f

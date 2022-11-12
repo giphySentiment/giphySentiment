@@ -1,5 +1,7 @@
 import { useState, createContext } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+// import navLogo from '../assets/moodyMemesLogoNoBanner.png';
+import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 // Import components
 import GiphyData from "./GiphyData";
@@ -8,24 +10,24 @@ import GiphyData from "./GiphyData";
 export const GifContext = createContext();
 
 const LandingPage = () => {
-  //State to store data from Giphy API
-  const [gif, setGif] = useState([]);
-
-  return (
-    <section className="landingPage">
-      <div>
-        <nav className="wrapper">
-          <Link to="/">
-            <h2>Giphy Sentiments</h2>
-          </Link>
-          <Link to="/Timeline">Timeline</Link>
-        </nav>
-        <GifContext.Provider value={gif}>
-          <GiphyData setGif={setGif} />
-        </GifContext.Provider>
-      </div>
-    </section>
-  );
+    //State to store data from Giphy API
+    const [gif, setGif] = useState([]);
+   
+    return (
+        <section className="landingPage">
+            <div className="wrapper">
+                <nav>
+                    <Link to="/">
+                        <img className="navLogo" src={navLogo2} alt="" />
+                    </Link>
+                    <Link to="/Timeline">Timeline</Link>
+                </nav>
+                <GifContext.Provider value={gif}>
+                    <GiphyData setGif={setGif} />
+                </GifContext.Provider>     
+            </div>
+        </section>
+    );
 };
 
 export default LandingPage;

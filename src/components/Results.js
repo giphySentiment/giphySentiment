@@ -7,7 +7,6 @@ import { ChoiceContext } from "./GiphyData";
 export const LikesContext = createContext();
 
 const Results = (props) => {
-
   // Set variable for 'userChoice' from GiphyData (useContext)
   const userChoice = useContext(ChoiceContext);
 
@@ -24,7 +23,6 @@ const Results = (props) => {
     mood: userChoice,
     image: props.finalGif,
     date: `${month} ${day}, ${year}`,
-   
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
@@ -41,12 +39,13 @@ const Results = (props) => {
           alt={`user's selected gif that represents the mood of ${userChoice}`}
         />
       </div>
+      <button>
+        <Link to="/landingPage">Try Again</Link>
+      </button>
 
-     
-        <button>
-          <Link to="/Timeline">Save to Timeline</Link>
-        </button>
-    
+      <button>
+        <Link to="/Timeline">Save to Timeline</Link>
+      </button>
     </section>
   );
 };

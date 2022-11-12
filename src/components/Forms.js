@@ -42,17 +42,17 @@ const Forms = (props) => {
                     className="buttonContainer">GIF me my mood!</button>
                     {
                         props.noGifsAvailable
-                        ? <p>There are no GIFs to express how you feel. Try something else!</p>
+                        ? <p>Sorry, there are no GIFs to express how you feel. Try something else!</p>
                         : null
                     }
                     {
                         props.isSpace
-                        ? <p>One mood at a time! Please enter one word.</p>
+                        ? <p>Single words only please!</p>
                         : null
                     }
                     {
                         props.giphyError
-                        ? <GiphyError />
+                        ? <p>Oh no! The API is down.</p>
                         : null
                     }
                     {

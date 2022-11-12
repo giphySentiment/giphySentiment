@@ -36,6 +36,9 @@ const GiphyData = (props) => {
     setDisplayGifPage(!displayGifPage)
 }
 
+  // State for hiding or displaying the form component
+  const [showForm, setShowForm] = useState(true)
+
   // Randomizer Function
   const randomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -64,6 +67,7 @@ const GiphyData = (props) => {
           } else {
             setNoGifsAvailable(!noGifsAvailable);
           }
+          console.log(info.data)
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404){
@@ -77,7 +81,9 @@ const GiphyData = (props) => {
   return (
     <FormContext.Provider value={handleFormSubmit}>
       <section className="giphyData">
-        <Forms
+        {
+        showForm
+        ? <Forms
           mood={mood}
           setMood={setMood}
           loading={loading}
@@ -86,8 +92,9 @@ const GiphyData = (props) => {
           setIsSpace={setIsSpace}
           giphyError={giphyError}
           handleShowGif={handleShowGif}
-        /> 
-        </section>
+          />
+          : null
+        }
         <ChoiceContext.Provider value={userChoice}>
           {/* conditionally render based on click of button */}
 
@@ -95,11 +102,13 @@ const GiphyData = (props) => {
             displayGifPage ?
              <Gif mood={mood} />
              : null
+            setShowForm={setShowForm}
           }
          
         </ChoiceContext.Provider>
-     
+      </section>
     </FormContext.Provider>
+
   );
 };
 

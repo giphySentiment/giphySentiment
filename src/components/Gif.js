@@ -27,9 +27,8 @@ const Gif = (props) => {
   // Function that sends the final results
   const sendToResults = (e) => {
     setFinalGif(selectedGif)
-    if (finalGif){
-      setSelectedGif('')
-    }
+    props.setShowForm(false)
+    setSelectedGif('')
   }
 
   return (
@@ -47,7 +46,7 @@ const Gif = (props) => {
                       value={gifObj.images.original.webp}
                       onChange={select}
                       checked={selectedGif === gifObj.images.original.webp}
-                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`}}
+                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`, "background-size" : '300px 300px'}}
                       disabled={finalGif ? true : false}
                       key={uuid()}
                     />
