@@ -37,7 +37,7 @@ const Gif = (props) => {
         <form>   
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
-            {gif.map((gifObj) => {
+              {gif.map((gifObj) => {
               return (
                     <input
                       className="radio"

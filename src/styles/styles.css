@@ -488,23 +488,31 @@ footer .wrapper .creatives a:focus {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: baseline;
+  background-color: transparent;
+  width: 10%;
 }
-.timeline nav h2 {
-  margin-top: 0px;
-  font-family: "always-forever";
-  font-size: 3.5rem;
-  padding-top: 5%;
+.timeline nav .navLogo {
+  margin: 20px;
 }
-
-.timelineTest {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.timeline .roundScroll {
+  border-radius: 25px;
+  overflow: hidden;
+}
+.timeline .roundScroll h2 {
+  font-size: 4rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.timeline .linkBack {
+  margin: 0px 20px 20px 20px;
 }
 
 .timelineContainer {
-  background-color: #545775;
+  background-color: #EBEBEB;
+  border-radius: 25px;
   display: flex;
+  height: 650px;
   flex-wrap: nowrap;
   overflow-y: hidden;
   scrollbar-color: #EDD060 #98C1D9;
@@ -516,12 +524,108 @@ footer .wrapper .creatives a:focus {
   background: #EDD060;
   border-radius: 25px;
 }
+.timelineContainer::-webkit-scrollbar-track {
+  border-radius: 25px;
+  border: 1px solid black;
+}
 .timelineContainer .timelineItems {
-  width: 500px;
-  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   margin: 30px;
 }
+.timelineContainer .timelineItems img {
+  height: 300px;
+  width: 300px;
+}
 
+.dateContent {
+  background-color: #EDD060;
+  border-radius: 25px;
+}
+.dateContent h3 {
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+.moodCard {
+  background-color: white;
+  border: 1px solid #141414;
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+}
+.moodCard h4 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+.moodCard h4 span {
+  display: block;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0px #EDD060;
+}
+
+.timelineButtons {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.timelineButtons button {
+  padding: 0px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.scrollInst {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  -webkit-animation: move 2s linear infinite;
+          animation: move 2s linear infinite;
+}
+
+@-webkit-keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translatex(8px);
+  }
+  50% {
+    transform: translatex(15px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0px);
+  }
+  30% {
+    transform: translatex(8px);
+  }
+  50% {
+    transform: translatex(15px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}
 .notFound {
   height: 92vh;
   display: flex;
