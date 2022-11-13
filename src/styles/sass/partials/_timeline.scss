@@ -36,9 +36,10 @@
         height: 650px;
         flex-wrap: nowrap;
         overflow-y: hidden;
-        scrollbar-color: $accentColor $primaryColor;
+        scrollbar-color: $accentColor #EBEBEB;
+        border: none;
         &::-webkit-scrollbar {
-            background: $primaryColor;
+            background: #EBEBEB;
         }
         &::-webkit-scrollbar-thumb {
             background: $accentColor;

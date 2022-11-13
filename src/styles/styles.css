@@ -515,10 +515,11 @@ footer .wrapper .creatives a:focus {
   height: 650px;
   flex-wrap: nowrap;
   overflow-y: hidden;
-  scrollbar-color: #EDD060 #98C1D9;
+  scrollbar-color: #EDD060 #EBEBEB;
+  border: none;
 }
 .timelineContainer::-webkit-scrollbar {
-  background: #98C1D9;
+  background: #EBEBEB;
 }
 .timelineContainer::-webkit-scrollbar-thumb {
   background: #EDD060;
@@ -656,5 +657,8 @@ footer .wrapper .creatives a:focus {
 .lostImg {
   position: absolute;
   right: 0;
-  bottom: 8%;
+  bottom: 70px;
+}
+.lostImg img {
+  width: 550px;
 }/*# sourceMappingURL=styles.css.map */
