@@ -56,9 +56,19 @@
             align-items: center;
             text-align: center;
             margin: 30px;
+            position: relative;
             img {
                 height: 300px;
                 width: 300px;
+            }
+             &::before {
+                content: "";
+                position: absolute;
+                top: 33px;
+                // left: 18px;
+                height: 6px;
+                width: 120%;
+                background: $tertiaryColor;
             }
         }
     }
@@ -66,6 +76,7 @@
     .dateContent {
         background-color: $accentColor;
         border-radius: 25px;
+        z-index: 10;
         h3 {
             margin: 0 auto;
             padding: 10px 15px;
@@ -81,6 +92,13 @@
         flex-direction: column;
         align-items: center;
         width: 380px;
+        position: relative;
+        .fa-caret-down {
+            position: absolute;
+            top: -40px;
+            font-size: 2.5rem;
+            color: $accentColor;
+        }
         h4 {
             font-size: 1.5rem;
             font-weight: 400;
@@ -110,6 +128,20 @@
             margin: 15px;
         }
     }
+
+// .inner {
+//     // border: 5px solid black;
+//     position: relative;
+//     &::after {
+//         content: "";
+//         width: 50px;
+//         height: 100%;
+//         background-color: $tertiaryColor;
+//         // position: absolute;
+//         // bottom: -45px;
+//         // right: 120px;
+//     }
+// }
 
 .scrollInst {
     margin-top: 20px;

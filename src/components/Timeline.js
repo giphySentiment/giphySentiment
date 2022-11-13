@@ -67,6 +67,7 @@ const Timeline = (props) => {
                                 </div>
                                 <div className="inner"></div>
                                 <div className="moodCard">
+                                    <i class="fa-solid fa-caret-down"></i>
                                     <h4>Today's moody meme: <span>{result.name.mood}</span></h4>
                                     <img
                                         src={result.name.image}

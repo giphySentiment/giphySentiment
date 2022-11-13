@@ -536,15 +536,25 @@ footer .wrapper .creatives a:focus {
   align-items: center;
   text-align: center;
   margin: 30px;
+  position: relative;
 }
 .timelineContainer .timelineItems img {
   height: 300px;
   width: 300px;
 }
+.timelineContainer .timelineItems::before {
+  content: "";
+  position: absolute;
+  top: 33px;
+  height: 6px;
+  width: 120%;
+  background: #545775;
+}
 
 .dateContent {
   background-color: #EDD060;
   border-radius: 25px;
+  z-index: 10;
 }
 .dateContent h3 {
   margin: 0 auto;
@@ -560,6 +570,13 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   align-items: center;
   width: 380px;
+  position: relative;
+}
+.moodCard .fa-caret-down {
+  position: absolute;
+  top: -40px;
+  font-size: 2.5rem;
+  color: #EDD060;
 }
 .moodCard h4 {
   font-size: 1.5rem;
