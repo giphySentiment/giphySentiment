@@ -5,10 +5,11 @@
     //height: 92vh;
     height:fit-content;
     nav {
+        align-items: center;
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: baseline;
+        justify-content: space-evenly;
+       
         h2 {
         margin-top: 0px;
         font-family: "always-forever";
