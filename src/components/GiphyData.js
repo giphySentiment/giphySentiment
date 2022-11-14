@@ -100,9 +100,9 @@ const GiphyData = (props) => {
 
           {
             displayGifPage ?
-             <Gif mood={mood} />
+             <Gif mood={mood}  setShowForm={setShowForm}/>
              : null
-            setShowForm={setShowForm}
+           
           }
          
         </ChoiceContext.Provider>

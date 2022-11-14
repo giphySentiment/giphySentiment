@@ -13,6 +13,7 @@
     "react-radioimg": "^1.1.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
+    "react-scroll": "^1.8.8",
     "react-spinners": "^0.13.6",
     "react-uuid": "^2.0.0",
     "sass": "^1.56.0",
