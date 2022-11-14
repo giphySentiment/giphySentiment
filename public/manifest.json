@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Moody Memes",
+  "name": "Moody Memes: Express your sentiments with a Gif!",
   "icons": [
     {
       "src": "favicon.ico",

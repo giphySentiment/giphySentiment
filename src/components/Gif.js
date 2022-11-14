@@ -43,23 +43,20 @@ const Gif = (props) => {
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
               {gif.map((gifObj) => {
-                return (
-                  <input gifRef={props.gifRef}
-                    className="radio"
-                    type="radio"
-                    name="gif"
-                    value={gifObj.images.original.webp}
-                    onChange={select}
-                    checked={selectedGif === gifObj.images.original.webp}
-                    style={{
-                      backgroundImage: `url(${gifObj.images.original.webp})`,
-                      "background-size": "300px 300px",
-                    }}
-                    disabled={finalGif ? true : false}
-                    key={uuid()}
-                  />
-                );
-              })}
+              return (
+                    <input
+                      className="radio"
+                      type="radio"
+                      name="gif"
+                      value={gifObj.images.original.webp}
+                      onChange={select}
+                      checked={selectedGif === gifObj.images.original.webp}
+                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`, "background-size" : '300px 300px'}}
+                      disabled={finalGif ? true : false}
+                      key={uuid()}
+                    />
+                    );
+                  })}
             </label>
           </fieldset>
         </form>

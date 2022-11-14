@@ -8,40 +8,150 @@
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: baseline;
-        h2 {
-        margin-top: 0px;
-        font-family: "always-forever";
-        font-size: 3.5rem;
-        padding-top: 5%;
+        background-color: transparent;
+        width: 10%;
+        .navLogo {
+            margin: 20px;
         }
     } 
-}
-
-.timelineTest {
-    width: fit-content;
+    .roundScroll {
+        border-radius: 25px;
+        overflow: hidden; 
+        h2 {
+            font-size: 4rem;
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+    .linkBack {
+        margin: 0px 20px 20px 20px;
+    }
 }
 
 .timelineContainer {
-    background-color: $tertiaryColor;
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-y: hidden;
-    scrollbar-color: $accentColor $primaryColor;
-
-    &::-webkit-scrollbar {
-        background: $primaryColor;
-
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: $accentColor;
+        background-color: #EBEBEB;
         border-radius: 25px;
+        display: flex;
+        height: 650px;
+        flex-wrap: nowrap;
+        overflow-y: hidden;
+        scrollbar-color: $accentColor #EBEBEB;
+        border: none;
+        &::-webkit-scrollbar {
+            background: #EBEBEB;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $accentColor;
+            border-radius: 25px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 25px;
+            border: 1px solid black;
+        }
+        .timelineItems {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 30px;
+            position: relative;
+            img {
+                height: 300px;
+                width: 300px;
+            }
+             &::before {
+                content: "";
+                position: absolute;
+                top: 33px;
+                // left: 18px;
+                height: 6px;
+                width: 120%;
+                background: $tertiaryColor;
+            }
+        }
     }
 
-    .timelineItems {
-        width: 500px;
-        background-color: white;
-        margin: 30px;
+    .dateContent {
+        background-color: $accentColor;
+        border-radius: 25px;
+        z-index: 10;
+        h3 {
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
     }
+
+    .moodCard {
+        background-color: white;
+        border: 1px solid $secondaryColor;
+        box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.75);
+        border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 380px;
+        position: relative;
+        .fa-caret-down {
+            position: absolute;
+            top: -40px;
+            font-size: 2.5rem;
+            color: $accentColor;
+        }
+        h4 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            line-height: 45px;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            span {
+                display: block;
+                font-size: 2.2rem;
+                text-transform: uppercase;
+                text-shadow: 3px 3px 0px $accentColor;
+            }
+        }
+    }
+    .timelineButtons {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        button {
+            padding: 0px;
+            width: 40px;
+            min-width: 40px;
+            height: min(40px, 40px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px;
+        }
+    }
+
+// .inner {
+//     // border: 5px solid black;
+//     position: relative;
+//     &::after {
+//         content: "";
+//         width: 50px;
+//         height: 100%;
+//         background-color: $tertiaryColor;
+//         // position: absolute;
+//         // bottom: -45px;
+//         // right: 120px;
+//     }
+// }
+
+.scrollInst {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    animation: move 2s linear infinite;
 }
-    
+
+@keyframes move {
+	0% { transform: translateX(0px);}
+	30% { transform: translatex(8px);}
+    50% { transform: translatex(15px);}
+    100% { transform: translatex(0px);}
+}
