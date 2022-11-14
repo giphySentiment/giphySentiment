@@ -3,10 +3,12 @@ import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
 
+
 // Import components
 import Results from "./Results";
 
 const Gif = (props) => {
+  
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -14,27 +16,30 @@ const Gif = (props) => {
   const formSubmit = useContext(FormContext);
 
   // State to save selectedGif value
-  const [selectedGif, setSelectedGif] = useState('');
+  const [selectedGif, setSelectedGif] = useState("");
 
   // State to save finalized gif
-  const [finalGif, setFinalGif] = useState('')
+  const [finalGif, setFinalGif] = useState("");
 
   // Function to save user's selected Gif
   const select = (e) => {
     setSelectedGif(e.target.value);
   };
 
-  // Function that sends the final results
+  //Function that sends the final results
   const sendToResults = (e) => {
-    setFinalGif(selectedGif)
-    props.setShowForm(false)
-    setSelectedGif('')
-  }
+    setFinalGif(selectedGif);
+
+    //conditionally rendering results section
+    props.setShowForm(false);
+    setSelectedGif("");
+
+  };
 
   return (
     <section className="gif">
-      <div className="gifContainer wrapper">
-        <form>   
+      <div  className="gifContainer wrapper">
+        <form>
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
               {gif.map((gifObj) => {
@@ -56,23 +61,14 @@ const Gif = (props) => {
           </fieldset>
         </form>
         <div className="buttonContainer">
-        <button
-          onClick={formSubmit}
-          disabled={finalGif ? true : false}> 
-          gimmie new gifs
-        </button>
-        <button
-          onClick={sendToResults}>
-          select this gif
-        </button>
+          <button onClick={formSubmit} disabled={finalGif ? true : false}>
+            gimmie new gifs
+          </button>
+
+          <button onClick={sendToResults}>select this gif</button>
         </div>
       </div>
-        {
-          finalGif
-          ? <Results
-            finalGif={finalGif}/>
-          : null
-        }
+      {finalGif ? <Results finalGif={finalGif} /> : null}
     </section>
   );
 };

@@ -1,2 +1,79 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.meetTheDevs {
+
+    background-color: rgb(235, 235, 235);
+    height: 90vh;
+
+    .linkBox {
+        padding-top: 50px;
+
+        a {
+            &:hover {
+                color: $tertiaryColor;
+            }
+        }
+    }
+   
+    h2 {
+        margin: 0;
+        padding-top: 25px;
+        display: flex;
+        justify-content: center;
+        font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);
+    }
+
+    h3 {
+        margin: 5px;
+        font-size: clamp(0.75rem, 0.125rem + 2vw, 1.25rem);
+    }
+    
+    i {
+        margin-right: 10px;
+        color: $tertiaryColor;
+    }
+    
+
+  .bioContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    p {
+        font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
+    }
+
+    img {
+        width: 59%;
+        border-radius: 50%;
+        z-index: 1000;
+    }
+  
+    .overlay {
+        position: absolute;
+        top: 231px;
+        right: 217px;
+        width: 9%;
+        opacity: 0;
+        transition: opacity 0.8s;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .bio {
+      width: 20%;
+      padding: 20px;
+      margin: 20px 10px 0px;
+      -webkit-transition: 0.2s ease;
+      transition: 0.2s ease;
+      background-color: white;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}

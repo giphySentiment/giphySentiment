@@ -26,6 +26,23 @@ const Timeline = (props) => {
         // const databaseRef = ref(database, `/${likes}`)
         // push(databaseRef)
     };
+   
+    // //declaring my useRef
+    // const testRef = useRef(null);
+
+    // // State to save user's gif and info object into the timeline
+     const [timeline, setTimeline] = useState([]);
+
+    // const [numOfLikes, setNumOfLikes] = useState(0);
+
+    // const handleLikes = (likes) => {
+    //     setNumOfLikes(numOfLikes + 1);
+    //     console.log("num of likes being clicked");
+    //     const database = getDatabase(firebaseConfig);
+    //     const databaseRef = ref(database, `/${likes}`)
+
+    //     push(databaseRef)
+    // };
 
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
