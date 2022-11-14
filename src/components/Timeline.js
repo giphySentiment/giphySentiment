@@ -18,12 +18,13 @@ const Timeline = (props) => {
 
     const [numOfLikes, setNumOfLikes] = useState(0);
 
-    const handleLikes = (likes) => {
+    const handleLikes = (event, likes) => {
         setNumOfLikes(numOfLikes + 1);
+        // event.preventDefault();
         console.log("num of likes being clicked");
-        const database = getDatabase(firebaseConfig);
-        const databaseRef = ref(database, `/${likes}`)
-        push(databaseRef)
+        // const database = getDatabase(firebaseConfig);
+        // const databaseRef = ref(database, `/${likes}`)
+        // push(databaseRef)
     };
 
     useEffect(() => {
@@ -77,7 +78,7 @@ const Timeline = (props) => {
                                         <button onClick={() => {handleRemoveMeme(result.key)}}>
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
-                                        <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{numOfLikes}</p>
+                                        <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{result.name.likes}</p>
                                     </div>
                                 </div>
                             </div>

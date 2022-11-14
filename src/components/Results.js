@@ -21,7 +21,7 @@ const Results = (props) => {
         mood: userChoice,
         image: props.finalGif,
         date: `${month} ${day}, ${year}`,
-        // likes: numOfLikes
+        likes: 0
     };
 
     // Variables to set database and databaseRef for firebase; call the push function into firebase
@@ -51,7 +51,7 @@ const Results = (props) => {
             
             {/* <button onClick={handleClick}>Save and go to timeline */}
             <button>
-                {/* <Link to="/Timeline" state={result}>Save and go to Timeline</Link>
+                <Link to="/Timeline" state={result}>Save and go to Timeline</Link>
 
                 {/* {console.log(props.history)} */}
             </button>
