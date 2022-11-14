@@ -1,10 +1,11 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, remove, push } from 'firebase/database';
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import uuid from "react-uuid";
 import { useRef } from 'react';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
+
 
 const Timeline = (props) => {
     // State to save user's gif and info object into the timeline
@@ -40,6 +41,14 @@ const Timeline = (props) => {
         remove(databaseRef)
     }
 
+    const location = useLocation()
+    console.log(location, "useLocation Hook")
+    const data = location.state?.result
+    console.log(data)
+
+    useEffect( () => {
+        console.log("test!", location)
+    }, [location.state.result])
 
     return (
         <section className="timeline">

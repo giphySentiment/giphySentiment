@@ -1,26 +1,17 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useEffect } from "react";
 import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
-import LoadingPage from "./LoadingPage";
-
-
-
-// Import components
-import Results from "./Results";
+import { ChoiceContext } from "./GiphyData";
+import { useNavigate, Link } from "react-router-dom";
+import firebaseConfig from "../firebase";
+import { getDatabase, ref, push } from "firebase/database";
 
 
 const Gif = (props) => {
   
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
-   
-  const resultsRef = useRef([])
-
-  const scrollIntoResults = () => {
-    resultsRef.current?.scrollIntoView({ behavior: 'smooth' });
-    console.log("scroll to results")
-  }
 
   // Set variable for 'handleFormSubmit' from GiphyData (useContext)
   const formSubmit = useContext(FormContext);
@@ -29,22 +20,49 @@ const Gif = (props) => {
   const [selectedGif, setSelectedGif] = useState("");
 
   // State to save finalized gif
-  const [finalGif, setFinalGif] = useState("");
+  const [finalGif, setFinalGif] = useState(selectedGif);
 
   // Function to save user's selected Gif
   const select = (e) => {
     setSelectedGif(e.target.value);
   };
 
-  //Function that sends the final results
-  const sendToResults = (e) => {
-    setFinalGif(selectedGif);
+  const navigate = useNavigate()
 
+  //Function that sends the final results
+  const sendToTimeline = (e) => {
+    setFinalGif(selectedGif);
+    console.log(finalGif)
     //conditionally rendering results section
     props.setShowForm(false);
-    setSelectedGif("");
-
+    // setSelectedGif("");
   };
+
+  const userChoice = useContext(ChoiceContext);
+
+  // Variables to set date info
+  const date = new Date();
+  const month = date.toLocaleString("en-US", {
+    month: "long",
+  });
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  // Object with user's gif, mood and date to be pushed to firebase
+  const result = {
+    mood: userChoice,
+    image: finalGif,
+    date: `${month} ${day}, ${year}`,
+    likes: 0
+  };
+
+  // Variables to set database and databaseRef for firebase; call the push function into firebase
+  useEffect (() => {
+    const database = getDatabase(firebaseConfig);
+    const databaseRef = ref(database);
+    push(databaseRef, result);
+
+  }, [sendToTimeline])
 
   return (
     <section className="gif">
@@ -75,10 +93,13 @@ const Gif = (props) => {
             gimmie new gifs
           </button>
 
-          <button onClick={sendToResults}>select this gif</button>
+          {/* state={{ finalGif: finalGif }} */}
+          <Link to="/Timeline" state={{result: result}}>
+            <button onClick={sendToTimeline}>select this gif </button>
+          </Link>
+         
         </div>
       </div>
-      {finalGif ? <Results finalGif={finalGif} /> : null}
     </section>
   );
 };
