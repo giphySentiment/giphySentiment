@@ -1,7 +1,7 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, push } from 'firebase/database';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ChoiceContext } from './GiphyData';
 
 const Results = (props) => {
@@ -15,12 +15,13 @@ const Results = (props) => {
     });
     const day = date.getDate();
     const year = date.getFullYear();
-    
+
     // Object with user's gif, mood and date to be pushed to firebase
     const result = {
         mood: userChoice,
         image: props.finalGif,
-        date: `${month} ${day}, ${year}`
+        date: `${month} ${day}, ${year}`,
+        // likes: numOfLikes
     };
 
     // Variables to set database and databaseRef for firebase; call the push function into firebase
@@ -28,12 +29,12 @@ const Results = (props) => {
     const databaseRef = ref(database);
     push(databaseRef, result);
 
-    const navigate = useNavigate();
-    const handleClick = () => {
-        navigate("/Timeline",
-            { state: {finalResults: props.finalGif}
-        })
-    }
+    // const navigate = useNavigate();
+    // const handleClick = () => {
+    //     navigate("/Timeline",
+    //         { state: {likesFunction: handleLikes}
+    //     })
+    // }
 
     return (
         <section className="results">
@@ -48,9 +49,9 @@ const Results = (props) => {
                 <Link to="/landingPage">Try Again</Link>
             </button>
             
-            <button onClick={handleClick}>Save and go to timeline
-                
-                {/* <Link to="/Timeline" state={result}>Save and go to Timeline</Link> */}
+            {/* <button onClick={handleClick}>Save and go to timeline */}
+            <button>
+                {/* <Link to="/Timeline" state={result}>Save and go to Timeline</Link>
 
                 {/* {console.log(props.history)} */}
             </button>

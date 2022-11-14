@@ -8,8 +8,8 @@ import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 const Timeline = (props) => {
 
-    const {state} = useLocation();
-    // console.log(state.finalResults)
+    // const {state} = useLocation();
+    // console.log(state.likesFunction)
 
     //declaring my useRef
     const testRef = useRef(null);
