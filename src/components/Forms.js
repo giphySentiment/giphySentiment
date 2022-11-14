@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FormContext } from "./GiphyData";
-import GiphyError from "./GiphyError";
+
 
 
 // Import components

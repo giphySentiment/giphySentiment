@@ -3,10 +3,12 @@ import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
 
+
 // Import components
 import Results from "./Results";
 
 const Gif = (props) => {
+  
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -31,17 +33,18 @@ const Gif = (props) => {
     //conditionally rendering results section
     props.setShowForm(false);
     setSelectedGif("");
+
   };
 
   return (
     <section className="gif">
-      <div className="gifContainer wrapper">
+      <div  className="gifContainer wrapper">
         <form>
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
               {gif.map((gifObj) => {
                 return (
-                  <input
+                  <input gifRef={props.gifRef}
                     className="radio"
                     type="radio"
                     name="gif"
