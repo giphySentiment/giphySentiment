@@ -41,9 +41,9 @@ const Results = (props) => {
   push(databaseRef, result);
 
   return (
-    <section className="results">
+    <section  className="results">
       <div className="resultsContent">
-        <p>{userChoice}</p>
+        <p ref={props.resultRef}>{userChoice}</p>
         <img
           src={props.finalGif}
           alt={`user's selected gif that represents the mood of ${userChoice}`}
