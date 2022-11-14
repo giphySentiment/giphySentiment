@@ -3,38 +3,23 @@ import { getDatabase, ref, onValue, remove, push } from 'firebase/database';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import uuid from "react-uuid";
-// import { useRef } from 'react';
-
-
-// Import components
-//import Carousel from './Carousel';
+import { useRef } from 'react';
+import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 const Timeline = (props) => {
+    // State to save user's gif and info object into the timeline
+    const [timeline, setTimeline] = useState([]);
 
     const [numOfLikes, setNumOfLikes] = useState(0);
 
-    const handleLikes = () => {
-      setNumOfLikes(numOfLikes + 1);
-      console.log("num of likes being clicked");
+    const handleLikes = (event, likes) => {
+        setNumOfLikes(numOfLikes + 1);
+        console.log("num of likes being clicked");
+        // const database = getDatabase(firebaseConfig);
+        // const databaseRef = ref(database, `/${likes}`)
+        // push(databaseRef)
     };
    
-    // //declaring my useRef
-    // const testRef = useRef(null);
-
-    // // State to save user's gif and info object into the timeline
-     const [timeline, setTimeline] = useState([]);
-
-    // const [numOfLikes, setNumOfLikes] = useState(0);
-
-    // const handleLikes = (likes) => {
-    //     setNumOfLikes(numOfLikes + 1);
-    //     console.log("num of likes being clicked");
-    //     const database = getDatabase(firebaseConfig);
-    //     const databaseRef = ref(database, `/${likes}`)
-
-    //     push(databaseRef)
-    // };
-
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database);
@@ -52,7 +37,6 @@ const Timeline = (props) => {
     const handleRemoveMeme = (memeKey) => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database, `/${memeKey}`)
-
         remove(databaseRef)
     }
 
@@ -62,31 +46,42 @@ const Timeline = (props) => {
              <div className="wrapper">
                 <nav>
                     <Link to="/landingPage">
-                        <h2>Giphy Sentiments</h2>
+                        <img className="navLogo" src={navLogo2} alt="" />
                     </Link>
                 </nav>
             </div>
-                <div  className="timelineContainer">
-                    {timeline.map((result) => {
+            <div className="wrapper roundScroll">
+                <h2>Moody Timeline</h2>
+                <div className="timelineContainer">
+                    {timeline.reverse().map((result) => {
                         return (
-                            <div  className="timelineTest">
-                                <div
-                                    className="timelineItems"
-                                    key={uuid()}>
-                                    <h3>{`On ${result.name.date}, you felt: ${result.name.mood}`}</h3>
+                            <div className="timelineItems"
+                                key={uuid()}>
+                                <div className="dateContent">
+                                    <h3>{result.name.date}</h3>
+                                </div>
+                                <div className="inner"></div>
+                                <div className="moodCard">
+                                    <i class="fa-solid fa-caret-down"></i>
+                                    <h4>Today's moody meme: <span>{result.name.mood}</span></h4>
                                     <img
                                         src={result.name.image}
                                         alt={`user selected gif to show the mood of ${result.name.mood}`}
                                     />
-                                    <button onClick={() => {handleRemoveMeme(result.key)}}>
-                                        <i className="fa-regular fa-trash-can"></i>
-                                    </button>
-                                    <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button>
-                                    <p>{numOfLikes}</p>
+                                    <div className="timelineButtons">
+                                        <button onClick={() => {handleRemoveMeme(result.key)}}>
+                                            <i className="fa-regular fa-trash-can"></i>
+                                        </button>
+                                        <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{result.name.likes}</p>
+                                    </div>
                                 </div>
                             </div>
                         )
                     })}
+                </div>
+            </div>
+            <div className="wrapper">
+                <div className="scrollInst">Scroll for more <i class="fa-solid fa-right-long"></i></div>
             </div>
         </section>
     );
