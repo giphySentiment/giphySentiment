@@ -108,7 +108,11 @@ const GiphyData = (props) => {
           {/* conditionally render based on click of button */}
 
           {displayGifPage ? (
-            <Gif mood={mood} setShowForm={setShowForm}  />
+            <Gif 
+            mood={mood} 
+            setShowForm={setShowForm}
+            gifRef={gifRef}  
+            />
           ) : null}
         </ChoiceContext.Provider>
       </section>

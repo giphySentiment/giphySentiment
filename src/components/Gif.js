@@ -48,7 +48,7 @@ const Gif = (props) => {
 
   return (
     <section className="gif">
-      <div  className="gifContainer wrapper">
+      <div ref={props.gifRef} className="gifContainer wrapper">
         <form>
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
