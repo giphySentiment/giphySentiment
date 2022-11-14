@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useRef } from "react";
 import { FormContext } from "./GiphyData";
 import GiphyError from "./GiphyError";
 
@@ -6,6 +6,13 @@ import GiphyError from "./GiphyError";
 import LoadingPage from "./LoadingPage";
 
 const Forms = (props) => {
+
+    const ref = useRef()
+
+    const scrollInto = () => {
+        ref.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+   
     // Set variable for 'handleFormSubmit' from GiphyData (useContext)
     const formSubmit = useContext(FormContext);
     
@@ -18,6 +25,7 @@ const Forms = (props) => {
     const handleMoodChange = (e) => {
         props.setMood(e.target.value);
         props.setIsSpace(false)
+        scrollInto()
     };
 
     return (
@@ -30,7 +38,8 @@ const Forms = (props) => {
                 <input name="moodSelector" id="moodSelector" type="text"
                     onChange={(e) => handleMoodChange(e)}
                 />
-                <button disabled=
+                <button onClick={props.handleShowGif} 
+                       disabled=
                     {
                         props.isSpace
                         ? true
@@ -52,11 +61,13 @@ const Forms = (props) => {
                         ? <p>Oh no! The API is down.</p>
                         : null
                     }
+                    {/* <div ref={ref}>
                     {
                         props.loading
                         ? <><LoadingPage/></>
                         : null
                     }
+                    </div> */}
             </form>
         </section>
     );

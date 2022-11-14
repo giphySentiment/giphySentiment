@@ -1,14 +1,23 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
+import LoadingPage from "./LoadingPage";
 
 // Import components
 import Results from "./Results";
 
+
 const Gif = (props) => {
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
+   
+  const resultsRef = useRef([])
+
+  const scrollIntoResults = () => {
+    resultsRef.current?.scrollIntoView({ behavior: 'smooth' });
+    console.log("scroll to results")
+  }
 
   // Set variable for 'handleFormSubmit' from GiphyData (useContext)
   const formSubmit = useContext(FormContext);
@@ -29,10 +38,18 @@ const Gif = (props) => {
     setFinalGif(selectedGif)
     props.setShowForm(false)
     setSelectedGif('')
+    scrollIntoResults()
   }
 
   return (
     <section className="gif">
+      <div>
+      {
+      props.loading
+      ? <><LoadingPage/></>
+      : null
+      }
+      </div>
       <div className="gifContainer wrapper">
         <form>   
           <fieldset>
@@ -55,8 +72,8 @@ const Gif = (props) => {
             </label>
           </fieldset>
         </form>
-        <div className="buttonContainer">
-        <button
+        <div ref={props.gifRef} className="buttonContainer">
+          <button  
           onClick={formSubmit}
           disabled={finalGif ? true : false}> 
           gimmie new gifs
@@ -67,12 +84,15 @@ const Gif = (props) => {
         </button>
         </div>
       </div>
+      <div ref={resultsRef}>
         {
           finalGif
           ? <Results
-            finalGif={finalGif}/>
+            finalGif={finalGif}
+            resultsRef={resultsRef}/>
           : null
         }
+      </div>
     </section>
   );
 };

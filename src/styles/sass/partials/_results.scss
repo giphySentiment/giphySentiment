@@ -5,9 +5,10 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     background-color: $primaryColor;
+    gap: 15px;
 
     .resultsContent {
         display: flex;
@@ -18,11 +19,16 @@
 
     button {
         max-width: 300px;
+        ;
     }
 
     p {
         text-align: center;
         font-size: clamp(1rem, 3vw, 2rem);
         margin: 0;
+    }
+
+    .resultsButtonContainer {
+        display: flex;
     }
 }

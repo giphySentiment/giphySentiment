@@ -1,2 +1,19 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.meetTheDevs {
+  height: 100vh;
+  .bioContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+   
+
+    .bioItems {
+      width: 40%;
+      padding: 45px;
+      margin: 50px 25px 25px;
+    }
+  }
+}
