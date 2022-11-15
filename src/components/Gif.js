@@ -3,7 +3,6 @@ import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
 
-
 // Import components
 import Results from "./Results";
 
@@ -20,6 +19,7 @@ const Gif = (props) => {
 
   // State to save finalized gif
   const [finalGif, setFinalGif] = useState("");
+  console.log(finalGif)
 
   // Function to save user's selected Gif
   const select = (e) => {
@@ -33,7 +33,6 @@ const Gif = (props) => {
     //conditionally rendering results section
     props.setShowForm(false);
     setSelectedGif("");
-
   };
 
   return (

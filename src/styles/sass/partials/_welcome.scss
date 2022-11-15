@@ -7,22 +7,33 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 92vh;
+        height: 90vh;
         min-height: 700px;
         h1 {
-        font-size: 9rem;
-        font-family: "always-forever";
         margin-top: 0px;
         margin: 0 auto;
         }
         h2 {
-            font-size: 2.8rem;
+            font-size: clamp(1.5625rem, 1.1277rem + 2.1739vw, 3.4375rem);
             font-weight: 300;
             letter-spacing: 3px;
+            text-align: center;
+            @include mobileLarge {
+                font-size: clamp(2.1875rem, 1.8976rem + 1.4493vw, 3.4375rem);
+            }
+            span {
+                @include mobileLarge {
+                    display: block;
+                }
+            }
         }
         .logo {
-            // height: 35%;
             width: 50%;
+            min-width: 500px;
+            @include mobileLarge {
+                width: 80%;
+                min-width: 300px;
+            }
         }
     }
 }

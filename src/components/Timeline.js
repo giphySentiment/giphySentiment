@@ -1,7 +1,7 @@
 import firebaseConfig from '../firebase';
 import { getDatabase, ref, onValue, remove, push } from 'firebase/database';
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import uuid from "react-uuid";
 import { useRef } from 'react';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
@@ -10,16 +10,13 @@ const Timeline = (props) => {
     // State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
-    const [numOfLikes, setNumOfLikes] = useState(0);
+    // const location = useLocation()
+    // console.log(location, "useLocation Hook")
+    // const data = location.state?.result
+    // console.log(data)
+    // const kwame = location.state.handleLikes
+    // console.log(kwame)
 
-    const handleLikes = (event, likes) => {
-        setNumOfLikes(numOfLikes + 1);
-        console.log("num of likes being clicked");
-        // const database = getDatabase(firebaseConfig);
-        // const databaseRef = ref(database, `/${likes}`)
-        // push(databaseRef)
-    };
-   
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database);
@@ -39,6 +36,16 @@ const Timeline = (props) => {
         const databaseRef = ref(database, `/${memeKey}`)
         remove(databaseRef)
     }
+
+    // const [numOfLikes, setNumOfLikes] = useState(0);
+
+    // const handleLikes = (event, likes) => {
+    //     setNumOfLikes(numOfLikes + 1);
+    //     console.log("num of likes being clicked");
+    //     const database = getDatabase(firebaseConfig);
+    //     const databaseRef = ref(database, `/${likes}`)
+    //     push(databaseRef)
+    // };
 
     return (
         <section className="timeline">
@@ -71,7 +78,7 @@ const Timeline = (props) => {
                                         <button onClick={() => {handleRemoveMeme(result.key)}}>
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
-                                        <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{result.name.likes}</p>
+                                        {/* <button onClick={() => {props.handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{result.name.likes}</p> */}
                                     </div>
                                 </div>
                             </div>
