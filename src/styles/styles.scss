@@ -2,7 +2,6 @@
 @use "./sass/partials/globalStyles";
 @use "./sass/partials/setup";
 
-
 // Sections
 @use "./sass/partials/welcome";
 @use "./sass/partials/footer";
@@ -15,3 +14,5 @@
 @use "./sass/partials/meetTheDevs";
 @use "./sass/partials/notFound";
 @use "./sass/partials/mixins" as *;
+
+

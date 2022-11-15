@@ -3,12 +3,15 @@ import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
 
-
 // Import components
 import Results from "./Results";
 
 const Gif = (props) => {
 
+  const Scroll = require('react-scroll');
+  const Element = Scroll.Element;
+  const scroll = Scroll.animateScroll;
+  
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -29,11 +32,10 @@ const Gif = (props) => {
   //Function that sends the final results
   const sendToResults = (e) => {
     setFinalGif(selectedGif);
-
     //conditionally rendering results section
     props.setShowForm(false);
     setSelectedGif("");
-
+    scroll.scrollToBottom();
   };
 
   return (
@@ -61,14 +63,22 @@ const Gif = (props) => {
           </fieldset>
         </form>
         <div className="buttonContainer">
-          <button onClick={formSubmit} disabled={finalGif ? true : false}>
+          <button className="button" onClick={formSubmit} disabled={finalGif ? true : false}>
             gimmie new gifs
           </button>
-
-          <button onClick={sendToResults}>select this gif</button>
+          
+            <button className="button" onClick={sendToResults} disabled={finalGif ? true : false}>select this gif</button>
         </div>
       </div>
-      {finalGif ? <Results finalGif={finalGif} /> : null}
+       <Element name="myScrollToElement">
+          <div>
+          {
+              finalGif ?
+                  <Results finalGif={finalGif} /> 
+                : null
+            }
+          </div>
+        </Element>
     </section>
   );
 };
