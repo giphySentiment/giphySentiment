@@ -2,69 +2,133 @@
 @use "./mixins" as *;
 
 .meetTheDevs {
-
-    background-color: rgb(235, 235, 235);
-    height: 90vh;
-
-    .linkBox {
-        padding-top: 50px;
-
-        a {
-            &:hover {
-                color: $tertiaryColor;
-            }
-        }
-    }
-   
+    min-height: 110vh;
     h2 {
-        margin: 0;
-        padding-top: 25px;
-        display: flex;
-        justify-content: center;
-        font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);
+        padding: 20px;
+    }
+  background-color: rgb(235, 235, 235);
+// height: 113vh;
+ 
+
+//   @include tablet {
+//     height: 130vh;
+//   }
+
+//   @include mobileLarge {
+//     height: 255vh;
+//   }
+    li.bio {
+        margin-bottom: 10px;
     }
 
-    h3 {
-        margin: 5px;
-        font-size: clamp(0.75rem, 0.125rem + 2vw, 1.25rem);
-    }
-    
-    i {
-        margin-right: 10px;
+  .linkBox {
+    padding-top: 20px;
+
+    a {
+      &:hover {
         color: $tertiaryColor;
+      }
     }
-    
+  }
+
+  h2 {
+    margin: 0;
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);
+  }
+
+  h3 {
+    margin: 5px;
+    font-size: clamp(0.75rem, 0.125rem + 2vw, 1.25rem);
+  }
+
+  i {
+    margin-right: 10px;
+    color: $tertiaryColor;
+  }
 
   .bioContainer {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin: 0;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 10px;
+
+      .bottomRow {
+        margin-left: 10px;
+      }
+    }
+
+    .topRow,
+    .bottomRow {
+      display: flex;
+      justify-content: space-evenly;
+      width: fit-content;
+      gap: 10px;
+    //margin-bottom: 70px;
+
+      @include tablet {
+        justify-content: center;
+        margin-bottom: 0px;
+      }
+
+      @include mobileLarge {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        align-items: center;
+        margin-left: 0px;
+      }
+    }
 
     p {
-        font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
+      font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
     }
 
     img {
-        width: 59%;
-        border-radius: 50%;
-        z-index: 1000;
+      width: 59%;
+      border-radius: 50%;
+      display: block;
+
+      @include tablet {
+        width: 30%;
+      }
+
+      @include mobileLarge {
+        width: 50%;
+      }
     }
-  
-    .overlay {
-        position: absolute;
-        top: 231px;
-        right: 217px;
-        width: 9%;
-        opacity: 0;
-        transition: opacity 0.8s;
-        &:hover {
+
+    .picContainer {
+        position: relative;
+        width: 60%;
+
+        .profile {
+            display: block;
+            width: 100%;
+        }
+
+        .overlayGif {
+            position: absolute;
+            top : 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+
+            &:hover {
             opacity: 1;
+      }
         }
     }
+
+   
     .bio {
-      width: 20%;
-      padding: 20px;
-      margin: 20px 10px 0px;
+      width: 45%;
+      padding: 5px 20px;
       -webkit-transition: 0.2s ease;
       transition: 0.2s ease;
       background-color: white;
@@ -74,6 +138,14 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+
+      @include tablet {
+        width: 40%;
+      }
+
+      @include mobileLarge {
+        width: 70%;
+      }
     }
   }
 }

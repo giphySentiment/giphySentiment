@@ -8,7 +8,7 @@ import { FormContext } from "./GiphyData";
 import Results from "./Results";
 
 const Gif = (props) => {
-  
+
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -38,25 +38,25 @@ const Gif = (props) => {
 
   return (
     <section className="gif">
-      <div  className="gifContainer wrapper">
+      <div ref={props.gifRef} className="gifContainer wrapper">
         <form>
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">
               {gif.map((gifObj) => {
-              return (
-                    <input
-                      className="radio"
-                      type="radio"
-                      name="gif"
-                      value={gifObj.images.original.webp}
-                      onChange={select}
-                      checked={selectedGif === gifObj.images.original.webp}
-                      style={{"backgroundImage" : `url(${gifObj.images.original.webp})`, "background-size" : '300px 300px'}}
-                      disabled={finalGif ? true : false}
-                      key={uuid()}
-                    />
-                    );
-                  })}
+                return (
+                  <input
+                    className="radio"
+                    type="radio"
+                    name="gif"
+                    value={gifObj.images.original.webp}
+                    onChange={select}
+                    checked={selectedGif === gifObj.images.original.webp}
+                    style={{ "backgroundImage": `url(${gifObj.images.original.webp})`, "background-size": '300px 300px' }}
+                    disabled={finalGif ? true : false}
+                    key={uuid()}
+                  />
+                );
+              })}
             </label>
           </fieldset>
         </form>
