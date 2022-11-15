@@ -21,22 +21,12 @@ const Results = (props) => {
   const refreshPage = () => {
     window.location.reload();
   }
-  
-//   const [numOfLikes, setNumOfLikes] = useState(0);
 
-//   const handleLikes = (event, likes) => {
-//     setNumOfLikes(numOfLikes + 1);
-//     console.log("num of likes being clicked");
-//     const database = getDatabase(firebaseConfig);
-//     const databaseRef = ref(database, `/${likes}`)
-//     push(databaseRef)
-// };
   // Object with user's gif, mood and date to be pushed to firebase
   const result = {
     mood: userChoice,
     image: props.finalGif,
     date: `${month} ${day}, ${year}`,
-    // likes: {numOfLikes}
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
