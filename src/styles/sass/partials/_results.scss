@@ -17,14 +17,9 @@
         gap: 15px;
     }
 
-    button {
-        max-width: 300px;
-        ;
-    }
-
     p {
         text-align: center;
-        font-size: clamp(1rem, 3vw, 2rem);
+        font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
         margin: 0;
     }
 }

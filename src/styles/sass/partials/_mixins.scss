@@ -1,14 +1,17 @@
-//HI TEAM - im thinking of using mixins for media queiries, sped things up a ton for my project 3. we don't have to use this but pasting some code below we can come back just in case -britt
-
-
-// @mixin tablet {
-//     @media (max-width: 800px) {
-//       @content;
-//     }
-//   }
+@mixin tablet {
+    @media (max-width: 950px) {
+      @content;
+    }
+  }
   
-//   @mixin mobile {
-//     @media (max-width: 545px) {
-//       @content;
-//     }
-//   }
+  @mixin mobileLarge {
+    @media (max-width: 680px) {
+      @content;
+    }
+  }
+
+  @mixin mobile {
+    @media (max-width: 450px){
+      @content;
+    }
+  }

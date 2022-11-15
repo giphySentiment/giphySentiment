@@ -1,7 +1,7 @@
 import firebaseConfig from "../firebase";
 import { getDatabase, ref, push } from "firebase/database";
 import { Link } from "react-router-dom";
-import { useContext, createContext } from "react";
+import { useContext, useState, createContext } from "react";
 import { ChoiceContext } from "./GiphyData";
 
 export const LikesContext = createContext();
@@ -18,6 +18,10 @@ const Results = (props) => {
   const day = date.getDate();
   const year = date.getFullYear();
 
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
   // Object with user's gif, mood and date to be pushed to firebase
   const result = {
     mood: userChoice,
@@ -26,12 +30,14 @@ const Results = (props) => {
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
-  const database = getDatabase(firebaseConfig);
-  const databaseRef = ref(database);
-  push(databaseRef, result);
-
+    const sendToTimeline = () => {
+        const database = getDatabase(firebaseConfig);
+        const databaseRef = ref(database);
+        push(databaseRef, result);
+    }
+  
   return (
-    <section  className="results">
+    <section className="results">
       <div className="resultsContent">
         <p ref={props.resultRef}>{userChoice}</p>
         <img
@@ -39,13 +45,9 @@ const Results = (props) => {
           alt={`user's selected gif that represents the mood of ${userChoice}`}
         />
       </div>
-      <button>
-        <Link to="/landingPage">Try Again</Link>
-      </button>
+        <Link className="button" to="/landingPage" onClick={refreshPage}>Try Again</Link>
 
-      <button>
-        <Link to="/Timeline">Save to Timeline</Link>
-      </button>
+        <Link className="button" onClick={sendToTimeline} to="/Timeline" state={{result: result}}>Save to Timeline</Link>
     </section>
   );
 };

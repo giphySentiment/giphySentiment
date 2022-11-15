@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useRef } from "react";
 
 
 // Import components
@@ -36,11 +36,18 @@ const GiphyData = (props) => {
   //function to update state of displayGifPage
   const handleShowGif = () => {
     setDisplayGifPage(!displayGifPage);
-    
+
   };
 
   // State for hiding or displaying the form component
   const [showForm, setShowForm] = useState(true);
+
+  const gifRef = useRef()
+
+  const scrollInto = () => {
+    gifRef.current?.scrollIntoView({ behavior: 'smooth' });
+    console.log("scrolling!")
+  }
 
   // Randomizer Function
   const randomizer = (min, max) => {
@@ -53,6 +60,7 @@ const GiphyData = (props) => {
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
+    scrollInto()
 
     if (userChoice.includes(" ")) {
       setIsSpace(true);
@@ -93,14 +101,18 @@ const GiphyData = (props) => {
             setIsSpace={setIsSpace}
             giphyError={giphyError}
             handleShowGif={handleShowGif}
-        
+
           />
         ) : null}
         <ChoiceContext.Provider value={userChoice}>
           {/* conditionally render based on click of button */}
 
           {displayGifPage ? (
-            <Gif mood={mood} setShowForm={setShowForm}  />
+            <Gif
+              mood={mood}
+              setShowForm={setShowForm}
+              gifRef={gifRef}
+            />
           ) : null}
         </ChoiceContext.Provider>
       </section>

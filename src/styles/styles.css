@@ -3,12 +3,15 @@
   src: local("always-forever"), url("../../fonts/always-forever/always forever.ttf") format("truetype");
   font-weight: normal;
 }
+html {
+  background-color: #98C1D9;
+}
+
 .App {
   font-size: 125%;
   font-family: "Josefin Sans";
   background-color: #98C1D9;
   color: #141414;
-  min-height: 700px;
   scroll-behavior: smooth;
 }
 
@@ -56,7 +59,7 @@ a:focus {
 
 .button, button {
   cursor: pointer;
-  font-size: clamp(0.5rem, -0.4375rem + 3vw, 1.25rem);
+  font-size: clamp(0.9375rem, 0.865rem + 0.3623vw, 1.25rem);
   transition: 0.3s;
   padding: 15px;
   min-width: 150px;
@@ -65,6 +68,8 @@ a:focus {
   border-radius: 30px;
   background-color: #EDD060;
   color: #141414;
+  text-align: center;
+  font-family: "Josefin Sans";
 }
 .button:hover, button:hover {
   background-color: #141414;
@@ -307,22 +312,37 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 92vh;
-  min-height: 700px;
+  min-height: 90vh;
 }
 .welcome .wrapper h1 {
-  font-size: 9rem;
-  font-family: "always-forever";
   margin-top: 0px;
   margin: 0 auto;
 }
 .welcome .wrapper h2 {
-  font-size: 2.8rem;
+  font-size: clamp(1.5625rem, 1.1277rem + 2.1739vw, 3.4375rem);
   font-weight: 300;
   letter-spacing: 3px;
+  text-align: center;
+}
+@media (max-width: 680px) {
+  .welcome .wrapper h2 {
+    font-size: clamp(2.1875rem, 1.8976rem + 1.4493vw, 3.4375rem);
+  }
+}
+@media (max-width: 680px) {
+  .welcome .wrapper h2 span {
+    display: block;
+  }
 }
 .welcome .wrapper .logo {
   width: 50%;
+  min-width: 500px;
+}
+@media (max-width: 680px) {
+  .welcome .wrapper .logo {
+    width: 80%;
+    min-width: 300px;
+  }
 }
 
 footer {
@@ -330,13 +350,17 @@ footer {
   margin-bottom: 0px;
   padding-top: 5px;
   height: 10vh;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 footer p {
-  font-size: clamp(0.5rem, -0.0469rem + 1.75vw, 0.9375rem);
+  font-size: clamp(0.9375rem, 0.865rem + 0.3623vw, 1.25rem);
+  margin: 0;
 }
 footer .wrapper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
 }
@@ -352,17 +376,19 @@ footer .wrapper .creatives a:hover {
 footer .wrapper .creatives a:focus {
   color: #EDD060;
 }
-
-.landingPage {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+@media (max-width: 680px) {
+  footer .button {
+    min-width: 90px;
+    min-height: 25px;
+    padding: 8px;
+  }
 }
+
 .landingPage nav {
+  align-items: center;
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: baseline;
+  justify-content: space-evenly;
 }
 .landingPage nav h2 {
   margin-top: 0px;
@@ -372,7 +398,8 @@ footer .wrapper .creatives a:focus {
 }
 .landingPage nav .navLogo {
   width: 10%;
-  margin: 20px;
+  min-width: 117px;
+  margin-top: 30px;
 }
 
 .forms {
@@ -381,7 +408,7 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 82vh;
 }
 .forms h3 {
   font-size: 5rem;
@@ -389,10 +416,23 @@ footer .wrapper .creatives a:focus {
   line-height: 7rem;
   margin: 0 auto;
 }
+@media (max-width: 680px) {
+  .forms h3 {
+    font-size: clamp(3.75rem, 2.8804rem + 4.3478vw, 7.5rem);
+    line-height: 6rem;
+  }
+}
 .forms h3 span {
   font-size: 4rem;
   display: block;
   font-family: "always-forever";
+}
+@media (max-width: 680px) {
+  .forms h3 span {
+    font-size: clamp(3.75rem, 3.5326rem + 1.087vw, 4.6875rem);
+    margin-top: 20px;
+    line-height: 4.5rem;
+  }
 }
 .forms form {
   display: flex;
@@ -487,12 +527,9 @@ footer .wrapper .creatives a:focus {
   justify-content: space-evenly;
   gap: 15px;
 }
-.results button {
-  max-width: 300px;
-}
 .results p {
   text-align: center;
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
   margin: 0;
 }
 
@@ -657,6 +694,136 @@ footer .wrapper .creatives a:focus {
     transform: translatex(0px);
   }
 }
+.meetTheDevs {
+  min-height: 110vh;
+  background-color: rgb(235, 235, 235);
+}
+.meetTheDevs h2 {
+  padding: 20px;
+}
+.meetTheDevs li.bio {
+  margin-bottom: 10px;
+}
+.meetTheDevs .linkBox {
+  padding-top: 20px;
+}
+.meetTheDevs .linkBox a:hover {
+  color: #545775;
+}
+.meetTheDevs h2 {
+  margin: 0;
+  padding-top: 25px;
+  display: flex;
+  justify-content: center;
+  font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);
+}
+.meetTheDevs h3 {
+  margin: 5px;
+  font-size: clamp(0.75rem, 0.125rem + 2vw, 1.25rem);
+}
+.meetTheDevs i {
+  margin-right: 10px;
+  color: #545775;
+}
+.meetTheDevs .bioContainer {
+  display: flex;
+  margin: 0;
+}
+@media (max-width: 950px) {
+  .meetTheDevs .bioContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .meetTheDevs .bioContainer .bottomRow {
+    margin-left: 10px;
+  }
+}
+.meetTheDevs .bioContainer .topRow,
+.meetTheDevs .bioContainer .bottomRow {
+  display: flex;
+  justify-content: space-evenly;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 10px;
+}
+@media (max-width: 950px) {
+  .meetTheDevs .bioContainer .topRow,
+.meetTheDevs .bioContainer .bottomRow {
+    justify-content: center;
+    margin-bottom: 0px;
+  }
+}
+@media (max-width: 680px) {
+  .meetTheDevs .bioContainer .topRow,
+.meetTheDevs .bioContainer .bottomRow {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-left: 0px;
+  }
+}
+.meetTheDevs .bioContainer p {
+  font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
+}
+.meetTheDevs .bioContainer img {
+  width: 59%;
+  border-radius: 50%;
+  display: block;
+}
+@media (max-width: 950px) {
+  .meetTheDevs .bioContainer img {
+    width: 30%;
+  }
+}
+@media (max-width: 680px) {
+  .meetTheDevs .bioContainer img {
+    width: 50%;
+  }
+}
+.meetTheDevs .bioContainer .picContainer {
+  position: relative;
+  width: 60%;
+}
+.meetTheDevs .bioContainer .picContainer .profile {
+  display: block;
+  width: 100%;
+}
+.meetTheDevs .bioContainer .picContainer .overlayGif {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.meetTheDevs .bioContainer .picContainer .overlayGif:hover {
+  opacity: 1;
+}
+.meetTheDevs .bioContainer .bio {
+  width: 45%;
+  padding: 5px 20px;
+  transition: 0.2s ease;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+@media (max-width: 950px) {
+  .meetTheDevs .bioContainer .bio {
+    width: 40%;
+  }
+}
+@media (max-width: 680px) {
+  .meetTheDevs .bioContainer .bio {
+    width: 70%;
+  }
+}
+
 .notFound {
   height: 92vh;
   display: flex;
