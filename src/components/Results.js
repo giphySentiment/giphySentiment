@@ -30,10 +30,12 @@ const Results = (props) => {
   };
 
   // Variables to set database and databaseRef for firebase; call the push function into firebase
-  const database = getDatabase(firebaseConfig);
-  const databaseRef = ref(database);
-  push(databaseRef, result);
-
+    const sendToTimeline = () => {
+        const database = getDatabase(firebaseConfig);
+        const databaseRef = ref(database);
+        push(databaseRef, result);
+    }
+  
   return (
     <section className="results">
       <div className="resultsContent">
@@ -45,7 +47,7 @@ const Results = (props) => {
       </div>
         <Link className="button" to="/landingPage" onClick={refreshPage}>Try Again</Link>
 
-        <Link className="button" to="/Timeline" state={{result: result}}>Save to Timeline</Link>
+        <Link className="button" onClick={sendToTimeline} to="/Timeline" state={{result: result}}>Save to Timeline</Link>
     </section>
   );
 };
