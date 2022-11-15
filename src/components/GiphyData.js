@@ -36,7 +36,7 @@ const GiphyData = (props) => {
   //function to update state of displayGifPage
   const handleShowGif = () => {
     setDisplayGifPage(!displayGifPage);
-    
+
   };
 
   // State for hiding or displaying the form component
@@ -101,17 +101,17 @@ const GiphyData = (props) => {
             setIsSpace={setIsSpace}
             giphyError={giphyError}
             handleShowGif={handleShowGif}
-        
+
           />
         ) : null}
         <ChoiceContext.Provider value={userChoice}>
           {/* conditionally render based on click of button */}
 
           {displayGifPage ? (
-            <Gif 
-            mood={mood} 
-            setShowForm={setShowForm}
-            gifRef={gifRef}  
+            <Gif
+              mood={mood}
+              setShowForm={setShowForm}
+              gifRef={gifRef}
             />
           ) : null}
         </ChoiceContext.Provider>

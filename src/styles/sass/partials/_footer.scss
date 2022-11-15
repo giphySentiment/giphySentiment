@@ -5,27 +5,43 @@ footer {
     background-color: $tertiaryColor;
     margin-bottom: 0px;
     padding-top: 5px;
-    //height: 8vh;
     height: 10vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
     p {
-        font-size: clamp(0.5rem, -0.0469rem + 1.75vw, 0.9375rem);
+        font-size: clamp(0.9375rem, 0.865rem + 0.3623vw, 1.25rem);
     }
+
     .wrapper {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
         height: 100%;
+
         .creatives {
             color: $white;
+
             a {
                 color: $white;
+
                 &:hover {
                     color: $accentColor;
                 }
+
                 &:focus {
                     color: $accentColor;
                 }
             }
+        }
+    }
+
+    .button {
+        @include mobileLarge {
+            min-width: 80px;
+            min-height: 25px;
         }
     }
 }

@@ -6,53 +6,56 @@ import uuid from "react-uuid";
 import { useRef } from 'react';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
-
 const Timeline = (props) => {
     // State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
-    const [numOfLikes, setNumOfLikes] = useState(0);
+    const [numOfLikes, setNumOfLikes] = useState();
 
-    const handleLikes = (event, likes) => {
-        setNumOfLikes(numOfLikes + 1);
-        console.log("num of likes being clicked");
-        // const database = getDatabase(firebaseConfig);
-        // const databaseRef = ref(database, `/${likes}`)
-        // push(databaseRef)
-    };
-   
+    // const location = useLocation()
+    // const data = location.state?.result.likes
+
+    // useEffect(() => {
+    //     setNumOfLikes(data)
+    // }, [])
+
+    
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database);
-
+        
         onValue(databaseRef, (response) => {
             const newState = [];
             const data = response.val();
+            console.log(response.val())
             for (let key in data) {
-                newState.push({ key: key, name: data[key] })
+                newState.push({ key: key, name: data[key]})
             }
+            console.log(response.val())
             setTimeline(newState);
+            console.log(timeline[1].likes.likes)
         })
     }, []);
 
+    // const handleLikes = (likes) => {
+    //     setNumOfLikes(numOfLikes + 1)
+    //     let liked = numOfLikes
+    //     console.log(numOfLikes)
+    //     console.log("num of likes being clicked");
+    //     const database = getDatabase(firebaseConfig);
+    //     const databaseRef = ref(database, `likes/likes`)
+    //     push(databaseRef)
+    // };
+    
     const handleRemoveMeme = (memeKey) => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database, `/${memeKey}`)
         remove(databaseRef)
     }
 
-    const location = useLocation()
-    console.log(location, "useLocation Hook")
-    const data = location.state?.result
-    console.log(data)
-
-    useEffect( () => {
-        console.log("test!", location)
-    }, [location.state.result])
-
     return (
         <section className="timeline">
-             <div className="wrapper">
+            <div className="wrapper">
                 <nav>
                     <Link to="/landingPage">
                         <img className="navLogo" src={navLogo2} alt="" />
@@ -71,17 +74,17 @@ const Timeline = (props) => {
                                 </div>
                                 <div className="inner"></div>
                                 <div className="moodCard">
-                                    <i class="fa-solid fa-caret-down"></i>
+                                    <i className="fa-solid fa-caret-down"></i>
                                     <h4>Today's moody meme: <span>{result.name.mood}</span></h4>
                                     <img
                                         src={result.name.image}
                                         alt={`user selected gif to show the mood of ${result.name.mood}`}
                                     />
                                     <div className="timelineButtons">
-                                        <button onClick={() => {handleRemoveMeme(result.key)}}>
+                                        <button onClick={() => { handleRemoveMeme(result.key) }}>
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
-                                        <button onClick={() => {handleLikes(result.key)}}><i className="fa-regular fa-heart"></i></button><p>{result.name.likes}</p>
+                                        <button><i className="fa-regular fa-heart"></i></button><p></p>
                                     </div>
                                 </div>
                             </div>
@@ -90,7 +93,7 @@ const Timeline = (props) => {
                 </div>
             </div>
             <div className="wrapper">
-                <div className="scrollInst">Scroll for more <i class="fa-solid fa-right-long"></i></div>
+                <div className="scrollInst">Scroll for more</div>
             </div>
         </section>
     );
