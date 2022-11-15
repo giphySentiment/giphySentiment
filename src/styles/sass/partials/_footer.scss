@@ -33,9 +33,10 @@ footer {
     }
     .button {
         @include mobileLarge {
-        min-width: 100px;
+        min-width: 90px;
         width: 120px;
-        min-height: 25px;
+        min-height: 20px;
+        padding: 8px;
     }
     }
 }

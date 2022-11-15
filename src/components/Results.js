@@ -18,6 +18,9 @@ const Results = (props) => {
   const day = date.getDate();
   const year = date.getFullYear();
 
+  const refreshPage = () => {
+    window.location.reload();
+  }
   
 //   const [numOfLikes, setNumOfLikes] = useState(0);
 
@@ -42,7 +45,7 @@ const Results = (props) => {
   push(databaseRef, result);
 
   return (
-    <section  className="results">
+    <section className="results">
       <div className="resultsContent">
         <p ref={props.resultRef}>{userChoice}</p>
         <img
@@ -50,13 +53,9 @@ const Results = (props) => {
           alt={`user's selected gif that represents the mood of ${userChoice}`}
         />
       </div>
-      <button>
-        <Link to="/landingPage">Try Again</Link>
-      </button>
+        <Link className="button" to="/landingPage" onClick={refreshPage}>Try Again</Link>
 
-      <button>
-        <Link to="/Timeline" state={{result: result}}>Save to Timeline</Link>
-      </button>
+        <Link className="button" to="/Timeline" state={{result: result}}>Save to Timeline</Link>
     </section>
   );
 };

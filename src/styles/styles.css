@@ -70,6 +70,7 @@ a:focus {
   background-color: #EDD060;
   color: #141414;
   text-align: center;
+  font-family: "Josefin Sans";
 }
 .button:hover, button:hover {
   background-color: #141414;
@@ -379,9 +380,10 @@ footer .wrapper .creatives a:focus {
 }
 @media (max-width: 680px) {
   footer .button {
-    min-width: 100px;
+    min-width: 90px;
     width: 120px;
-    min-height: 25px;
+    min-height: 20px;
+    padding: 8px;
   }
 }
 
@@ -522,12 +524,9 @@ footer .wrapper .creatives a:focus {
   justify-content: space-evenly;
   gap: 15px;
 }
-.results button {
-  max-width: 300px;
-}
 .results p {
   text-align: center;
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
   margin: 0;
 }
 
