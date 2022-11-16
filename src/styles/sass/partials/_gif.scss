@@ -11,6 +11,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+        padding: 50px;
+        
     }
 
     form {
@@ -19,10 +21,12 @@
 
     .buttonContainer {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 10px;
+        
         @include mobile {
             margin-bottom: 100px;
-            margin-top: 50px;
         }
         @include mobileLarge {
             margin-bottom: 100px;
@@ -34,6 +38,9 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        @include mobile {
+            padding: 10px;
+        }
     }
 
     fieldset {
@@ -56,6 +63,13 @@
         filter: drop-shadow(0px 10px 10px rgba(0,0,0,0.6));
         cursor: pointer;
         opacity: 0.8;
+        @include mobile {
+            background-size: 100px 100px;
+            max-height: 250px;
+            max-width: 250px;
+                
+            }
+        }
        
         &:hover {
             filter: none;
@@ -76,4 +90,3 @@
             
         }
     }  
-}
