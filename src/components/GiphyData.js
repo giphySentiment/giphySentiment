@@ -45,9 +45,6 @@ const GiphyData = (props) => {
     console.log("scrolling!")
   }
 
-  // State to show and hide the form
-  const [showForm, setShowForm] = useState(true)
-
   // Randomizer Function
   const randomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -59,7 +56,7 @@ const GiphyData = (props) => {
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
-    
+
     if (userChoice.includes(" ")) {
       setIsSpace(true);
       setDisplayGifPage(false);
@@ -82,13 +79,8 @@ const GiphyData = (props) => {
           console.log(info.data);
         })
         .catch((error) => {
-<<<<<<< HEAD
-          if (`${baseURL}`.status !== 404){
-            setGiphyError(!giphyError)
-=======
           if (`${baseURL}`.status !== 404) {
             setGiphyError(!giphyError);
->>>>>>> bfcf6e031b471ed4faa7e9310504f7806a4ec6bf
           }
         });
     }
@@ -97,26 +89,6 @@ const GiphyData = (props) => {
   return (
     <FormContext.Provider value={handleFormSubmit}>
       <section className="giphyData">
-<<<<<<< HEAD
-        {
-        showForm
-        ?
-        <Forms
-          mood={mood}
-          setMood={setMood}
-          loading={loading}
-          noGifsAvailable={noGifsAvailable}
-          isSpace={isSpace}
-          setIsSpace={setIsSpace}
-          giphyError={giphyError}
-        />
-        : null
-        }
-        <ChoiceContext.Provider value={userChoice}>
-          <Gif
-            mood={mood}
-            setShowForm={setShowForm}
-=======
         {showForm ? (
           <Forms
             mood={mood}
@@ -127,7 +99,6 @@ const GiphyData = (props) => {
             setIsSpace={setIsSpace}
             giphyError={giphyError}
             handleShowGif={handleShowGif}
->>>>>>> bfcf6e031b471ed4faa7e9310504f7806a4ec6bf
           />
         ) : null}
         <ChoiceContext.Provider value={userChoice}>

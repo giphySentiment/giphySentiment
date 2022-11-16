@@ -11,7 +11,7 @@ const Gif = (props) => {
   const Scroll = require('react-scroll');
   const Element = Scroll.Element;
   const scroll = Scroll.animateScroll;
-  
+
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -31,9 +31,6 @@ const Gif = (props) => {
 
   //Function that sends the final results
   const sendToResults = (e) => {
-    setFinalGif(selectedGif)
-    props.setShowForm(false)
-  }
     setFinalGif(selectedGif);
     //conditionally rendering results section
     props.setShowForm(false);
@@ -41,7 +38,7 @@ const Gif = (props) => {
     scroll.scrollToBottom();
   };
 
-  return ( 
+  return (
     <section className="gif">
       <div ref={props.gifRef} className="gifContainer wrapper">
         <form>
@@ -69,19 +66,19 @@ const Gif = (props) => {
           <button className="button" onClick={formSubmit} disabled={finalGif ? true : false}>
             gimmie new gifs
           </button>
-          
-            <button className="button" onClick={sendToResults} disabled={finalGif ? true : false}>select this gif</button>
+
+          <button className="button" onClick={sendToResults} disabled={finalGif ? true : false}>select this gif</button>
         </div>
       </div>
-       <Element name="myScrollToElement">
-          <div>
+      <Element name="myScrollToElement">
+        <div>
           {
-              finalGif ?
-                  <Results finalGif={finalGif} /> 
-                : null
-            }
-          </div>
-        </Element>
+            finalGif ?
+              <Results finalGif={finalGif} />
+              : null
+          }
+        </div>
+      </Element>
     </section>
   );
 };

@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState, useRef } from "react";
 import { FormContext } from "./GiphyData";
+
+
 
 // Import components
 import LoadingPage from "./LoadingPage";
 
 const Forms = (props) => {
+
   // Set variable for 'handleFormSubmit' from GiphyData (useContext)
   const formSubmit = useContext(FormContext);
 
@@ -16,6 +19,7 @@ const Forms = (props) => {
     props.setMood(e.target.value);
     props.setIsSpace(false);
   };
+
 
   return (
     <section className="forms">
