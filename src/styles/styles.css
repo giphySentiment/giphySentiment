@@ -408,7 +408,7 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 82vh;
+  height: 86vh;
 }
 .forms h3 {
   font-size: 5rem;
@@ -703,6 +703,7 @@ footer .wrapper .creatives a:focus {
 }
 .meetTheDevs li.bio {
   margin-bottom: 10px;
+  min-height: 65vh;
 }
 .meetTheDevs .linkBox {
   padding-top: 20px;
@@ -712,7 +713,7 @@ footer .wrapper .creatives a:focus {
 }
 .meetTheDevs h2 {
   margin: 0;
-  padding-top: 25px;
+  padding: 50px 0px;
   display: flex;
   justify-content: center;
   font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);

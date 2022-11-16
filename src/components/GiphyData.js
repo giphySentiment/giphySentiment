@@ -60,11 +60,13 @@ const GiphyData = (props) => {
     const apiKey = "Ulwht5cPZ4vU4GOzd3G4kckrwM0g9SgI";
     const baseURL = "https://api.giphy.com/v1/gifs/search";
     const randomInt = randomizer(0, 35);
-    scrollInto()
-
+    
     if (userChoice.includes(" ")) {
       setIsSpace(true);
+      setDisplayGifPage(false)
     } else {
+      scrollInto()
+      handleShowGif()
       setLoading(true);
       fetch(
         `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
