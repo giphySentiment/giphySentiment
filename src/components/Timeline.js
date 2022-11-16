@@ -3,22 +3,11 @@ import { getDatabase, ref, onValue, remove, push } from 'firebase/database';
 import { useEffect, useState } from "react";
 import { Link, useLocation } from 'react-router-dom';
 import uuid from "react-uuid";
-import { useRef } from 'react';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 const Timeline = (props) => {
     //State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
-
-    const [numOfLikes, setNumOfLikes] = useState(0);
-
-    // const location = useLocation()
-    // const data = location.state?.result.likes
-
-    // useEffect(() => {
-    //     setNumOfLikes(data)
-    // }, [])
-
     
     useEffect(() => {
         const database = getDatabase(firebaseConfig);
@@ -26,7 +15,6 @@ const Timeline = (props) => {
         
         onValue(databaseRef, (response) => {
             const newState = [];
-            const newLikes = [];
             const data = response.val();
             console.log(response.val())
             for (let key in data) {

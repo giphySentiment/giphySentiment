@@ -1,7 +1,7 @@
 import firebaseConfig from "../firebase";
 import { getDatabase, ref, push } from "firebase/database";
 import { Link } from "react-router-dom";
-import { useContext, useState, createContext } from "react";
+import { useContext, createContext } from "react";
 import { ChoiceContext } from "./GiphyData";
 
 export const LikesContext = createContext();

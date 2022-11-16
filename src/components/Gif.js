@@ -7,12 +7,11 @@ import { FormContext } from "./GiphyData";
 import Results from "./Results";
 
 const Gif = (props) => {
-
+  // Variables for react-scroll
   const Scroll = require('react-scroll');
   const Element = Scroll.Element;
   const scroll = Scroll.animateScroll;
   
-
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 

@@ -7,7 +7,7 @@ const Welcome = () => {
         <div className="wrapper">
           <h1><span className="visuallyHidden">moody memes</span></h1>
           <img className="logo" src={logo2} alt="" />
-          <h2>Express your sentiments <span>with a gif✨</span></h2>
+          <h2>Express your mood <span>in a meme✨</span></h2>
           <Link to="/landingPage" className="button">Get Started</Link>
         </div>
       </section>

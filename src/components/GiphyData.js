@@ -1,6 +1,5 @@
 import { useState, createContext, useRef } from "react";
 
-
 // Import components
 import Forms from "./Forms";
 import Gif from "./Gif";
@@ -10,8 +9,6 @@ export const ChoiceContext = createContext();
 export const FormContext = createContext();
 
 const GiphyData = (props) => {
-
-
   //state to display Gif page
   const [displayGifPage, setDisplayGifPage] = useState(false);
 
@@ -62,10 +59,10 @@ const GiphyData = (props) => {
     
     if (userChoice.includes(" ")) {
       setIsSpace(true);
-      setDisplayGifPage(false)
+      setDisplayGifPage(false);
     } else {
-      scrollInto()
-      handleShowGif()
+      scrollInto();
+      handleShowGif();
       setLoading(true);
       fetch(
         `${baseURL}?api_key=${apiKey}&q=${userChoice}&limit=3&offset=${randomInt}&rating=g&lang=en`
@@ -102,12 +99,9 @@ const GiphyData = (props) => {
             setIsSpace={setIsSpace}
             giphyError={giphyError}
             handleShowGif={handleShowGif}
-
           />
         ) : null}
         <ChoiceContext.Provider value={userChoice}>
-          {/* conditionally render based on click of button */}
-
           {displayGifPage ? (
             <Gif
               mood={mood}
