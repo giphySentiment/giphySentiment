@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import brittPhoto from "../assets/brittsPic.jpg";
 import brittGif from "../assets/excitedGirlGif.webp";
 import chrisPhoto from "../assets/chrisPic.jpg";
-import chrisGifFinal from "../assets/chrisGifFinal.jpg";
+import chrisGifFinal from "../assets/chrisGifFinal.gif";
 import danielGif from "../assets/danielGif.gif";
 import kwamePic from "../assets/kwame.jpeg";
 import KwameGif from "../assets/kwameGif.gif";
@@ -13,30 +13,34 @@ const MeetTheDevs = () => {
     <section className="meetTheDevs">
       <div className="wrapper meetDevsContent">
         <div className="linkBox">
-          <Link className="backLink" to="/home">
+          <Link className="backLink" to="/Home">
             <i class="fa-solid fa-hand-point-left"></i>Back
           </Link>
         </div>
         <h2>Meet The Team</h2>
         <ul className="bioContainer">
           <div className="topRow">
-          <li className="bio">
-            <div className="picContainer">
-             <img className="profile" src={brittPhoto} alt="person holding up a peace sign" />
-              <img
-                className="overlayGif"
-                src={brittGif}
-                alt="excited girl eating cotton candy gif"
-              />   
-            </div>
+            <li className="bio">
+              <div className="picContainer">
+                <img
+                  className="profile"
+                  src={brittPhoto}
+                  alt="person holding up a peace sign"
+                />
+                <img
+                  className="overlayGif"
+                  src={brittGif}
+                  alt="excited girl eating cotton candy gif"
+                />
+              </div>
               <h3>Brittany Freitas (she/her)</h3>
               <p>
-                Brittany is a web developer based out of Toronto, Canada with a
-                love for bringing ideas to life through beutiful web design and
-                clean code. She is a career switcher with a background in
-                social work and enjoys taking on projects that make a
-                social impact. Outside of work, you can find her rock climbing,
-                hiking, or binge watching interior design content on Youtube.{" "}
+                Brittany is a Toronto-based web developer with a
+                love for bringing ideas to life through beautiful web design and
+                clean code. She is a career switcher with a background in social
+                work and enjoys taking on projects that make a social impact.
+                Outside of work, you can find her rock climbing, hiking, or
+                binge watching interior design content on Youtube.
               </p>
 
               <div className="socials">
@@ -67,17 +71,28 @@ const MeetTheDevs = () => {
             </li>
 
             <li className="bio">
-            <div className="picContainer">
-               <img
-               className="profile"
-                src={chrisPhoto}
-                alt="person smiling with a cat beside them"
-              />
-              <img  className="overlayGif" clasName="overlay" src={chrisGifFinal} alt="dog typing on computer while laying down" />  
-            </div>
+              <div className="picContainer">
+                <img
+                  className="profile"
+                  src={chrisPhoto}
+                  alt="person smiling with a cat beside them"
+                />
+                <img
+                  className="overlayGif"
+                  clasName="overlay"
+                  src={chrisGifFinal}
+                  alt="dog typing on computer while laying down"
+                />
+              </div>
               <h3>Chris Taeyoung Kim (she/her)</h3>
               <p>
-              Chris is a web developer passionate about writing clean, accessible and well-designed code. As a teacher turned developer, she thrives in working collaboratively in fast-paced environments and brings her analytic lens as a musician to find creative solutions to complex problems. Outside of coding, you can find Chris playing with her cat, at the gym, or listening to true crime podcasts.
+                Chris is a web developer passionate about writing clean,
+                accessible and well-designed code. As a teacher turned
+                developer, she thrives in working collaboratively in fast-paced
+                environments and brings her analytic lens as a musician to find
+                creative solutions to complex problems. Outside of coding, you
+                can find Chris playing with her cat, at the gym, or listening to
+                true crime podcasts.
               </p>
               <div className="socials">
                 <a
@@ -105,21 +120,24 @@ const MeetTheDevs = () => {
                 </a>
               </div>
             </li>
-            </div>
+          </div>
 
-
-    <div className="bottomRow">
+          <div className="bottomRow">
             <li className="bio">
               <div className="picContainer">
-                <img className="profile" src={danielPic} alt="person and baby smiling" />
                 <img
-                    className="overlayGif"
+                  className="profile"
+                  src={danielPic}
+                  alt="person and baby smiling"
+                />
+                <img
+                  className="overlayGif"
                   src={danielGif}
                   alt="person throwing computer into trash can"
                 />
               </div>
               <h3>Daniel Butcher (he/him)</h3>
-              <div className="bioItem">
+           
                 <p>
                   Daniel has always had a love for tech, from building computers
                   and electronics to now all things software. If he's not coding
@@ -152,21 +170,24 @@ const MeetTheDevs = () => {
                   >
                     <i className="fa-solid fa-laptop"></i>
                   </a>
-                </div>
               </div>
             </li>
 
             <li className="bio">
-            <div className="picContainer">
-               <img
-               className="profile"
-                src={kwamePic}
-                alt="person simling and throwing up a peace sign"
-              />
-              <img className="overlayGif" src={KwameGif} alt="person sand boaring" />   
-            </div>
+              <div className="picContainer">
+                <img
+                  className="profile"
+                  src={kwamePic}
+                  alt="person simling and throwing up a peace sign"
+                />
+                <img
+                  className="overlayGif"
+                  src={KwameGif}
+                  alt="person sand boaring"
+                />
+              </div>
               <h3>Kwame Appiah-Kubi (he/him)</h3>
-              <div className="bioItem">
+             
                 <p>
                   Moving from the media world into the tech industry, Kwame has
                   an affinity for design and loves to code for the user
@@ -199,10 +220,9 @@ const MeetTheDevs = () => {
                     ></i>
                   </a>
                 </div>
-              </div>
+              
             </li>
-    </div>
-          
+          </div>
         </ul>
       </div>
     </section>

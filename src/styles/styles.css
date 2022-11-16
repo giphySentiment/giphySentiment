@@ -507,13 +507,12 @@ footer .wrapper .creatives a:focus {
   height: 300px;
   background: #98C1D9;
   padding: 0;
-  margin: 4px;
+  margin: 10px;
   box-sizing: border-box;
   background-repeat: no-repeat;
   background-position: center center;
   border: 0;
   transition: all 0.1s ease 0.1s;
-  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.6));
   cursor: pointer;
   opacity: 0.8;
 }
@@ -531,7 +530,7 @@ footer .wrapper .creatives a:focus {
 .gif:checked {
   opacity: 1;
   box-shadow: none;
-  filter: drop-shadow(12px 12px 10px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(20px 20px 7px rgba(0, 0, 0, 0.7));
 }
 
 .results {
@@ -562,6 +561,9 @@ footer .wrapper .creatives a:focus {
   display: flex;
 }
 
+.timeline {
+  min-height: 90vh;
+}
 .timeline nav {
   display: flex;
   flex-wrap: nowrap;
@@ -851,29 +853,35 @@ footer .wrapper .creatives a:focus {
   min-height: 110vh;
   background-color: rgb(235, 235, 235);
 }
-.meetTheDevs h2 {
-  padding: 20px;
+.meetTheDevs .socials {
+  font-size: 2rem;
 }
 .meetTheDevs li.bio {
   margin-bottom: 10px;
   min-height: 65vh;
 }
 .meetTheDevs .linkBox {
-  padding-top: 20px;
+  padding-top: 75px;
 }
-.meetTheDevs .linkBox a:hover {
-  color: #545775;
+.meetTheDevs .linkBox i {
+  font-size: 2rem;
+}
+.meetTheDevs .linkBox i:hover {
+  color: #252630;
+}
+.meetTheDevs .linkBox i:focus {
+  color: #252630;
 }
 .meetTheDevs h2 {
   margin: 0;
   padding: 50px 0px;
   display: flex;
   justify-content: center;
-  font-size: clamp(1.25rem, -1.0938rem + 7.5vw, 3.125rem);
+  font-size: clamp(2.25rem, -1.0938rem + 7.5vw, 3.125rem);
 }
 .meetTheDevs h3 {
   margin: 5px;
-  font-size: clamp(0.75rem, 0.125rem + 2vw, 1.25rem);
+  font-size: clamp(1rem, 0.125rem + 2vw, 1.25rem);
 }
 .meetTheDevs i {
   margin-right: 10px;
@@ -919,7 +927,7 @@ footer .wrapper .creatives a:focus {
   }
 }
 .meetTheDevs .bioContainer p {
-  font-size: clamp(0.625rem, 0.4688rem + 0.5vw, 0.75rem);
+  font-size: clamp(0.95rem, 0.4375rem + 1vw, 1rem);
 }
 .meetTheDevs .bioContainer img {
   width: 59%;
@@ -951,6 +959,7 @@ footer .wrapper .creatives a:focus {
   width: 100%;
   height: 100%;
   opacity: 0;
+  transition: all 0.6s ease 0.2s;
 }
 .meetTheDevs .bioContainer .picContainer .overlayGif:hover {
   opacity: 1;
@@ -964,7 +973,7 @@ footer .wrapper .creatives a:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   text-align: center;
 }
 @media (max-width: 950px) {
