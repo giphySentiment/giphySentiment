@@ -463,7 +463,7 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  padding: 50px;
+  padding-top: 50px;
 }
 .gif form {
   border: none;
