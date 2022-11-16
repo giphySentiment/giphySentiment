@@ -37,34 +37,12 @@ const Timeline = (props) => {
             console.log(timeline[1].name.likes)
         })
     }, []);
-
-    const handleLikes = (likes) => {
-        setNumOfLikes(numOfLikes + 1)
-        let liked = numOfLikes
-        console.log(liked)
-        console.log("num of likes being clicked");
-        const database = getDatabase(firebaseConfig);
-        const databaseRef = ref(database, `/${likes}`)
-        push(databaseRef)
-    };
     
     const handleRemoveMeme = (memeKey) => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database, `/${memeKey}`)
         remove(databaseRef)
     }
-
-    // const [numOfLikes, setNumOfLikes] = useState(0);
-
-    // const handleLikes = (event, likes) => {
-    //     setNumOfLikes(numOfLikes + 1);
-    //     console.log("num of likes being clicked");
-    //     const database = getDatabase(firebaseConfig);
-    //     const databaseRef = ref(database, `/${likes}`)
-    //     push(databaseRef)
-    // };
-
-    console.log(timeline[1].name.likes)
 
     return (
         <section className="timeline">
@@ -97,7 +75,6 @@ const Timeline = (props) => {
                                         <button onClick={() => { handleRemoveMeme(result.key) }}>
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
-                                        <button><i className="fa-regular fa-heart"></i></button><p>{`this is a test ${result.name.likes}`}</p>
                                     </div>
                                 </div>
                             </div>
