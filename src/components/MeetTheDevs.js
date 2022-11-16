@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import brittPhoto from "../assets/brittsPic.jpg";
 import brittGif from "../assets/excitedGirlGif.webp";
-import { Link } from "react-router-dom";
 import chrisPhoto from "../assets/chrisPic.jpg";
 import chrisGifFinal from "../assets/chrisGifFinal.gif";
 import danielGif from "../assets/danielGif.gif";
