@@ -1,7 +1,6 @@
 @use "./sass/partials/variables" as *;
 @use "./sass/partials/globalStyles";
 @use "./sass/partials/setup";
-@use "./sass/partials/mixins" as *;
 
 // Sections
 @use "./sass/partials/welcome";
@@ -13,3 +12,7 @@
 @use "./sass/partials/results";
 @use "./sass/partials/timeline";
 @use "./sass/partials/meetTheDevs";
+@use "./sass/partials/notFound";
+@use "./sass/partials/mixins" as *;
+
+

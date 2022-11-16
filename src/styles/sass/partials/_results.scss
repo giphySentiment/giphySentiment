@@ -1,2 +1,35 @@
 @use "./variables" as *;
 @use "./mixins" as *;
+
+.results {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $primaryColor;
+    gap: 15px;
+
+    .resultsContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        gap: 15px;
+
+        img{
+            width: 300px;
+            height: 300px;
+        }
+
+    }
+
+    p {
+        text-align: center;
+        font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
+        margin: 0;
+    }
+
+    .resultsButtonContainer {
+        display: flex;
+    }
+}

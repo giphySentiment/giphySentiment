@@ -1,11 +1,11 @@
-import CircleLoader from "react-spinners/CircleLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 const LoadingPage = () => {
     return (
         <div className="loadingPage">
-            <CircleLoader
-                color={'green'}
-                size={150}
+            <PulseLoader
+                color={'#EDD060'}
+                size={15}
                 aria-label="Loading Spinner"
                 data-testid="loader"
             />

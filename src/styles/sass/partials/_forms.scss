@@ -7,16 +7,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 86vh;
     h3 {
         font-size: 5rem;
         text-align: center;
         line-height: 7rem;
         margin: 0 auto;
-        padding-top: 5%;
+        @include mobileLarge {
+            font-size: clamp(3.125rem, 2.1105rem + 5.0725vw, 7.5rem);
+            line-height: 6rem;
+        }
         span {
             font-size: 4rem;
             display: block;
-            font-family: $logoFont;
+            font-weight: 300;
+            font-size: clamp(2.5rem, 2.2101rem + 1.4493vw, 3.75rem);
+            @include mobileLarge {
+                margin-top: 20px;
+                line-height: 4.5rem;
+            }
         }
     }
 
