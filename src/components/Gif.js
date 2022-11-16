@@ -12,6 +12,7 @@ const Gif = (props) => {
   const Element = Scroll.Element;
   const scroll = Scroll.animateScroll;
   
+
   // Set variable for 'gif' from LandingPage (useContext)
   const gif = useContext(GifContext);
 
@@ -38,7 +39,7 @@ const Gif = (props) => {
     scroll.scrollToBottom();
   };
 
-  return (
+  return ( 
     <section className="gif">
       <div ref={props.gifRef} className="gifContainer wrapper">
         <form>

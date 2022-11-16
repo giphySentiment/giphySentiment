@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "always-forever";
   src: local("always-forever"), url("../../fonts/always-forever/always forever.ttf") format("truetype");
@@ -13,6 +14,10 @@ html {
   background-color: #98C1D9;
   color: #141414;
   scroll-behavior: smooth;
+}
+
+html {
+  background-color: #98C1D9;
 }
 
 .visuallyHidden {
@@ -532,6 +537,9 @@ footer .wrapper .creatives a:focus {
   font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
   margin: 0;
 }
+.results .resultsButtonContainer {
+  display: flex;
+}
 
 .timeline nav {
   display: flex;
@@ -543,6 +551,22 @@ footer .wrapper .creatives a:focus {
 }
 .timeline nav .navLogo {
   margin: 20px;
+}
+@media (max-width: 680px) {
+  .timeline nav .navLogo {
+    margin: 20px 0;
+  }
+}
+@media (max-width: 680px) {
+  .timeline nav {
+    width: 25%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 450px) {
+  .timeline nav {
+    width: 45%;
+  }
 }
 .timeline .roundScroll {
   border-radius: 25px;
@@ -567,6 +591,20 @@ footer .wrapper .creatives a:focus {
   overflow-y: hidden;
   scrollbar-color: #EDD060 #EBEBEB;
   border: none;
+  position: relative;
+}
+@media (max-width: 950px) {
+  .timelineContainer {
+    height: 550px;
+    margin-top: 35px;
+  }
+}
+@media (max-width: 680px) {
+  .timelineContainer {
+    flex-direction: column;
+    overflow-y: visible;
+    overflow-x: hidden;
+  }
 }
 .timelineContainer::-webkit-scrollbar {
   background: #EBEBEB;
@@ -591,6 +629,19 @@ footer .wrapper .creatives a:focus {
 .timelineContainer .timelineItems img {
   height: 300px;
   width: 300px;
+  z-index: 2;
+}
+@media (max-width: 950px) {
+  .timelineContainer .timelineItems img {
+    height: 200px;
+    width: 200px;
+  }
+}
+@media (max-width: 450px) {
+  .timelineContainer .timelineItems img {
+    height: 160px;
+    width: 160px;
+  }
 }
 .timelineContainer .timelineItems::before {
   content: "";
@@ -599,6 +650,12 @@ footer .wrapper .creatives a:focus {
   height: 6px;
   width: 120%;
   background: #545775;
+}
+@media (max-width: 680px) {
+  .timelineContainer .timelineItems::before {
+    transform: rotate(90deg);
+    z-index: 0;
+  }
 }
 
 .dateContent {
@@ -621,6 +678,22 @@ footer .wrapper .creatives a:focus {
   align-items: center;
   width: 380px;
   position: relative;
+  z-index: 5;
+}
+@media (max-width: 950px) {
+  .moodCard {
+    width: 300px;
+  }
+}
+@media (max-width: 680px) {
+  .moodCard {
+    margin: 20px 0px;
+  }
+}
+@media (max-width: 450px) {
+  .moodCard {
+    width: 250px;
+  }
 }
 .moodCard .fa-caret-down {
   position: absolute;
@@ -635,17 +708,28 @@ footer .wrapper .creatives a:focus {
   margin-bottom: 10px;
   margin-top: 15px;
 }
+@media (max-width: 450px) {
+  .moodCard h4 {
+    font-size: 1.25rem;
+  }
+}
 .moodCard h4 span {
   display: block;
   font-size: 2.2rem;
   text-transform: uppercase;
   text-shadow: 3px 3px 0px #EDD060;
 }
+@media (max-width: 450px) {
+  .moodCard h4 span {
+    font-size: 1.5rem;
+  }
+}
 
 .timelineButtons {
   display: flex;
   justify-content: center;
   align-items: baseline;
+  z-index: 2;
 }
 .timelineButtons button {
   padding: 0px;
@@ -663,6 +747,26 @@ footer .wrapper .creatives a:focus {
   font-size: 1.5rem;
   -webkit-animation: move 2s linear infinite;
           animation: move 2s linear infinite;
+  position: relative;
+}
+@media (max-width: 680px) {
+  .scrollInst {
+    -webkit-animation: moveUpDown 2s linear infinite;
+            animation: moveUpDown 2s linear infinite;
+  }
+}
+.scrollInst::after {
+  content: "→";
+  font-size: 3.5rem;
+  position: absolute;
+  top: -12px;
+}
+@media (max-width: 680px) {
+  .scrollInst::after {
+    transform: rotate(90deg);
+    font-size: 1.5rem;
+    top: -3px;
+  }
 }
 
 @-webkit-keyframes move {
@@ -670,13 +774,13 @@ footer .wrapper .creatives a:focus {
     transform: translateX(0px);
   }
   30% {
-    transform: translatex(8px);
+    transform: translateX(8px);
   }
   50% {
-    transform: translatex(15px);
+    transform: translateX(15px);
   }
   100% {
-    transform: translatex(0px);
+    transform: translateX(0px);
   }
 }
 
@@ -685,13 +789,41 @@ footer .wrapper .creatives a:focus {
     transform: translateX(0px);
   }
   30% {
-    transform: translatex(8px);
+    transform: translateX(8px);
   }
   50% {
-    transform: translatex(15px);
+    transform: translateX(15px);
   }
   100% {
-    transform: translatex(0px);
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes moveUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 .meetTheDevs {

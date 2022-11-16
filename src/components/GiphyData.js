@@ -35,8 +35,7 @@ const GiphyData = (props) => {
 
   //function to update state of displayGifPage
   const handleShowGif = () => {
-    setDisplayGifPage(!displayGifPage);
-
+    setDisplayGifPage(true);
   };
 
   // State for hiding or displaying the form component
@@ -114,6 +113,7 @@ const GiphyData = (props) => {
               mood={mood}
               setShowForm={setShowForm}
               gifRef={gifRef}
+              isSpace={isSpace}
             />
           ) : null}
         </ChoiceContext.Provider>

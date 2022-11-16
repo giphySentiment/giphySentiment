@@ -14,18 +14,23 @@ footer {
         font-size: clamp(0.9375rem, 0.865rem + 0.3623vw, 1.25rem);
         margin: 0;
     }
+
     .wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 100%;
+
         .creatives {
             color: $white;
+
             a {
                 color: $white;
+
                 &:hover {
                     color: $accentColor;
                 }
+
                 &:focus {
                     color: $accentColor;
                 }
