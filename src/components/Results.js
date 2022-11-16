@@ -1,7 +1,7 @@
 import firebaseConfig from "../firebase";
 import { getDatabase, ref, push } from "firebase/database";
 import { Link } from "react-router-dom";
-import { useContext, createContext } from "react";
+import { useContext, useState, createContext } from "react";
 import { ChoiceContext } from "./GiphyData";
 
 export const LikesContext = createContext();
@@ -18,40 +18,38 @@ const Results = (props) => {
     const day = date.getDate();
     const year = date.getFullYear();
 
-    // Object with user's gif, mood and date to be pushed to firebase
-    const result = {
-        mood: userChoice,
-        image: props.finalGif,
-        date: `${month} ${day}, ${year}`,
-        likes: 0
-    };
+  const refreshPage = () => {
+    window.location.reload();
+  }
 
-    // Variables to set database and databaseRef for firebase; call the push function into firebase
-    
+  // Object with user's gif, mood and date to be pushed to firebase
+  const result = {
+    mood: userChoice,
+    image: props.finalGif,
+    date: `${month} ${day}, ${year}`,
+  };
+
+  // Variables to set database and databaseRef for firebase; call the push function into firebase
     const sendToTimeline = () => {
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database);
         push(databaseRef, result);
     }
+  
+  return (
+    <section className="results">
+      <div className="resultsContent">
+        <p ref={props.resultRef}>{userChoice}</p>
+        <img
+          src={props.finalGif}
+          alt={`user's selected gif that represents the mood of ${userChoice}`}
+        />
+      </div>
+        <Link className="button" to="/landingPage" onClick={refreshPage}>Try Again</Link>
 
-    return (
-        <section className="results">
-            <div className="resultsContent">
-                <p ref={props.resultRef}>{userChoice}</p>
-                <img
-                    src={props.finalGif}
-                    alt={`user's selected gif that represents the mood of ${userChoice}`}
-                />
-            </div>
-            <button>
-                <Link to="/landingPage">Try Again</Link>
-            </button>
-
-            <button onClick={sendToTimeline}>
-                <Link to="/Timeline" state={{ result: result }}>Save to Timeline</Link>
-            </button>
-        </section>
-    );
+        <Link className="button" onClick={sendToTimeline} to="/Timeline" state={{result: result}}>Save to Timeline</Link>
+    </section>
+  );
 };
 
 export default Results;

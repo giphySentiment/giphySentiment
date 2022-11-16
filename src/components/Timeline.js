@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 const Timeline = (props) => {
-    // State to save user's gif and info object into the timeline
+    //State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
     const [numOfLikes, setNumOfLikes] = useState();
@@ -54,6 +54,16 @@ const Timeline = (props) => {
         const databaseRef = ref(database, `/${memeKey}`)
         remove(databaseRef)
     }
+
+    // const [numOfLikes, setNumOfLikes] = useState(0);
+
+    // const handleLikes = (event, likes) => {
+    //     setNumOfLikes(numOfLikes + 1);
+    //     console.log("num of likes being clicked");
+    //     const database = getDatabase(firebaseConfig);
+    //     const databaseRef = ref(database, `/${likes}`)
+    //     push(databaseRef)
+    // };
 
     return (
         <section className="timeline">

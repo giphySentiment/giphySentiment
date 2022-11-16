@@ -51,7 +51,7 @@ const Forms = (props) => {
           </p>
         ) : null}
         {props.isSpace ? <p>Single words only please!</p> : null}
-        {props.giphyError ? <p>Oh no! The API is down.</p> : null}
+        {props.giphyError ? <p className="errorMessage">Oops! Something went wrong. Come back later.</p> : null}
         {props.loading ? (
           <>
             <LoadingPage />

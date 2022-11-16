@@ -2,18 +2,15 @@ import { useState, useContext } from "react";
 import uuid from "react-uuid";
 import { GifContext } from "./LandingPage";
 import { FormContext } from "./GiphyData";
-import * as Scroll from 'react-scroll';
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
-
 
 // Import components
 import Results from "./Results";
 
 const Gif = (props) => {
+
   const Scroll = require('react-scroll');
   const Element = Scroll.Element;
-  const scroller = Scroll.scroller;
-
+  const scroll = Scroll.animateScroll;
   
 
   // Set variable for 'gif' from LandingPage (useContext)
@@ -36,17 +33,10 @@ const Gif = (props) => {
   //Function that sends the final results
   const sendToResults = (e) => {
     setFinalGif(selectedGif);
-
     //conditionally rendering results section
     props.setShowForm(false);
     setSelectedGif("");
-    scroller.scrollTo('myScrollToElement', {
-      duration: 1500,
-      delay: 100,
-      smooth: true,
-      containerId: 'ContainerElementID',
-      offset: 50})
-
+    scroll.scrollToBottom();
   };
 
   return ( 
@@ -74,19 +64,22 @@ const Gif = (props) => {
           </fieldset>
         </form>
         <div className="buttonContainer">
-          <button onClick={formSubmit} disabled={finalGif ? true : false}>
+          <button className="button" onClick={formSubmit} disabled={finalGif ? true : false}>
             gimmie new gifs
           </button>
-
-          <button onClick={sendToResults}>select this gif</button>
+          
+            <button className="button" onClick={sendToResults} disabled={finalGif ? true : false}>select this gif</button>
         </div>
       </div>
-      <Element name="myScrollToElement">
-        <div>
-        {finalGif ? <Results finalGif={finalGif} /> : null}
-
-        </div>
-      </Element>
+       <Element name="myScrollToElement">
+          <div>
+          {
+              finalGif ?
+                  <Results finalGif={finalGif} /> 
+                : null
+            }
+          </div>
+        </Element>
     </section>
   );
 };

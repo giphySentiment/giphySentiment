@@ -6,13 +6,13 @@ footer {
     margin-bottom: 0px;
     padding-top: 5px;
     height: 10vh;
-    position: fixed;
+//    position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-
     p {
         font-size: clamp(0.9375rem, 0.865rem + 0.3623vw, 1.25rem);
+        margin: 0;
     }
 
     .wrapper {
@@ -37,11 +37,11 @@ footer {
             }
         }
     }
-
     .button {
         @include mobileLarge {
-            min-width: 80px;
-            min-height: 25px;
-        }
+        min-width: 90px;
+        min-height: 25px;
+        padding: 8px;
+    }
     }
 }
