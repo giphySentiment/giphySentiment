@@ -1,9 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: "always-forever";
-  src: local("always-forever"), url("../../fonts/always-forever/always forever.ttf") format("truetype");
-  font-weight: normal;
-}
 html {
   background-color: #98C1D9;
 }
@@ -340,7 +335,7 @@ html {
   }
 }
 .welcome .wrapper .logo {
-  width: 50%;
+  width: 40%;
   min-width: 500px;
 }
 @media (max-width: 680px) {
@@ -395,12 +390,6 @@ footer .wrapper .creatives a:focus {
   flex-wrap: nowrap;
   justify-content: space-evenly;
 }
-.landingPage nav h2 {
-  margin-top: 0px;
-  font-family: "always-forever";
-  font-size: 3.5rem;
-  padding-top: 5%;
-}
 .landingPage nav .navLogo {
   width: 10%;
   min-width: 117px;
@@ -423,18 +412,18 @@ footer .wrapper .creatives a:focus {
 }
 @media (max-width: 680px) {
   .forms h3 {
-    font-size: clamp(3.75rem, 2.8804rem + 4.3478vw, 7.5rem);
+    font-size: clamp(3.125rem, 2.1105rem + 5.0725vw, 7.5rem);
     line-height: 6rem;
   }
 }
 .forms h3 span {
   font-size: 4rem;
   display: block;
-  font-family: "always-forever";
+  font-weight: 300;
+  font-size: clamp(2.5rem, 2.2101rem + 1.4493vw, 3.75rem);
 }
 @media (max-width: 680px) {
   .forms h3 span {
-    font-size: clamp(3.75rem, 3.5326rem + 1.087vw, 4.6875rem);
     margin-top: 20px;
     line-height: 4.5rem;
   }

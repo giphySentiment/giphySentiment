@@ -1,6 +1,5 @@
 import { useState, createContext } from "react";
 import { Link } from 'react-router-dom';
-// import navLogo from '../assets/moodyMemesLogoNoBanner.png';
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 
 // Import components

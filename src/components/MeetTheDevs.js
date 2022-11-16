@@ -1,6 +1,6 @@
+import { Link } from "react-router-dom";
 import brittPhoto from "../assets/brittsPic.jpg";
 import brittGif from "../assets/excitedGirlGif.webp";
-import { Link } from "react-router-dom";
 import chrisPhoto from "../assets/chrisPic.jpg";
 import chrisGifFinal from "../assets/chrisGifFinal.jpg";
 import danielGif from "../assets/danielGif.gif";
@@ -19,9 +19,7 @@ const MeetTheDevs = () => {
         </div>
         <h2>Meet The Team</h2>
         <ul className="bioContainer">
-
           <div className="topRow">
-
           <li className="bio">
             <div className="picContainer">
              <img className="profile" src={brittPhoto} alt="person holding up a peace sign" />
