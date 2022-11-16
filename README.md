@@ -16,6 +16,9 @@
 - Delivering a fully functional product on a timeline
 - Collaborating on Github
 
+<p>Project Demonstration</p>
+<img src="./src/assets/screenRecord.gif" alt="screen recording of the moody memes app running">
+
 <p>
 ✨Moody Memes is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>.</p>
 
