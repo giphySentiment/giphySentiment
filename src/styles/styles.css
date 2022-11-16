@@ -469,7 +469,7 @@ footer .wrapper .creatives a:focus {
   background-color: #98C1D9;
 }
 .gif .gifContainer {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -482,8 +482,22 @@ footer .wrapper .creatives a:focus {
   display: flex;
   gap: 10px;
 }
+@media (max-width: 450px) {
+  .gif .buttonContainer {
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
+}
+@media (max-width: 680px) {
+  .gif .buttonContainer {
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
+}
 .gif .select {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .gif fieldset {
   border: none;
@@ -531,6 +545,10 @@ footer .wrapper .creatives a:focus {
   flex-direction: column;
   justify-content: space-evenly;
   gap: 15px;
+}
+.results .resultsContent img {
+  width: 300px;
+  height: 300px;
 }
 .results p {
   text-align: center;
@@ -973,14 +991,44 @@ footer .wrapper .creatives a:focus {
   border-radius: 25px;
   position: relative;
 }
+@media (max-width: 680px) {
+  .notFound .internal {
+    min-height: 400px;
+  }
+}
+@media (max-width: 450px) {
+  .notFound .internal {
+    width: 80vw;
+  }
+}
 .notFound .internal h2 {
   margin: 0px;
   font-size: 20rem;
+}
+@media (max-width: 950px) {
+  .notFound .internal h2 {
+    font-size: 15rem;
+  }
+}
+@media (max-width: 680px) {
+  .notFound .internal h2 {
+    font-size: 10rem;
+  }
 }
 .notFound .internal p {
   font-size: 2.5rem;
   margin-top: 0px;
   margin-bottom: 5px;
+}
+@media (max-width: 950px) {
+  .notFound .internal p {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 680px) {
+  .notFound .internal p {
+    font-size: 1.5rem;
+  }
 }
 
 .lostImg {
@@ -988,6 +1036,31 @@ footer .wrapper .creatives a:focus {
   right: 0;
   bottom: 70px;
 }
+@media (max-width: 950px) {
+  .lostImg {
+    right: -100px;
+  }
+}
+@media (max-width: 680px) {
+  .lostImg {
+    right: 90px;
+  }
+}
+@media (max-width: 450px) {
+  .lostImg {
+    right: 0px;
+  }
+}
 .lostImg img {
   width: 550px;
+}
+@media (max-width: 950px) {
+  .lostImg img {
+    width: 480px;
+  }
+}
+@media (max-width: 680px) {
+  .lostImg img {
+    max-width: 360px;
+  }
 }/*# sourceMappingURL=styles.css.map */
