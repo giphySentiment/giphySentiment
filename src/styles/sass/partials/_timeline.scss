@@ -2,6 +2,7 @@
 @use "./mixins" as *;
 
 .timeline {
+    min-height: 90vh;
 
     nav {
         display: flex;

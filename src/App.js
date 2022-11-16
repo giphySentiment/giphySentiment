@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element= {<Welcome />} />
-        <Route path="/LandingPage" element={<LandingPage />} /> 
+        <Route path="/Home" element={<LandingPage />} /> 
         <Route path="/MeetTheDevs" element={<MeetTheDevs />} />
         <Route path="/Timeline" element={<Timeline />} />
         <Route path="*" element={<NotFound />} />

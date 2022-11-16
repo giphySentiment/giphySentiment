@@ -28,13 +28,10 @@ const Timeline = (props) => {
             const newState = [];
             const newLikes = [];
             const data = response.val();
-            console.log(response.val())
             for (let key in data) {
                 newState.push({ key: key, name: data[key] })
             }
-            console.log(response.val())
             setTimeline(newState);
-            console.log(timeline[1].name.likes)
         })
     }, []);
     
@@ -48,7 +45,7 @@ const Timeline = (props) => {
         <section className="timeline">
             <div className="wrapper">
                 <nav>
-                    <Link to="/landingPage">
+                    <Link to="/Home">
                         <img className="navLogo" src={navLogo2} alt="" />
                     </Link>
                 </nav>
