@@ -1,7 +1,7 @@
 import firebaseConfig from '../firebase';
-import { getDatabase, ref, onValue, remove, push } from 'firebase/database';
+import { getDatabase, ref, onValue, remove } from 'firebase/database';
 import { useEffect, useState } from "react";
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import uuid from "react-uuid";
 import navLogo2 from '../assets/moodyMemesLogoBannerHorizontal.png'
 

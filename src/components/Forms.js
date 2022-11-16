@@ -1,4 +1,4 @@
-import { useContext, useState, useRef } from "react";
+import { useContext } from "react";
 import { FormContext } from "./GiphyData";
 
 
