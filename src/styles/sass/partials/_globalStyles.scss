@@ -15,6 +15,10 @@ html {
     scroll-behavior: smooth;
 }
 
+html {
+  background-color: $primaryColor;
+}
+
 .visuallyHidden {
   border: 0;
   clip: rect(0 0 0 0);

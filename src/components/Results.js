@@ -7,16 +7,16 @@ import { ChoiceContext } from "./GiphyData";
 export const LikesContext = createContext();
 
 const Results = (props) => {
-  // Set variable for 'userChoice' from GiphyData (useContext)
-  const userChoice = useContext(ChoiceContext);
+    // Set variable for 'userChoice' from GiphyData (useContext)
+    const userChoice = useContext(ChoiceContext);
 
-  // Variables to set date info
-  const date = new Date();
-  const month = date.toLocaleString("en-US", {
-    month: "long",
-  });
-  const day = date.getDate();
-  const year = date.getFullYear();
+    // Variables to set date info
+    const date = new Date();
+    const month = date.toLocaleString("en-US", {
+        month: "long",
+    });
+    const day = date.getDate();
+    const year = date.getFullYear();
 
   const refreshPage = () => {
     window.location.reload();

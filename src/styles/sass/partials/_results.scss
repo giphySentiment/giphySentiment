@@ -22,4 +22,8 @@
         font-size: clamp(2.8125rem, 2.74rem + 0.3623vw, 3.125rem);
         margin: 0;
     }
+
+    .resultsButtonContainer {
+        display: flex;
+    }
 }
