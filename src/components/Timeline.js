@@ -10,7 +10,7 @@ const Timeline = (props) => {
     //State to save user's gif and info object into the timeline
     const [timeline, setTimeline] = useState([]);
 
-    const [numOfLikes, setNumOfLikes] = useState();
+    const [numOfLikes, setNumOfLikes] = useState(0);
 
     // const location = useLocation()
     // const data = location.state?.result.likes
@@ -30,19 +30,18 @@ const Timeline = (props) => {
             const data = response.val();
             console.log(response.val())
             for (let key in data) {
-                newState.push({ key: key, name: data[key], likes: data[key]})
+                newState.push({ key: key, name: data[key] })
             }
             console.log(response.val())
             setTimeline(newState);
             console.log(timeline[1].name.likes)
-            console.log(newLikes)
         })
     }, []);
 
     const handleLikes = (likes) => {
         setNumOfLikes(numOfLikes + 1)
         let liked = numOfLikes
-        console.log(numOfLikes)
+        console.log(liked)
         console.log("num of likes being clicked");
         const database = getDatabase(firebaseConfig);
         const databaseRef = ref(database, `/${likes}`)
@@ -64,6 +63,8 @@ const Timeline = (props) => {
     //     const databaseRef = ref(database, `/${likes}`)
     //     push(databaseRef)
     // };
+
+    console.log(timeline[1].name.likes)
 
     return (
         <section className="timeline">
@@ -96,7 +97,7 @@ const Timeline = (props) => {
                                         <button onClick={() => { handleRemoveMeme(result.key) }}>
                                             <i className="fa-regular fa-trash-can"></i>
                                         </button>
-                                        <button onClick={() => { handleLikes(result.key) }}><i className="fa-regular fa-heart"></i></button><p></p>
+                                        <button><i className="fa-regular fa-heart"></i></button><p>{`this is a test ${result.name.likes}`}</p>
                                     </div>
                                 </div>
                             </div>
