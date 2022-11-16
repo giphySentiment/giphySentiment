@@ -45,7 +45,7 @@ const Results = (props) => {
           alt={`user's selected gif that represents the mood of ${userChoice}`}
         />
       </div>
-        <Link className="button" to="/landingPage" onClick={refreshPage}>Try Again</Link>
+        <Link className="button" to="/home" onClick={refreshPage}>Try Again</Link>
 
         <Link className="button" onClick={sendToTimeline} to="/Timeline" state={{result: result}}>Save to Timeline</Link>
     </section>

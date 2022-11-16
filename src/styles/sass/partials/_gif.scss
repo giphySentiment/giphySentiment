@@ -2,15 +2,15 @@
 @use "./mixins" as *;
 
 .gif {
-    //height: 100vh;
     background-color: $primaryColor;
     
     .gifContainer {
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+        padding: 50px;
     }
 
     form {
@@ -19,11 +19,26 @@
 
     .buttonContainer {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 10px;
+        
+        @include mobile {
+            margin-bottom: 100px;
+        }
+        @include mobileLarge {
+            margin-bottom: 100px;
+            margin-top: 50px;
+        }
     }
 
     .select {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include mobile {
+            padding: 10px;
+        }
     }
 
     fieldset {
@@ -45,6 +60,13 @@
         transition: all 0.1s ease 0.1s; 
         cursor: pointer;
         opacity: 0.8;
+        @include mobile {
+            background-size: 100px 100px;
+            max-height: 250px;
+            max-width: 250px;
+                
+            }
+        }
        
         &:hover {
             filter: none;
@@ -56,4 +78,3 @@
             filter: drop-shadow(20px 20px 7px rgba(0, 0, 0, 0.7));  
         }
     }  
-}

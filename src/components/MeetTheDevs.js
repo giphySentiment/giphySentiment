@@ -13,7 +13,7 @@ const MeetTheDevs = () => {
     <section className="meetTheDevs">
       <div className="wrapper meetDevsContent">
         <div className="linkBox">
-          <Link className="backLink" to="/LandingPage">
+          <Link className="backLink" to="/home">
             <i class="fa-solid fa-hand-point-left"></i>Back
           </Link>
         </div>
