@@ -1,4 +1,4 @@
-#Moody Memes: Track your Mood in Memes over Time! 
+# Moody Memes: Track your Mood in Memes over Time! 
 
 <a href="https://moodymemes.netlify.app/">🔗Live Link</a>
 
@@ -17,7 +17,7 @@
 - Collaborating on Github
 
 <p>
-Giphy Sentiments is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>.</p>
+✨Moody Memes is graciously powered by the <a href="https://developers.giphy.com/docs/api/">Giphy API</a>.</p>
 
 
 
