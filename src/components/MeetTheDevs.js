@@ -19,6 +19,7 @@ const MeetTheDevs = () => {
         </div>
         <h2>Meet The Team</h2>
         <ul className="bioContainer">
+
           <div className="topRow">
 
           <li className="bio">
@@ -114,7 +115,10 @@ const MeetTheDevs = () => {
                 </a>
               </div>
             </li>
+            </div>
 
+
+    <div className="bottomRow">
             <li className="bio">
               <div className="picContainer">
                 <img className="profile" src={danielPic} alt="person and baby smiling" />
@@ -207,13 +211,8 @@ const MeetTheDevs = () => {
                 </div>
               </div>
             </li>
-          </div>
-
-          <div className="bottomRow">
-           
-
-           
-          </div>
+    </div>
+          
         </ul>
       </div>
     </section>
