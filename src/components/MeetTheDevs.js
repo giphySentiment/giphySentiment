@@ -11,7 +11,7 @@ import danielPic from "../assets/daniel.jpg";
 const MeetTheDevs = () => {
   return (
     <section className="meetTheDevs">
-      <div className="wrapper">
+      <div className="wrapper meetDevsContent">
         <div className="linkBox">
           <Link className="backLink" to="/LandingPage">
             <i class="fa-solid fa-hand-point-left"></i>Back
@@ -19,6 +19,7 @@ const MeetTheDevs = () => {
         </div>
         <h2>Meet The Team</h2>
         <ul className="bioContainer">
+
           <div className="topRow">
 
           <li className="bio">
@@ -78,15 +79,7 @@ const MeetTheDevs = () => {
             </div>
               <h3>Chris Taeyoung Kim (she/her)</h3>
               <p>
-                Chris is a Toronto-based Web Developer passionate about writing
-                clean, accessible, and well-designed code. As a
-                highschool-teacher-turned-developer, she thrives in working
-                collaboratively in intensive and fast-paced environments, and
-                brings her analytic lens and disciplined training as a classical
-                musician to find creative and resourceful solutions to complex
-                problems. When she is not actively coding or debugging in her
-                dreams, you can find her playing with her cat, at the gym, or
-                listening to true crime podcasts.
+              Chris is a web developer passionate about writing clean, accessible and well-designed code. As a teacher turned developer, she thrives in working collaboratively in fast-paced environments and brings her analytic lens as a musician to find creative solutions to complex problems. Outside of coding, you can find Chris playing with her cat, at the gym, or listening to true crime podcasts.
               </p>
               <div className="socials">
                 <a
@@ -114,7 +107,10 @@ const MeetTheDevs = () => {
                 </a>
               </div>
             </li>
+            </div>
 
+
+    <div className="bottomRow">
             <li className="bio">
               <div className="picContainer">
                 <img className="profile" src={danielPic} alt="person and baby smiling" />
@@ -207,13 +203,8 @@ const MeetTheDevs = () => {
                 </div>
               </div>
             </li>
-          </div>
-
-          <div className="bottomRow">
-           
-
-           
-          </div>
+    </div>
+          
         </ul>
       </div>
     </section>
