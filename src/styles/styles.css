@@ -417,7 +417,6 @@ footer .wrapper .creatives a:focus {
   }
 }
 .forms h3 span {
-  font-size: 4rem;
   display: block;
   font-weight: 300;
   font-size: clamp(2.5rem, 2.2101rem + 1.4493vw, 3.75rem);
@@ -456,6 +455,11 @@ footer .wrapper .creatives a:focus {
 
 .gif {
   background-color: #98C1D9;
+}
+.gif h2 {
+  font-weight: 300;
+  text-align: center;
+  font-size: clamp(1.875rem, 1.4402rem + 2.1739vw, 3.75rem);
 }
 .gif .gifContainer {
   min-height: 100vh;
@@ -524,7 +528,6 @@ footer .wrapper .creatives a:focus {
   }
 }
 .gif:hover {
-  filter: none;
   opacity: 1;
 }
 .gif:checked {

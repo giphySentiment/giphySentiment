@@ -41,6 +41,7 @@ const Gif = (props) => {
   return (
     <section className="gif">
       <div ref={props.gifRef} className="gifContainer wrapper">
+        <h2>Choose a meme that fits your mood:</h2>
         <form>
           <fieldset>
             <label className="select" htmlFor="userChoice" aria-label="gifs">

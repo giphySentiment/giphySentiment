@@ -4,6 +4,11 @@
 .gif {
     background-color: $primaryColor;
     
+    h2 {
+        font-weight: 300;
+        text-align: center;
+        font-size: clamp(1.875rem, 1.4402rem + 2.1739vw, 3.75rem);
+    }
     .gifContainer {
         min-height: 100vh;
         display: flex;
@@ -69,7 +74,7 @@
         }
        
         &:hover {
-            filter: none;
+            // filter: none;
             opacity: 1;
         }
         &:checked {
