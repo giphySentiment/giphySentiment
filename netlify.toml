@@ -2,3 +2,8 @@
   from = "/*"
   to = "/NotFound"
   status = 404
+
+[[redirects]]
+  from = "/*"
+  to = "/Home"
+  status = 200
