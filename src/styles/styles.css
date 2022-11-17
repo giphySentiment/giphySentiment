@@ -470,7 +470,6 @@ footer .wrapper .creatives a:focus {
 }
 .gif .buttonContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   gap: 10px;
 }
@@ -483,6 +482,7 @@ footer .wrapper .creatives a:focus {
   .gif .buttonContainer {
     margin-bottom: 100px;
     margin-top: 50px;
+    flex-direction: column;
   }
 }
 .gif .select {
@@ -549,8 +549,16 @@ footer .wrapper .creatives a:focus {
   gap: 15px;
 }
 .results .resultsContent img {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+}
+.results .buttonWrap {
+  display: flex;
+  gap: 10px;
+}
+@media (max-width: 680px) {
+  .results .buttonWrap {
+    flex-direction: column;
+  }
 }
 .results p {
   text-align: center;
