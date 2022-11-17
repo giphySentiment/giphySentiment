@@ -41,9 +41,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        @include mobile {
-            padding: 10px;
-        }
     }
 
     fieldset {
@@ -64,22 +61,20 @@
         border: 0;
         transition: all 0.1s ease 0.1s; 
         cursor: pointer;
-        opacity: 0.8;
+        opacity: 0.7;
         @include mobile {
             background-size: 100px 100px;
             max-height: 250px;
             max-width: 250px;
-                
             }
-        }
-       
-        &:hover {
-            // filter: none;
-            opacity: 1;
-        }
-        &:checked {
-            opacity: 1;
-            box-shadow: none;
-            filter: drop-shadow(20px 20px 7px rgba(0, 0, 0, 0.7));
+            &:hover {
+                filter: none;
+                opacity: 1.5;
+            }
+            &:checked {
+                opacity: 1.5;
+                box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
+                -webkit-box-shadow: 13px 13px 7px 0px rgba(0,0,0,0.75);
+            }
         }
     }  
