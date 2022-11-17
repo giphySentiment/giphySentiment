@@ -220,7 +220,6 @@ const MeetTheDevs = () => {
                     ></i>
                   </a>
                 </div>
-              
             </li>
           </div>
         </ul>

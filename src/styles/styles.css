@@ -417,7 +417,6 @@ footer .wrapper .creatives a:focus {
   }
 }
 .forms h3 span {
-  font-size: 4rem;
   display: block;
   font-weight: 300;
   font-size: clamp(2.5rem, 2.2101rem + 1.4493vw, 3.75rem);
@@ -457,6 +456,11 @@ footer .wrapper .creatives a:focus {
 .gif {
   background-color: #98C1D9;
 }
+.gif h2 {
+  font-weight: 300;
+  text-align: center;
+  font-size: clamp(1.875rem, 1.4402rem + 2.1739vw, 3.75rem);
+}
 .gif .gifContainer {
   min-height: 100vh;
   display: flex;
@@ -490,11 +494,6 @@ footer .wrapper .creatives a:focus {
   flex-wrap: wrap;
   justify-content: center;
 }
-@media (max-width: 450px) {
-  .gif .select {
-    padding: 10px;
-  }
-}
 .gif fieldset {
   border: none;
 }
@@ -514,7 +513,7 @@ footer .wrapper .creatives a:focus {
   border: 0;
   transition: all 0.1s ease 0.1s;
   cursor: pointer;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 @media (max-width: 450px) {
   .gif .radio {
@@ -523,14 +522,14 @@ footer .wrapper .creatives a:focus {
     max-width: 250px;
   }
 }
-.gif:hover {
+.gif .radio:hover {
   filter: none;
-  opacity: 1;
+  opacity: 1.5;
 }
-.gif:checked {
-  opacity: 1;
-  box-shadow: none;
-  filter: drop-shadow(20px 20px 7px rgba(0, 0, 0, 0.7));
+.gif .radio:checked {
+  opacity: 1.5;
+  box-shadow: 13px 13px 7px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 13px 13px 7px 0px rgba(0, 0, 0, 0.75);
 }
 
 .results {

@@ -1,8 +1,6 @@
 import { useContext } from "react";
 import { FormContext } from "./GiphyData";
 
-
-
 // Import components
 import LoadingPage from "./LoadingPage";
 
@@ -19,7 +17,6 @@ const Forms = (props) => {
     props.setMood(e.target.value);
     props.setIsSpace(false);
   };
-
 
   return (
     <section className="forms">

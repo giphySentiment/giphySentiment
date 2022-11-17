@@ -38,11 +38,10 @@ const GiphyData = (props) => {
   // State for hiding or displaying the form component
   const [showForm, setShowForm] = useState(true);
 
-  const gifRef = useRef()
+  const gifRef = useRef();
 
   const scrollInto = () => {
     gifRef.current?.scrollIntoView({ behavior: 'smooth' });
-    console.log("scrolling!")
   }
 
   // Randomizer Function
@@ -60,7 +59,8 @@ const GiphyData = (props) => {
     if (userChoice.includes(" ")) {
       setIsSpace(true);
       setDisplayGifPage(false);
-    } else {
+    } 
+    else {
       scrollInto();
       handleShowGif();
       setLoading(true);
@@ -75,8 +75,8 @@ const GiphyData = (props) => {
             setNoGifsAvailable(false);
           } else {
             setNoGifsAvailable(!noGifsAvailable);
+            setDisplayGifPage(false);
           }
-          console.log(info.data);
         })
         .catch((error) => {
           if (`${baseURL}`.status !== 404) {
