@@ -20,7 +20,6 @@ const Forms = (props) => {
     props.setIsSpace(false);
   };
 
-
   return (
     <section className="forms">
       <h3>
