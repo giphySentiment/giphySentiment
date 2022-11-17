@@ -16,7 +16,7 @@
 - Delivering a fully functional product on a timeline
 - Collaborating on Github
 
-<p>Project Demonstration</p>
+# Project Demonstration
 <img src="./src/assets/screenRecord.gif" alt="screen recording of the moody memes app running">
 
 <p>
