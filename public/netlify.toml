@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/*"
-  to = "/NotFound"
+  to = "*"
   status = 404
 
 [[redirects]]
